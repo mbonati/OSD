@@ -139,7 +139,20 @@
           
           
           
-          <div class="span6 map-container section-label"></div>
+          <div class="span6 viz-container section-label">
+              <ul class="nav nav-tabs" id="viz-tab">
+                <li><a href="#map" data-toggle="tab">Mappa</a></li>
+                <li><a href="#table" data-toggle="tab">Tabella</a></li>
+              </ul>
+              
+              <div class="tab-content">
+                  <div class="tab-pane active map-container" id="map"></div>
+                  <div class="tab-pane table-container" id="table">Table Placeholder</div>
+               </div>
+
+          </div>
+          
+          
           <div class="span3 details-container section-label"><h4>Dettagli<h4></div>
         </div>
 
@@ -149,7 +162,16 @@
 
 </body>
 
+<script>
+//Activate the first Viz tab
+$(function () {
+    $('#viz-tab a:first').tab('show');
+ });
+</script>
+
+
 <script type="text/javascript" charset="utf-8">
+    //Activate Uniform UI
       $(function(){
         $("input, textarea, button").uniform();
       });
@@ -163,19 +185,19 @@
     var g;
     
     $(document).ready(function(){
-        var w = 900 /2,
-            h = 900 /2;
+        var w = 1000 /2,
+            h = 1000 /2;
         
          projection = d3.geo.mercator()
                             .scale(12000)
-                            .translate([-250, 1600]);
+                            .translate([-380, 1560]);
           
         path = d3.geo.path()
             .projection(projection);
 
         svg = d3.select(".map-container").append("svg:svg")
-            .attr("width","100%")
-            .attr("height", "100%")
+            .attr("width", w)
+            .attr("height", h)
             .attr("id", 'svg');
             
         svg.append("rect")
