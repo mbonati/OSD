@@ -27,6 +27,10 @@
     <script type="text/javascript" src="js/selectToUISlider/js/selectToUISlider.jQuery.js"></script>
     <link rel="Stylesheet" href="js/selectToUISlider/css/ui.slider.extras.css" type="text/css" />
     
+    <!-- Uniform.js -->
+    <script src="js/uniform.js/jquery.uniform.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="js/uniform.js/css/uniform.default.css" type="text/css" media="screen">
+    
     <style>
       body {
         font-family:"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif; 
@@ -94,7 +98,7 @@
 
         <div class="row-fluid">
             <div class="span12 year-selection-container">
-                <div class="section-label">Anno</div>
+                <div class="section-label"><h4>Anno<h4></div>
                 <fieldset id="year-selection-slider">
         			<select name="yearSelection" id="yearSelection">
         				<option value="2007">2007</option>
@@ -114,9 +118,29 @@
 
         
         <div class="row-fluid">
-          <div class="span2 filter-container section-label">Filtri</div>
-          <div class="span8 map-container section-label"></div>
-          <div class="span2 details-container section-label">Dettagli</div>
+          
+          <div class="span3 filter-container section-label">
+                <span class="filter-item-label-title"><h4>Indicatori</h4></span>
+                <form>
+                    <ul>
+                        <li>
+                          <label><input type="radio" name="radio" />Pressione finanziaria (m.p.c.)</label>
+                          <label><input type="radio" name="radio" />Pressione tributaria (m.p.c.)</label>
+                          <label><input type="radio" name="radio" />Intervento Erariale (m.p.c.)</label>
+                          <label><input type="radio" name="radio" />Intervento Regionale (m.p.c.)</label>
+                          <label><input type="radio" name="radio" />Vel.Ris.Ent. Pr. (%) (m.p.c.)</label>
+                          <label><input type="radio" name="radio" />Vel.Ges.Sp.Cor. (%) (m.p.c.)</label>
+                          <label><input type="radio" name="radio" />Autonomia Finanziaria (%) (m.p.c.)</label>
+                          <label><input type="radio" name="radio" />Autonomia Impositiva (%) (m.p.c.)</label>
+                        </li>
+                    </ul>
+                </form>
+        </div>
+          
+          
+          
+          <div class="span6 map-container section-label"></div>
+          <div class="span3 details-container section-label"><h4>Dettagli<h4></div>
         </div>
 
 
@@ -125,6 +149,12 @@
 
 </body>
 
+<script type="text/javascript" charset="utf-8">
+      $(function(){
+        $("input, textarea, button").uniform();
+      });
+</script>
+    
 <script type="text/javascript">
     var svg;
     var projection;
@@ -159,7 +189,8 @@
             .append("g")
             .attr("id", "states");
 
-        d3.json("data/geo/italia.regioni.geojson", function(collection) {
+        //d3.json("data/geo/italia.regioni.geojson", function(collection) {
+        d3.json("data/geo/italia.provincie.semplificato.geojson", function(collection) {
                 feature = g.selectAll("path")
                     .data(collection.features)
                     .enter().append("path")
@@ -274,11 +305,6 @@
         clear:both; 
     }
     
-    div.section-label {
-        font-size: 14px;
-        font-weight: bold;
-    }
-    
     div.year-selection-container {
         margin-bottom: 50px;
     }
@@ -311,6 +337,15 @@
     .background {
       fill: none;
       pointer-events: all;
+    }
+    
+    .filter-container ul {
+        list-style: none;
+    }
+    
+    .filter-container label {
+        font-size: 10px;
+        font-weight: bold;
     }
     
     /*
