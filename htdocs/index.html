@@ -166,10 +166,43 @@
 
     </div> <!-- /container -->
     
+    <div id="viz-tooltip">
+        <div id ="viz-tooltip-container">
+            <span class="viz-tooltip-value"></span>
+        </div>
+    </div>
 
 </body>
 
+<style>
+#viz-tooltip-container {
+  position: absolute;
+  bottom: 0;
+  width: 230px;
+  left: -125px;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 10px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.9);
+  color: #000;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.4);  
+  border:1px solid rgba(200,200,200,0.85);
+  text-align:center;
+}
+
+#viz-tooltip {
+ text-align:center;  
+  z-index: 1000;
+  position: absolute;
+  display: none;
+}
+</style>
+
+
 <script>
+/*
 jQuery("#data-table").jqGrid({
        url:'data/geo/italia.provincie.semplificato.geojson',
 	datatype: "json",
@@ -192,6 +225,7 @@ jQuery("#data-table").jqGrid({
     caption:"Data Sample"
 });
 jQuery("#data-table-pager").jqGrid('navGrid','#data-table-pager',{edit:false,add:false,del:false});
+*/
 </script>
 
 <script>
@@ -257,14 +291,24 @@ $(function () {
                             return colorForItem(d);
                         })
                     .on("mouseover",function(d,i){
-                        //here tooltip show/hide code
-                        console.log(d + " " + i);
+                        //tooltip show/hide code
+                        var el = d3.select(this)
+                        var xpos = event.pageX;// Number(el.attr('cx'))
+                        var ypos = event.pageY;//(el.attr('cy') - d.radius - 10)
+                        d3.select("#viz-tooltip").style('top',ypos+"px").style('left',xpos+"px").style('display','block');
+                        d3.select(".viz-tooltip-value").html("Current region over: " + d.id);
+                        //console.log(d + " " + i);
+                    })
+                    .on("mouseout",function(d,i) { 
+                        d3.select("#viz-tooltip").style('display','none')
                     })
                     .on("click", click)
+                    /*
                     .append("svg:title")
                     .text(function(d){
                         return "d.name TODO!!";    
                     })
+                    */
                     ;
                     
         });
