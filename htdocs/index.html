@@ -256,11 +256,16 @@ $(function () {
                     .attr('fill', function(d){
                             return colorForItem(d);
                         })
+                    .on("mouseover",function(d,i){
+                        //here tooltip show/hide code
+                        console.log(d + " " + i);
+                    })
                     .on("click", click)
                     .append("svg:title")
                     .text(function(d){
                         return "d.name TODO!!";    
-                    });
+                    })
+                    ;
                     
         });
         
