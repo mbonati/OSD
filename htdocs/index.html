@@ -153,6 +153,36 @@
                   <div class="tab-pane active map-container" id="map"></div>
                   <div class="tab-pane table-container" id="table">
                         <table id="data-table"></table>
+                        <table class="table table-striped table-bordered table-hover">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>First Name</th>
+                              <th>Last Name</th>
+                              <th>Username</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>Mark</td>
+                              <td>Otto</td>
+                              <td>@mdo</td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>Jacob</td>
+                              <td>Thornton</td>
+                              <td>@fat</td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>Larry</td>
+                              <td>the Bird</td>
+                              <td>@twitter</td>
+                            </tr>
+                          </tbody>
+                        </table>
                         <div id="data-table-pager"></div>
                   </div>
                </div>
@@ -169,6 +199,7 @@
     <div id="viz-tooltip">
         <div id ="viz-tooltip-container">
             <span class="viz-tooltip-value"></span>
+            <div class="nytg-tail"></div>
         </div>
     </div>
 
@@ -197,6 +228,15 @@
   z-index: 1000;
   position: absolute;
   display: none;
+}
+
+#viz-tooltip .nytg-tail {
+  position: absolute;
+  bottom: -8px;
+  left: 105px;
+  width: 40px;
+  height: 8px;
+  background: url(img/tail_white.png) 50% 0%;
 }
 </style>
 
@@ -294,7 +334,7 @@ $(function () {
                         //tooltip show/hide code
                         var el = d3.select(this)
                         var xpos = event.pageX;// Number(el.attr('cx'))
-                        var ypos = event.pageY;//(el.attr('cy') - d.radius - 10)
+                        var ypos = event.pageY-10;//(el.attr('cy') - d.radius - 10)
                         d3.select("#viz-tooltip").style('top',ypos+"px").style('left',xpos+"px").style('display','block');
                         d3.select(".viz-tooltip-value").html("Current region over: " + d.id);
                         //console.log(d + " " + i);
