@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>OpenSpendingReview - Spese Correnti</title>
+    <title>OpenSpendingReview - Indicatori Finanziari</title>
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,8 +60,8 @@
             
             <!-- Navigation Menu -->
             <ul class="nav pull-left">
-              <li class="active"><a href="index.html">Spese Correnti</a></li>
-              <li><a href="indicatoriFinanziari.html">Indicatori Finanziari</a></li>
+              <li><a href="index.html">Spese Correnti</a></li>
+              <li class="active"><a href="indicatoriFinanziari.html">Indicatori Finanziari</a></li>
               <li><a href="bilanci.html">Bilanci</a></li>
             </ul>
             
@@ -145,8 +145,19 @@
           
           
           <div class="span6 viz-container section-label">
-            <table id="data-table"></table>
-            <div id="data-table-pager"></div>
+              <ul class="nav nav-tabs" id="viz-tab">
+                <li><a href="#map" data-toggle="tab">Mappa</a></li>
+                <li><a href="#table" data-toggle="tab">Tabella</a></li>
+              </ul>
+              
+              <div class="tab-content">
+                  <div class="tab-pane active map-container" id="map"></div>
+                  <div class="tab-pane table-container" id="table">
+                        <table id="data-table"></table>
+                        <div id="data-table-pager"></div>
+                  </div>
+               </div>
+
           </div>
           
           
