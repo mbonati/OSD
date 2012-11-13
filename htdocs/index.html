@@ -121,35 +121,11 @@
         
 
         
-        <div class="row-fluid">
-          
-          <div class="span3 filter-container section-label">
-                <span class="filter-item-label-title"><h4>Indicatori</h4></span>
-                <form>
-                    <ul>
-                        <li>
-                          <label><input type="radio" name="radio" />Pressione finanziaria (m.p.c.)</label>
-                          <label><input type="radio" name="radio" />Pressione tributaria (m.p.c.)</label>
-                          <label><input type="radio" name="radio" />Intervento Erariale (m.p.c.)</label>
-                          <label><input type="radio" name="radio" />Intervento Regionale (m.p.c.)</label>
-                          <label><input type="radio" name="radio" />Vel.Ris.Ent. Pr. (%) (m.p.c.)</label>
-                          <label><input type="radio" name="radio" />Vel.Ges.Sp.Cor. (%) (m.p.c.)</label>
-                          <label><input type="radio" name="radio" />Autonomia Finanziaria (%) (m.p.c.)</label>
-                          <label><input type="radio" name="radio" />Autonomia Impositiva (%) (m.p.c.)</label>
-                        </li>
-                    </ul>
-                </form>
-        </div>
-          
-          
-          
-          <div class="span6 viz-container section-label">
+        <div class="row">
+          <div class="span12 viz-container section-label">
             <table id="data-table"></table>
             <div id="data-table-pager"></div>
           </div>
-          
-          
-          <div class="span3 details-container section-label"><h4>Dettagli<h4></div>
         </div>
 
 
@@ -615,7 +591,12 @@ d3.csv("data/sample/flights-3m.json", function(flights) {
 </script>
 
 <style type="text/css">
-
+    
+    .data-table {
+        width: 100%;
+    }
+    
+    
     p { 
         clear:both; 
     }
@@ -756,6 +737,66 @@ d3.csv("data/sample/flights-3m.json", function(flights) {
     }
 
 </style>      
+
+
+<style>
+
+.ui-jqgrid  {
+    border: none;
+}
+
+.ui-jqgrid .ui-jqgrid-htable th {
+    background-color:  white;
+    background-image:  none;
+    height: 30px;
+    padding-top: 4px;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid transparent;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.ui-jqgrid tr.jqgrow td  {
+    font-weight: normal;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    padding: 4px;
+}
+
+.ui-jqgrid tr.ui-row-ltr td {
+    border-color: transparent;
+    border-top: 1px solid #DDD;
+}
+
+
+.ui-jqgrid .ui-jqgrid-btable  {
+    border-color: transparent;
+}
+
+.ui-jqgrid table  {
+    border-collapse: initial;
+}
+
+.ui-jqgrid .jqgrow  {
+    line-height: 23px;
+    padding: 8px;
+}
+
+.ui-jqgrid td {
+}
+
+.ui-jqgrid .ui-jqgrid-pager {
+    color: white;
+    background-color:  black;
+    background-image:  none;
+}
+
+
+</style>
 
 
 </html>
