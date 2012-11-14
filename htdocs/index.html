@@ -238,6 +238,12 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
 
   console.log("Loading delibere...");
 
+  // Various formatters.
+  var formatNumber = d3.format(",d"),
+      formatChange = d3.format("+,d"),
+      formatDate = d3.time.format("%B %d, %Y"),
+      formatTime = d3.time.format("%I:%M %p");
+
   // A nest operator, for grouping the delibere by year.
   var nestByDate = d3.nest()
       .key(function(d) { console.log("nest called for " + d.date); return d.date; });
@@ -266,8 +272,6 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
   var chart = d3.selectAll(".chart")
       .data(charts)
       .each(function(chart) { chart.on("brush", renderAll).on("brushend", renderAll); });
-
-  renderAll();
 
   // Render the initial lists.
   var list = d3.selectAll(".list")
@@ -301,6 +305,54 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
     var ret = new Date(parts[0], parts[1]-1, parts[2]); // months are 0-based
     console.log("parse date called for "+input + " result: " +ret);
     return ret;
+  }
+
+  function flightList(div) {
+    var flightsByDate = nestByDate.entries(date.top(40));
+
+    div.each(function() {
+      var date = d3.select(this).selectAll(".date")
+          .data(flightsByDate, function(d) { return d.key; });
+
+      date.enter().append("div")
+          .attr("class", "date")
+        .append("div")
+          .attr("class", "day")
+          .text(function(d) { return formatDate(d.values[0].date); });
+
+      date.exit().remove();
+
+      var flight = date.order().selectAll(".flight")
+          .data(function(d) { return d.values; }, function(d) { return d.index; });
+
+      var flightEnter = flight.enter().append("div")
+          .attr("class", "flight");
+
+      flightEnter.append("div")
+          .attr("class", "time")
+          .text(function(d) { return formatTime(d.date); });
+
+      flightEnter.append("div")
+          .attr("class", "origin")
+          .text(function(d) { return d.origin; });
+
+      flightEnter.append("div")
+          .attr("class", "destination")
+          .text(function(d) { return d.destination; });
+
+      flightEnter.append("div")
+          .attr("class", "distance")
+          .text(function(d) { return formatNumber(d.distance) + " mi."; });
+
+      flightEnter.append("div")
+          .attr("class", "delay")
+          .classed("early", function(d) { return d.delay < 0; })
+          .text(function(d) { return formatChange(d.delay) + " min."; });
+
+      flight.exit().remove();
+
+      flight.order();
+    });
   }
 
   function barChart() {
@@ -494,6 +546,8 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
 
     return d3.rebind(chart, brush, "on");
   };
+
+  renderAll();
 
   console.log("delibere load successfull.");
 
