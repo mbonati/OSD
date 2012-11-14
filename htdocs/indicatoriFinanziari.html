@@ -318,7 +318,10 @@ $(function () {
                         var xpos = event.pageX;// Number(el.attr('cx'))
                         var ypos = event.pageY-10;//(el.attr('cy') - d.radius - 10)
                         d3.select("#viz-tooltip").style('top',ypos+"px").style('left',xpos+"px").style('display','block');
-                        d3.select(".viz-tooltip-value").html("Current region over: " + d.id);
+                        // mouseover regioni
+                        //d3.select(".viz-tooltip-value").html("Regione Selezionata: " +  d.properties["NOME_REG"] + " (istatCode:" + d.properties["COD_REG"] + ")" );
+                        // mouseover provincie
+                        d3.select(".viz-tooltip-value").html("Provincia Selezionata: " +  d.properties["NOME_PRO"] + " (regioneCode:" + d.properties["COD_REG"] + ")" );
                         //console.log(d + " " + i);
                     })
                     .on("mouseout",function(d,i) { 
