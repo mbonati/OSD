@@ -188,7 +188,7 @@ jQuery("#data-table").jqGrid({
    		{name:'importo',index:'importo', width:90, align:"right",sorttype:"float", formatter:"number"},
    		{name:'DataSalvataggio',index:'DataSalvataggio', width:80, align:"right",sorttype:'date', formatter:'date', datefmt:'Y-m-d'}		
    	],
-   	rowNum: 50,
+   	rowNum: 14,
     height: 'auto',
    	pager: "#data-table-pager",
    	sortname: 'DataSalvataggio',
@@ -593,6 +593,7 @@ d3.csv("data/sample/flights-3m.json", function(flights) {
 <style type="text/css">
     
     .data-table {
+        height: 100px;
         width: 100%;
     }
     
@@ -790,11 +791,26 @@ d3.csv("data/sample/flights-3m.json", function(flights) {
 }
 
 .ui-jqgrid .ui-jqgrid-pager {
-    color: white;
-    background-color:  black;
+    color: #111;
+    background-color:  #AAA;
     background-image:  none;
 }
 
+.ui-jqgrid-pager .ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+-moz-border-radius-bottomleft: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.ui-jqgrid-pager input.text {
+    background-color:  white;
+    background-image:  none;
+    margin-bottom: 2px;
+}
 
 </style>
 
