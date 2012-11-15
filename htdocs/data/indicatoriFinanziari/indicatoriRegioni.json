@@ -1,0 +1,2768 @@
+[
+    {
+        "anno": 2006,
+        "valoreEnte": 116.31999999999999,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 103.83,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 14.15,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 89.629999999999995,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 68.599999999999994,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 53.68,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 47.909999999999997,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 119.97,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 104.29000000000001,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 14.56,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 91.359999999999999,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 65.25,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 53.850000000000001,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 46.810000000000002,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 114.94,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 105.36,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 13.24,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 58.149999999999999,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Intervento Regionale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 92.700000000000003,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 60.109999999999999,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 61.030000000000001,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 55.950000000000003,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 114.42,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 102.77,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 13.57,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 94.519999999999996,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 62.0,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 56.520000000000003,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 50.770000000000003,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 119.98,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 104.22,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 0.0,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 92.049999999999997,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Vel.Ris.Ent.Pr. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 70.689999999999998,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 54.189999999999998,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 47.07,
+        "nomeEnte": "MARCHE",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 75.900000000000006,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 65.469999999999999,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 72.829999999999998,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 88.540000000000006,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 68.849999999999994,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 43.25,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 37.299999999999997,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 85.150000000000006,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 71.010000000000005,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 70.510000000000005,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 89.760000000000005,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 61.869999999999997,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 36.640000000000001,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 30.550000000000001,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 73.079999999999998,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 62.350000000000001,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 74.689999999999998,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 17.23,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Intervento Regionale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 89.439999999999998,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 64.950000000000003,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 43.079999999999998,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 36.75,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 73.159999999999997,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 62.700000000000003,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 74.400000000000006,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 90.450000000000003,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 66.540000000000006,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 43.359999999999999,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 37.159999999999997,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 87.780000000000001,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 71.439999999999998,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 5.0499999999999998,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 84.810000000000002,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Vel.Ris.Ent.Pr. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 64.980000000000004,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 36.57,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 29.760000000000002,
+        "nomeEnte": "CALABRIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 103.79000000000001,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 94.370000000000005,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 9.5999999999999996,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 86.099999999999994,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 55.310000000000002,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 50.280000000000001,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 45.710000000000001,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 104.98999999999999,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 93.349999999999994,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 8.8800000000000008,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 89.219999999999999,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 54.140000000000001,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 51.030000000000001,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 45.369999999999997,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 104.73,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 93.849999999999994,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 14.550000000000001,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 102.84999999999999,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Intervento Regionale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 88.980000000000004,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 55.640000000000001,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 46.640000000000001,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 41.789999999999999,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 105.68000000000001,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 94.030000000000001,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 10.77,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 88.75,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 55.170000000000002,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 49.600000000000001,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 44.130000000000003,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 106.52,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 92.370000000000005,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 0.0,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 89.329999999999998,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Vel.Ris.Ent.Pr. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 53.539999999999999,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 48.399999999999999,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 41.969999999999999,
+        "nomeEnte": "PIEMONTE",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 102.59999999999999,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 94.219999999999999,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 6.6600000000000001,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 92.049999999999997,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 53.850000000000001,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 73.260000000000005,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 67.280000000000001,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 106.15000000000001,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 97.849999999999994,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 11.66,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 93.640000000000001,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 54.590000000000003,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 69.469999999999999,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 64.030000000000001,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 94.870000000000005,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 88.459999999999994,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 7.4199999999999999,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 36.890000000000001,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Intervento Regionale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 89.959999999999994,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 54.259999999999998,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 67.780000000000001,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 63.189999999999998,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 98.829999999999998,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 91.680000000000007,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 8.7100000000000009,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 91.469999999999999,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 52.719999999999999,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 70.989999999999995,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 65.849999999999994,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 103.01000000000001,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 95.189999999999998,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 0.29999999999999999,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 93.390000000000001,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Vel.Ris.Ent.Pr. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 59.119999999999997,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 71.120000000000005,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 65.730000000000004,
+        "nomeEnte": "LAZIO",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 77.879999999999995,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 70.620000000000005,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 30.920000000000002,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 92.680000000000007,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 68.849999999999994,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 49.200000000000003,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 44.609999999999999,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 79.489999999999995,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 72.269999999999996,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 31.399999999999999,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 93.290000000000006,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 69.980000000000004,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 48.369999999999997,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 43.979999999999997,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 82.849999999999994,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 66.650000000000006,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 34.890000000000001,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 45.789999999999999,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Intervento Regionale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 80.489999999999995,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 65.450000000000003,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 49.609999999999999,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 39.909999999999997,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 74.629999999999995,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 68.299999999999997,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 36.240000000000002,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 92.989999999999995,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 56.409999999999997,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 39.630000000000003,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 36.270000000000003,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 81.189999999999998,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 74.609999999999999,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 0.31,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 93.200000000000003,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Vel.Ris.Ent.Pr. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 78.010000000000005,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 50.579999999999998,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 46.479999999999997,
+        "nomeEnte": "CAMPANIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 82.540000000000006,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 71.900000000000006,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 81.450000000000003,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 95.709999999999994,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 64.400000000000006,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 49.259999999999998,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 42.909999999999997,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 84.959999999999994,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 74.150000000000006,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 79.010000000000005,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 94.469999999999999,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 66.569999999999993,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 48.920000000000002,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 42.700000000000003,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 77.519999999999996,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 64.400000000000006,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 81.390000000000001,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 2.6099999999999999,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Intervento Regionale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 91.939999999999998,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 70.239999999999995,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 47.119999999999997,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 39.140000000000001,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 80.430000000000007,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 69.730000000000004,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 80.810000000000002,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 92.700000000000003,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 67.829999999999998,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 47.710000000000001,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 41.359999999999999,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 83.769999999999996,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 73.230000000000004,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 5.2400000000000002,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 95.709999999999994,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Vel.Ris.Ent.Pr. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 69.859999999999999,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 49.899999999999999,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 43.630000000000003,
+        "nomeEnte": "MOLISE",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 110.7,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 95.159999999999997,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 3.27,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 89.730000000000004,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 65.030000000000001,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 57.079999999999998,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 49.07,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 112.17,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 96.659999999999997,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 4.25,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 88.879999999999995,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 65.480000000000004,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 58.210000000000001,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 50.159999999999997,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 107.12,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 93.549999999999997,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 4.2800000000000002,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 61.960000000000001,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Intervento Regionale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 84.120000000000005,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 65.569999999999993,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 58.619999999999997,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 51.189999999999998,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 108.03,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 94.409999999999997,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 6.2000000000000002,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 93.120000000000005,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 63.780000000000001,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 55.5,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 48.509999999999998,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 114.11,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 98.560000000000002,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 0.050000000000000003,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 86.189999999999998,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Vel.Ris.Ent.Pr. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 62.950000000000003,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 53.159999999999997,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 45.909999999999997,
+        "nomeEnte": "LIGURIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 80.590000000000003,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 71.909999999999997,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 26.789999999999999,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 86.769999999999996,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 51.049999999999997,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 42.509999999999998,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 37.939999999999998,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 71.140000000000001,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 65.959999999999994,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 25.760000000000002,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 20.25,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Intervento Regionale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 91.109999999999999,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 46.560000000000002,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 58.619999999999997,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 54.359999999999999,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 70.730000000000004,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 64.280000000000001,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 32.270000000000003,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 88.329999999999998,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 60.420000000000002,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 57.119999999999997,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 51.909999999999997,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 79.5,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 69.280000000000001,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 3.6800000000000002,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 90.099999999999994,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Vel.Ris.Ent.Pr. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 55.020000000000003,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 40.170000000000002,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 35.009999999999998,
+        "nomeEnte": "SARDEGNA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 116.12,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 100.90000000000001,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 19.039999999999999,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 89.620000000000005,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 72.890000000000001,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 55.939999999999998,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 48.609999999999999,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 118.09,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 103.98999999999999,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 15.220000000000001,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 89.680000000000007,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 69.549999999999997,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 54.829999999999998,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 48.280000000000001,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 107.87,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 95.640000000000001,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 27.629999999999999,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 89.510000000000005,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Intervento Regionale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 90.510000000000005,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 67.819999999999993,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 47.119999999999997,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 41.780000000000001,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 112.26000000000001,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 99.950000000000003,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 21.280000000000001,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 90.730000000000004,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 68.799999999999997,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 49.759999999999998,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 44.299999999999997,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 121.73999999999999,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 104.56999999999999,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 0.0,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 88.260000000000005,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Vel.Ris.Ent.Pr. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 63.810000000000002,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 50.359999999999999,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 43.25,
+        "nomeEnte": "UMBRIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 96.900000000000006,
+        "nomeEnte": "VENETO",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 87.760000000000005,
+        "nomeEnte": "VENETO",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 6.2199999999999998,
+        "nomeEnte": "VENETO",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 95.239999999999995,
+        "nomeEnte": "VENETO",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 70.0,
+        "nomeEnte": "VENETO",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 68.599999999999994,
+        "nomeEnte": "VENETO",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 62.130000000000003,
+        "nomeEnte": "VENETO",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 99.409999999999997,
+        "nomeEnte": "VENETO",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 89.170000000000002,
+        "nomeEnte": "VENETO",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 6.4100000000000001,
+        "nomeEnte": "VENETO",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 96.090000000000003,
+        "nomeEnte": "VENETO",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 70.780000000000001,
+        "nomeEnte": "VENETO",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 69.5,
+        "nomeEnte": "VENETO",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 62.340000000000003,
+        "nomeEnte": "VENETO",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 120.93000000000001,
+        "nomeEnte": "VENETO",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 90.420000000000002,
+        "nomeEnte": "VENETO",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 11.85,
+        "nomeEnte": "VENETO",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 38.609999999999999,
+        "nomeEnte": "VENETO",
+        "indicatore": "Intervento Regionale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 80.859999999999999,
+        "nomeEnte": "VENETO",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 67.569999999999993,
+        "nomeEnte": "VENETO",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 70.060000000000002,
+        "nomeEnte": "VENETO",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 52.390000000000001,
+        "nomeEnte": "VENETO",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 97.489999999999995,
+        "nomeEnte": "VENETO",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 85.819999999999993,
+        "nomeEnte": "VENETO",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 9.2899999999999991,
+        "nomeEnte": "VENETO",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 95.140000000000001,
+        "nomeEnte": "VENETO",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 66.730000000000004,
+        "nomeEnte": "VENETO",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 66.469999999999999,
+        "nomeEnte": "VENETO",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 58.520000000000003,
+        "nomeEnte": "VENETO",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 101.36,
+        "nomeEnte": "VENETO",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 86.900000000000006,
+        "nomeEnte": "VENETO",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 0.0,
+        "nomeEnte": "VENETO",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 93.079999999999998,
+        "nomeEnte": "VENETO",
+        "indicatore": "Vel.Ris.Ent.Pr. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 72.459999999999994,
+        "nomeEnte": "VENETO",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 64.950000000000003,
+        "nomeEnte": "VENETO",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 55.68,
+        "nomeEnte": "VENETO",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 62.280000000000001,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 58.280000000000001,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 40.079999999999998,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 92.640000000000001,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 72.569999999999993,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 51.049999999999997,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 47.770000000000003,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 65.180000000000007,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 61.200000000000003,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 41.0,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 91.959999999999994,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 73.829999999999998,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 51.57,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 48.420000000000002,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 57.359999999999999,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 54.450000000000003,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 40.25,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 21.140000000000001,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Intervento Regionale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 94.090000000000003,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 70.549999999999997,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 48.109999999999999,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 45.670000000000002,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 56.789999999999999,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 53.719999999999999,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 40.25,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 93.209999999999994,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 66.590000000000003,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 45.399999999999999,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 42.939999999999998,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 64.650000000000006,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 59.93,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 5.2400000000000002,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 91.170000000000002,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Vel.Ris.Ent.Pr. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 75.450000000000003,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 53.149999999999999,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 49.270000000000003,
+        "nomeEnte": "SICILIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 97.870000000000005,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 84.170000000000002,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 35.899999999999999,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 95.120000000000005,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 69.299999999999997,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 62.369999999999997,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 53.640000000000001,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 100.14,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 86.640000000000001,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 36.380000000000003,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 95.209999999999994,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 64.689999999999998,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 55.479999999999997,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 48.0,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 94.430000000000007,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 83.290000000000006,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 37.600000000000001,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 14.93,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Intervento Regionale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 93.140000000000001,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 64.840000000000003,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 62.520000000000003,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 55.149999999999999,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 96.579999999999998,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 82.010000000000005,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 39.850000000000001,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 92.0,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 62.060000000000002,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 59.039999999999999,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 50.130000000000003,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 103.73,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 88.390000000000001,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 1.97,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 92.349999999999994,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Vel.Ris.Ent.Pr. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 71.829999999999998,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 65.989999999999995,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 56.229999999999997,
+        "nomeEnte": "ABRUZZO",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 106.79000000000001,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 88.870000000000005,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 2.5499999999999998,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 92.290000000000006,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 71.290000000000006,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 74.549999999999997,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2006,
+        "valoreEnte": 62.039999999999999,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 109.22,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 90.989999999999995,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 4.75,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 91.620000000000005,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 65.370000000000005,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 67.730000000000004,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2007,
+        "valoreEnte": 56.43,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 106.98,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 89.390000000000001,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 1.8899999999999999,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 28.300000000000001,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Intervento Regionale (m.p.c.)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 88.200000000000003,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 67.400000000000006,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 77.189999999999998,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2004,
+        "valoreEnte": 64.5,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 102.64,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 86.579999999999998,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 2.2799999999999998,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 89.790000000000006,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Vel. Ris. En. Pr. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 67.280000000000001,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 72.200000000000003,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2005,
+        "valoreEnte": 60.899999999999999,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 110.64,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Pressione Finanziaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 90.939999999999998,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Pressione Tributaria (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 0.0,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Intervento Erariale (m.p.c.)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 87.599999999999994,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Vel.Ris.Ent.Pr. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 73.189999999999998,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Vel.Ges.Sp.Cor. (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 71.400000000000006,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Autonomia Finanziaria (%)"
+    },
+    {
+        "anno": 2008,
+        "valoreEnte": 58.689999999999998,
+        "nomeEnte": "LOMBARDIA",
+        "indicatore": "Autonomia Impositiva (%)"
+    }
+]
