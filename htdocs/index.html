@@ -115,7 +115,7 @@
                   </div>
                   -->
                   <div id="date-chart" class="chart">
-                    <div class="title">Periodo</div>
+                    <div class="title">Periodo  </div>
                   </div>
                 </div>
             </div>
@@ -124,9 +124,22 @@
 
         
         <div class="row">
-          <div class="span12 viz-container section-label">
-            <table id="data-table"></table>
-            <div id="data-table-pager"></div>
+          <div class="span9 viz-container section-label">
+            <ul class="nav nav-tabs" id="viz-tab">
+                <li><a href="#determine" data-toggle="tab">Determinazioni</a></li>
+                <li><a href="#speseDL" data-toggle="tab">Spese D.L. n.83/2012</a></li>
+             </ul>
+            
+            <div class="tab-content">
+                  <div class="tab-pane table-container" id="determine">
+                        <table id="determine-table"></table>
+                        <div id="determine-table-pager"></div>
+                  </div>    
+                  <div class="tab-pane table-container" id="speseDL">
+                        <table id="speseDL-table"></table>
+                        <div id="speseDL-table-pager"></div>
+                  </div>
+               </div>  
           </div>
         </div>
 
@@ -179,20 +192,20 @@
 
 
 <script>
-jQuery("#data-table").jqGrid({
+jQuery("#determine-table").jqGrid({
     url:'https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=agg_det_com&query=select%20comune%2Ccodice%2CDataSalvataggio%2Cdescrizione%2Cimporto%20from%20%60swdata%60',
 	datatype: "json",
    	colNames:['#', 'comune', 'descrizione', 'importo','data'],
    	colModel:[
-   		{name:'codice',index:'codice', width:40},
+   		{name:'codice',index:'codice', width:60},
         {name:'comune',index:'comune', align:"center", width:90},
    		{name:'descrizione',index:'descrizione', width:350},
    		{name:'importo',index:'importo', width:130, align:"right",sorttype:"float", formatter:"number"},
    		{name:'DataSalvataggio',index:'DataSalvataggio', width:90, align:"right",sorttype:'date', formatter:'date', datefmt:'Y-m-d'}	
    	],
-   	rowNum: 22,
+   	rowNum: 20,
     height: 'auto',
-   	pager: "#data-table-pager",
+   	pager: "#determine-table-pager",
    	sortname: 'DataSalvataggio',
     loadonce:true,
     viewrecords: true,
@@ -209,10 +222,48 @@ jQuery("#data-table").jqGrid({
                 }
     /*grouping:true,
     groupingView : {
-       	groupField : ['DataSalvataggio']
+       	groupField : ['comune']
    	}*/
 });
-jQuery("#data-table-pager").jqGrid('navGrid','#data-table-pager',{edit:false,add:false,del:false});
+jQuery("#determine-table-pager").jqGrid('navGrid','#determine-table-pager',{edit:false,add:false,del:false});
+$(".ui-jqgrid-titlebar").hide();
+</script>
+
+<script>
+jQuery("#speseDL-table").jqGrid({
+    /*url:'https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=agg_det_com&query=select%20comune%2Ccodice%2CDataSalvataggio%2Cdescrizione%2Cimporto%20from%20%60swdata%60',
+    datatype: "json",
+   	colNames:['#', 'comune', 'descrizione', 'importo','data'],
+   	colModel:[
+   		{name:'codice',index:'codice', width:60},
+        {name:'comune',index:'comune', align:"center", width:90},
+   		{name:'descrizione',index:'descrizione', width:350},
+   		{name:'importo',index:'importo', width:130, align:"right",sorttype:"float", formatter:"number"},
+   		{name:'DataSalvataggio',index:'DataSalvataggio', width:90, align:"right",sorttype:'date', formatter:'date', datefmt:'Y-m-d'}	
+   	],
+   	rowNum: 20,
+    height: 'auto',
+   	pager: "#speseDL-table-pager",
+   	sortname: 'DataSalvataggio',
+    loadonce:true,
+    viewrecords: true,
+    sortorder: "desc",
+    caption:"Determinazioni",
+    
+    jsonReader: {
+                    repeatitems: false,
+                    id: "Id",
+                    root: function (obj) { return obj; },
+                    page: function (obj) { return 1; },
+                    total: function (obj) { return 1; },
+                    records: function (obj) { return obj.length; }
+                }*/
+    /*grouping:true,
+    groupingView : {
+       	groupField : ['comune']
+   	}*/
+});
+jQuery("#speseDL-table-pager").jqGrid('navGrid','#speseDL-table-pager',{edit:false,add:false,del:false});
 $(".ui-jqgrid-titlebar").hide();
 </script>
 
