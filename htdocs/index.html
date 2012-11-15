@@ -124,10 +124,18 @@
 
         
         <div class="row">
-          <div class="span12 viz-container section-label">
+          
+          <div class="span8 viz-container section-label">
             <table id="data-table"></table>
             <div id="data-table-pager"></div>
           </div>
+
+          <div class="span4 filter-container">
+                  <div id="comuni-chart" class="chart">
+                    <div class="title">Comuni</div>
+                  </div>
+          </div>  
+
         </div>
 
 
@@ -255,16 +263,51 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
 
   var delibereCF = crossfilter(delibere);
   var all = delibereCF.groupAll();
+  //Dimensione data
   var date = delibereCF.dimension(function(d){ return d.date;} );
   var dates = date.group();
+  //dimensione Comune
+  var dimComuni = delibereCF.dimension(function(d){ return d.comune;} );
+  var grpComuni = dimComuni.group();
 
-  var charts = [ barChart()
+  //creo un array con solo i comuni raggruppati da usare come dominio per crossfilter
+  var comuniArray  = new Array();
+    delibere.map(function(d) { 
+      comuniArray.push(d.comune); 
+  }); 
+
+
+  var charts = [ 
+    barChart()
     .dimension(date)
     .group(dates)
     .x(d3.time.scale()
         .domain([new Date(2012, 0, 1), new Date(2012, 12, 31)])
         .rangeRound([0, 10 * 90]))
-        .filter([new Date(2012, 6, 1), new Date(2012, 7, 1)])];
+        .filter([new Date(2012, 6, 1), new Date(2012, 7, 1)]),
+
+/*
+barChart()
+        .dimension(name)
+        .group(names) 
+   .y(d3.scale.linear()
+      .range([100, 0])
+      .domain([0, 3]))
+   .x(d3.scale.ordinal()
+        .domain(nameArray)
+        .rangePoints([0, 600], 1)),
+    */
+
+    barChart()
+    .dimension(dimComuni)
+    .group(grpComuni)
+    .y(d3.scale.linear()
+      .range([100,0])
+      .domain([0,3]))
+    .x(d3.scale.ordinal()
+      .domain(comuniArray)
+      .rangePoints([0, 250]))
+  ];
 
   // Given our array of charts, which we assume are in the same order as the
   // .chart elements in the DOM, bind the charts to the DOM and render them.
@@ -272,6 +315,7 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
   var chart = d3.selectAll(".chart")
       .data(charts)
       .each(function(chart) { chart.on("brush", renderAll).on("brushend", renderAll); });
+
 
       /*
   // Render the initial lists.
@@ -361,7 +405,7 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
   function barChart() {
     if (!barChart.id) barChart.id = 0;
 
-    var margin = {top: 10, right: 10, bottom: 20, left: 10},
+    var margin = {top: 20, right: 20, bottom: 20, left: 20},
         x,
         y = d3.scale.linear().range([100, 0]),
         id = barChart.id++,
@@ -373,7 +417,7 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
         round;
 
     function chart(div) {
-      var width = x.range()[1],
+      var width = x.range()[x.range().length-1],
           height = y.range()[0];
 
       y.domain([0, group.top(1)[0].value]);
@@ -971,11 +1015,11 @@ d3.csv("data/sample/flights-3m.json", function(flights) {
     
 
     #charts {
-      padding: 10px 0;
+      padding: 0px 0;
     }
     
     .chart {
-      display: inline-block;
+      /*display: inline-block;*/
       height: 151px;
       margin-bottom: 20px;
     }
@@ -1025,6 +1069,10 @@ d3.csv("data/sample/flights-3m.json", function(flights) {
       width: 920px;
     }
     
+    #comuni-chart {
+      width: 400px;
+    }
+
     #flight-list {
       min-height: 1024px;
     }
