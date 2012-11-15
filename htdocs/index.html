@@ -115,7 +115,7 @@
                   </div>
                   -->
                   <div id="date-chart" class="chart">
-                    <div class="title">Date</div>
+                    <div class="title">Periodo</div>
                   </div>
                 </div>
             </div>
@@ -180,17 +180,17 @@
 
 <script>
 jQuery("#data-table").jqGrid({
-       url:'data/determinazioni/TorinoDeterminazioni2008.json',
+    url:'https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=agg_det_com&query=select%20comune%2Ccodice%2CDataSalvataggio%2Cdescrizione%2Cimporto%20from%20%60swdata%60',
 	datatype: "json",
-   	colNames:['#','codice', 'descrizione', 'importo','data'],
+   	colNames:['#', 'comune', 'descrizione', 'importo','data'],
    	colModel:[
-   		{name:'num',index:'num', width:30},
-   		{name:'codice',index:'codice', width:115},
-   		{name:'descrizione',index:'descrizione', width:230},
-   		{name:'importo',index:'importo', width:90, align:"right",sorttype:"float", formatter:"number"},
-   		{name:'DataSalvataggio',index:'DataSalvataggio', width:80, align:"right",sorttype:'date', formatter:'date', datefmt:'Y-m-d'}		
+   		{name:'codice',index:'codice', width:40},
+        {name:'comune',index:'comune', align:"center", width:90},
+   		{name:'descrizione',index:'descrizione', width:350},
+   		{name:'importo',index:'importo', width:130, align:"right",sorttype:"float", formatter:"number"},
+   		{name:'DataSalvataggio',index:'DataSalvataggio', width:90, align:"right",sorttype:'date', formatter:'date', datefmt:'Y-m-d'}	
    	],
-   	rowNum: 14,
+   	rowNum: 22,
     height: 'auto',
    	pager: "#data-table-pager",
    	sortname: 'DataSalvataggio',
@@ -246,7 +246,7 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
 
   // A nest operator, for grouping the delibere by year.
   var nestByDate = d3.nest()
-      .key(function(d) { return d.date; });
+      .key(function(d) { console.log("nest called for " + d.date); return d.date; });
 
  // A little coercion, since the CSV is untyped.
   delibere.forEach(function(d, i) {
@@ -273,43 +273,40 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
       .data(charts)
       .each(function(chart) { chart.on("brush", renderAll).on("brushend", renderAll); });
 
-      /*
   // Render the initial lists.
   var list = d3.selectAll(".list")
       .data([flightList]);
-  */
-
 
   // Renders the specified chart or list.
   function render(method) {
-    console.log("render called");
     d3.select(this).call(method);
   }
 
   // Whenever the brush moves, re-rendering everything.
   function renderAll() {
-    console.log("renderAll called");
     chart.each(render);
-    //list.each(render);
+    list.each(render);
     d3.select("#active").text(formatNumber(all.value()));
-
-    var selectedDates = nestByDate.entries(date.top(500));
-    onDateRangeChange(selectedDates);
   }
 
-  function onDateRangeChange(data){
-    console.log("onDateRangeChange " + data);
-  }
+/*
+    // Like d3.time.format, but faster.
+  function parseDate(d) {
+    return new Date(2001,
+        d.substring(0, 2) - 1,
+        d.substring(2, 4),
+        d.substring(4, 6),
+        d.substring(6, 8));
+  }*/
 
   function parseDate(input) {
     var parts = input.match(/(\d+)/g);
     // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
     var ret = new Date(parts[0], parts[1]-1, parts[2]); // months are 0-based
-    //console.log("parse date called for "+input + " result: " +ret);
+    console.log("parse date called for "+input + " result: " +ret);
     return ret;
   }
 
-  /*
   function flightList(div) {
     var flightsByDate = nestByDate.entries(date.top(40));
 
@@ -356,7 +353,7 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
 
       flight.order();
     });
-  }*/
+  }
 
   function barChart() {
     if (!barChart.id) barChart.id = 0;
