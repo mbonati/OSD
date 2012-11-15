@@ -123,25 +123,34 @@
 
         
         <div class="row-fluid">
-          
-          <div class="span3 filter-container section-label">
-                <span class="filter-item-label-title"><h4>Indicatori</h4></span>
-                <form>
-                    <ul>
-                        <li>
-                          <label><input type="radio" name="radio" />Pressione finanziaria (m.p.c.)</label>
-                          <label><input type="radio" name="radio" />Pressione tributaria (m.p.c.)</label>
-                          <label><input type="radio" name="radio" />Intervento Erariale (m.p.c.)</label>
-                          <label><input type="radio" name="radio" />Intervento Regionale (m.p.c.)</label>
-                          <label><input type="radio" name="radio" />Vel.Ris.Ent. Pr. (%) (m.p.c.)</label>
-                          <label><input type="radio" name="radio" />Vel.Ges.Sp.Cor. (%) (m.p.c.)</label>
-                          <label><input type="radio" name="radio" />Autonomia Finanziaria (%) (m.p.c.)</label>
-                          <label><input type="radio" name="radio" />Autonomia Impositiva (%) (m.p.c.)</label>
-                        </li>
-                    </ul>
-                </form>
-        </div>
-          
+            
+            <div class="span3 filter-container section-label">
+                <span class="filter-item-label-title"><h4>Granularità</h4></span>
+                    <form>
+                        <ul>
+                            <li>
+                              <label><input type="radio" name="radio" />Regione</label>
+                              <label><input type="radio" name="radio" />Provincia</label>
+                              <label><input type="radio" name="radio" />Comune</label>
+                            </li>
+                        </ul>
+                    </form>
+                    <span class="filter-item-label-title"><h4>Indicatori</h4></span>
+                    <form>
+                        <ul>
+                            <li>
+                              <label><input type="radio" name="radio" />Pressione finanziaria (m.p.c.)</label>
+                              <label><input type="radio" name="radio" />Pressione tributaria (m.p.c.)</label>
+                              <label><input type="radio" name="radio" />Intervento Erariale (m.p.c.)</label>
+                              <label><input type="radio" name="radio" />Intervento Regionale (m.p.c.)</label>
+                              <label><input type="radio" name="radio" />Vel.Ris.Ent. Pr. (%) (m.p.c.)</label>
+                              <label><input type="radio" name="radio" />Vel.Ges.Sp.Cor. (%) (m.p.c.)</label>
+                              <label><input type="radio" name="radio" />Autonomia Finanziaria (%) (m.p.c.)</label>
+                              <label><input type="radio" name="radio" />Autonomia Impositiva (%) (m.p.c.)</label>
+                            </li>
+                        </ul>
+                    </form>
+            </div>
           
           
           <div class="span6 viz-container section-label">
@@ -214,24 +223,23 @@
 
 <script>
 jQuery("#data-table").jqGrid({
-       url:'data/determinazioni/TorinoDeterminazioni2008.json',
+    url:'data/indicatoriFinanziari/indicatoriProvincie.json',
 	datatype: "json",
-   	colNames:['#','codice', 'descrizione', 'importo','data'],
+   	colNames:['anno','ente', 'indicatore', 'valore'],
    	colModel:[
-   		{name:'num',index:'num', width:30},
-   		{name:'codice',index:'codice', width:115},
-   		{name:'descrizione',index:'descrizione', width:230},
-   		{name:'importo',index:'importo', width:90, align:"right",sorttype:"float", formatter:"number"},
-   		{name:'DataSalvataggio',index:'DataSalvataggio', width:80, align:"right",sorttype:'date', formatter:'date', datefmt:'Y-m-d'}		
+   		{name:'anno',index:'anno', width:50},
+   		{name:'nomeEnte',index:'nomeEnte', width:140},
+   		{name:'indicatore',index:'indicatore', width:200},
+   		{name:'valoreEnte',index:'valoreEnte', width:90, align:"right",sorttype:"float", formatter:"number"}		
    	],
    	rowNum: 50,
     height: 'auto',
    	pager: "#data-table-pager",
-   	sortname: 'DataSalvataggio',
+   	sortname: 'nomeEnte',
     loadonce:true,
     viewrecords: true,
     sortorder: "desc",
-    caption:"Determinazioni",
+    caption:"Indicatori Finanziari",
     
     jsonReader: {
                     repeatitems: false,
