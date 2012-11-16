@@ -354,7 +354,7 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
     var parts = input.match(/(\d+)/g);
     // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
     var ret = new Date(parts[0], parts[1]-1, parts[2]); // months are 0-based
-    console.log("parse date called for "+input + " result: " +ret);
+    //console.log("parse date called for "+input + " result: " +ret);
     return ret;
   }
 
@@ -534,6 +534,7 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
           .attr("x", x(extent[0]))
           .attr("width", x(extent[1]) - x(extent[0]));
       dimension.filterRange(extent);
+      console.log("brush on " + extent);
     });
 
     brush.on("brushend.chart", function() {
