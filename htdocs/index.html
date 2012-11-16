@@ -142,12 +142,17 @@
                </div>  
           </div>
 
-          <div class="span3 filter-container">
+         <!--<div class="span3 filter-container">
                   <div id="comuni-chart" class="chart">
                     <div class="title">Comuni</div>
                   </div>
-          </div>  
-
+          </div> -->
+            <div class="span3 filter-container">
+                  <div id="importi-chart" class="chart">
+                    <div class="title">Importi </div>
+                  </div>
+          </div>
+          
         </div>
 
 
@@ -217,8 +222,21 @@ jQuery("#determine-table").jqGrid({
     loadonce:true,
     viewrecords: true,
     sortorder: "desc",
+    sortable:true,
     caption:"Determinazioni",
-    
+    loadComplete: function() {
+        var $this = $(this);
+        console.log("load complete");
+        if ($this.jqGrid('getGridParam', 'datatype') == 'json') {
+            if ($this.jqGrid('getGridParam', 'sortname') != '') {
+                // we need reload grid only if we use sortname parameter,
+                // but the server return unsorted data
+                setTimeout(function () {
+                    $this.triggerHandler('reloadGrid');
+                }, 50);
+            }
+        }
+    },
     jsonReader: {
                     repeatitems: false,
                     id: "Id",
@@ -274,6 +292,7 @@ jQuery("#speseDL-table-pager").jqGrid('navGrid','#speseDL-table-pager',{edit:fal
 $(".ui-jqgrid-titlebar").hide();
 </script>
 
+
 <script>
 //Activate the first Viz tab
 $(function () {
@@ -309,6 +328,7 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
  // A little coercion, since the CSV is untyped.
   delibere.forEach(function(d, i) {
     d.date = parseDate(d.date);
+    d.importo = +d.importo;
   });
 
   var delibereCF = crossfilter(delibere);
@@ -317,8 +337,12 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
   var date = delibereCF.dimension(function(d){ return d.date;} );
   var dates = date.group();
   //dimensione Comune
-  var dimComuni = delibereCF.dimension(function(d){ return d.comune;} );
+  /*var dimComuni = delibereCF.dimension(function(d){ return d.comune;} );
   var grpComuni = dimComuni.group();
+  */
+  //dimensione Importo
+  var dimImporti = delibereCF.dimension(function(d){ return d.importo;} );
+  var grpImporti = dimImporti.group();
 
   //creo un array con solo i comuni raggruppati da usare come dominio per crossfilter
   var comuniArray  = new Array();
@@ -337,6 +361,15 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
         .filter([new Date(2012, 6, 1), new Date(2012, 7, 1)]),
 
     barChart()
+    .dimension(dimImporti)
+    .group(grpImporti)
+    .x(d3.scale.linear()
+        .domain([1, 10000000])
+        .rangeRound([1, 250]))
+
+   
+  ];
+ /*barChart()
     .dimension(dimComuni)
     .group(grpComuni)
     .y(d3.scale.linear()
@@ -344,8 +377,7 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
       .domain([0,3]))
     .x(d3.scale.ordinal()
       .domain(comuniArray)
-      .rangePoints([0, 250]))
-  ];
+      .rangePoints([0, 250]))*/
 
   // Given our array of charts, which we assume are in the same order as the
   // .chart elements in the DOM, bind the charts to the DOM and render them.
@@ -370,8 +402,8 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
     list.each(render);
     d3.select("#active").text(formatNumber(all.value()));
   }
-
-/*
+  
+ /*
     // Like d3.time.format, but faster.
   function parseDate(d) {
     return new Date(2001,
@@ -1108,7 +1140,11 @@ d3.csv("data/sample/flights-3m.json", function(flights) {
     #comuni-chart {
       width: 400px;
     }
-
+    
+    #importi-chart {
+      width: 400px;
+    }
+    
     #flight-list {
       min-height: 1024px;
     }
@@ -1172,7 +1208,7 @@ d3.csv("data/sample/flights-3m.json", function(flights) {
 .ui-jqgrid tr.jqgrow td  {
     font-weight: normal;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     padding: 4px;
 }
 
