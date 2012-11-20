@@ -195,7 +195,8 @@
 
 <script>
 jQuery("#determine-table").jqGrid({
-    //url:'https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=agg_det_com&query=select%20comune%2Ccodice%2CDataSalvataggio%2Cdescrizione%2Cimporto%20from%20%60swdata%60',
+    // load ONLY 5 + recenti altrimenti per popolare table altrimenti non funziona sorting griglia dopo con load dinamico!
+    url:'https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=agg_det_com&query=select%20comune%2C%20codice%2C%20DataSalvataggio%2C%20descrizione%2C%20importo%20from%20%60swdata%60%20%20order%20by%20DataSalvataggio%20DESC%20limit%205',
 	datatype: "json",
    	colNames:['#', 'comune', 'descrizione', 'importo','data'],
    	colModel:[
@@ -203,21 +204,24 @@ jQuery("#determine-table").jqGrid({
         {name:'comune',index:'comune', align:"center", width:90},
    		{name:'descrizione',index:'descrizione', width:350},
    		{name:'importo',index:'importo', width:130, align:"right",sorttype:"float", formatter:"number"},
-   		{name:'DataSalvataggio',index:'DataSalvataggio', width:90, align:"right",sorttype:'date', formatter:'date', datefmt:'Y-m-d'}	
+   		{name:'DataSalvataggio',index:'DataSalvataggio', width:120, align:"right",sorttype:'date', formatter:'date', datefmt:'Y-m-d'}	
    	],
-   	rowNum: 20,
-    height: 'auto',
+   	rowNum: 10,
+    height: 700,
    	pager: "#determine-table-pager",
    	sortname: 'DataSalvataggio',
     loadonce:true,
     viewrecords: true,
     sortorder: "desc",
     sortable:true,
+    altRows:true,
+    altclass:'myAltRowClass',
     caption:"Determinazioni",
     // needed for soring correctly the grid after loading
     loadComplete: function() {
         var $this = $(this);
         console.log("load complete");
+        
         if ($this.jqGrid('getGridParam', 'datatype') == 'json') {
             if ($this.jqGrid('getGridParam', 'sortname') != '') {
                 // we need reload grid only if we use sortname parameter,
@@ -343,6 +347,7 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
     .x(d3.scale.ordinal()
       .domain(comuniArray)
       .rangePoints([0, 250]))
+    
   ];
 
   // Given our array of charts, which we assume are in the same order as the
@@ -374,6 +379,9 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
         
         list.each(render);
         d3.select("#active").text(formatNumber(all.value()));
+        
+        jQuery("#determine-table").trigger("reloadGrid");
+
   }
   
   window.reset = function(i) {
@@ -813,6 +821,8 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
 </style>      
 
 <style>
+.myAltRowClass { background-color: #EEE; background-image: none; }
+
 .ui-jqgrid  {
     border: none;
 }
@@ -889,7 +899,7 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
 
 .ui-jqgrid  .ui-state-hover {
   background-image: none;
-  background-color: #EEE;
+  background-color: #DDDDDC;
 }
 
 </style>
