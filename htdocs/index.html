@@ -62,8 +62,6 @@
               <li><a href="indicatoriFinanziari.html">Indicatori Finanziari</a></li>
               <li><a href="bilanci.html">Bilanci</a></li>
             </ul>
-            
-            
               
             <!-- Login -->
             <ul class="nav pull-right">
@@ -100,28 +98,19 @@
     <div class="container">
 
         <div class="row-fluid">
-            <div class="span12 year-selection-container">
+            <div class="span9 year-selection-container">
                 <div class="section-label"><h4>Selettore<h4></div>
                 <div id="charts">
-                  <!--
-                  <div id="hour-chart" class="chart">
-                    <div class="title">Time of Day</div>
-                  </div>
-                  <div id="delay-chart" class="chart">
-                    <div class="title">Arrival Delay (min.)</div>
-                  </div>
-                  <div id="distance-chart" class="chart">
-                    <div class="title">Distance (mi.)</div>
-                  </div>
-                  -->
                   <div id="date-chart" class="chart">
                     <div class="title">Periodo  </div>
                   </div>
                 </div>
             </div>
+            <div class="span3 year-selection-container">
+                <div class="section-label"><h4>Filtri<h4></div>
+                <aside id="totals"><span id="active">-</span> di <span id="total">-</span> voci.</aside>
+            </div>
         </div>
-        
-
         
         <div class="row">
           <div class="span9 viz-container section-label">
@@ -130,9 +119,10 @@
                 <li><a href="#speseDL" data-toggle="tab">Spese D.L. n.83/2012</a></li>
              </ul>
             
+            
             <div class="tab-content">
                   <div class="tab-pane table-container" id="determine">
-                        <table id="determine-table"></table>
+                        <table id="determine-table" class="list"></table>
                         <div id="determine-table-pager"></div>
                   </div>    
                   <div class="tab-pane table-container" id="speseDL">
@@ -140,21 +130,20 @@
                         <div id="speseDL-table-pager"></div>
                   </div>
                </div>  
-          </div>
+            </div>
 
-         <!--<div class="span3 filter-container">
-                  <div id="comuni-chart" class="chart">
-                    <div class="title">Comuni</div>
-                  </div>
-          </div> -->
             <div class="span3 filter-container">
                   <div id="importi-chart" class="chart">
                     <div class="title">Importi </div>
                   </div>
-          </div>
+           </div>
           
+            <div class="span3 filter-container">
+                  <div id="comuni-chart" class="chart">
+                    <div class="title">Comuni </div>
+                  </div>
+            </div>
         </div>
-
 
     </div> <!-- /container q -->
     
@@ -203,9 +192,10 @@
 </style>
 
 
+
 <script>
 jQuery("#determine-table").jqGrid({
-    url:'https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=agg_det_com&query=select%20comune%2Ccodice%2CDataSalvataggio%2Cdescrizione%2Cimporto%20from%20%60swdata%60',
+    //url:'https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=agg_det_com&query=select%20comune%2Ccodice%2CDataSalvataggio%2Cdescrizione%2Cimporto%20from%20%60swdata%60',
 	datatype: "json",
    	colNames:['#', 'comune', 'descrizione', 'importo','data'],
    	colModel:[
@@ -224,6 +214,7 @@ jQuery("#determine-table").jqGrid({
     sortorder: "desc",
     sortable:true,
     caption:"Determinazioni",
+    // needed for soring correctly the grid after loading
     loadComplete: function() {
         var $this = $(this);
         console.log("load complete");
@@ -256,42 +247,10 @@ $(".ui-jqgrid-titlebar").hide();
 
 <script>
 jQuery("#speseDL-table").jqGrid({
-    /*url:'https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=agg_det_com&query=select%20comune%2Ccodice%2CDataSalvataggio%2Cdescrizione%2Cimporto%20from%20%60swdata%60',
-    datatype: "json",
-   	colNames:['#', 'comune', 'descrizione', 'importo','data'],
-   	colModel:[
-   		{name:'codice',index:'codice', width:60},
-        {name:'comune',index:'comune', align:"center", width:90},
-   		{name:'descrizione',index:'descrizione', width:350},
-   		{name:'importo',index:'importo', width:130, align:"right",sorttype:"float", formatter:"number"},
-   		{name:'DataSalvataggio',index:'DataSalvataggio', width:90, align:"right",sorttype:'date', formatter:'date', datefmt:'Y-m-d'}	
-   	],
-   	rowNum: 20,
-    height: 'auto',
-   	pager: "#speseDL-table-pager",
-   	sortname: 'DataSalvataggio',
-    loadonce:true,
-    viewrecords: true,
-    sortorder: "desc",
-    caption:"Determinazioni",
-    
-    jsonReader: {
-                    repeatitems: false,
-                    id: "Id",
-                    root: function (obj) { return obj; },
-                    page: function (obj) { return 1; },
-                    total: function (obj) { return 1; },
-                    records: function (obj) { return obj.length; }
-                }*/
-    /*grouping:true,
-    groupingView : {
-       	groupField : ['comune']
-   	}*/
 });
 jQuery("#speseDL-table-pager").jqGrid('navGrid','#speseDL-table-pager',{edit:false,add:false,del:false});
 $(".ui-jqgrid-titlebar").hide();
 </script>
-
 
 <script>
 //Activate the first Viz tab
@@ -299,7 +258,6 @@ $(function () {
     $('#viz-tab a:first').tab('show');
  });
 </script>
-
 
 <script type="text/javascript" charset="utf-8">
     //Activate Uniform UI
@@ -311,7 +269,8 @@ $(function () {
 
 <script>
 
-d3.csv("data/determinazioni/delibere.json", function(delibere){
+// CROSS Filter and Pivotting maanagement
+d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=agg_det_com&query=select%20comune%2Ccodice%2CDataSalvataggio%2Cdescrizione%2Cimporto%20from%20%60swdata%60" , function(delibere){ 
 
   console.log("Loading delibere...");
 
@@ -323,23 +282,28 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
 
   // A nest operator, for grouping the delibere by year.
   var nestByDate = d3.nest()
-      .key(function(d) { console.log("nest called for " + d.date); return d.date; });
+      .key(function(d) { 
+          //console.log("nest called for " + d.DataSalvataggio); 
+          return d.DataSalvataggio; 
+        });
 
  // A little coercion, since the CSV is untyped.
   delibere.forEach(function(d, i) {
-    d.date = parseDate(d.date);
+    d.DataSalvataggio = parseDate(d.DataSalvataggio);
     d.importo = +d.importo;
   });
 
   var delibereCF = crossfilter(delibere);
   var all = delibereCF.groupAll();
   //Dimensione data
-  var date = delibereCF.dimension(function(d){ return d.date;} );
+  //var date = delibereCF.dimension(function(d){ return d.date;} );
+  //var dates = date.group();
+  var date = delibereCF.dimension(function(d){ return d.DataSalvataggio;} );
   var dates = date.group();
   //dimensione Comune
-  /*var dimComuni = delibereCF.dimension(function(d){ return d.comune;} );
+  var dimComuni = delibereCF.dimension(function(d){ return d.comune;} );
   var grpComuni = dimComuni.group();
-  */
+  
   //dimensione Importo
   var dimImporti = delibereCF.dimension(function(d){ return d.importo;} );
   var grpImporti = dimImporti.group();
@@ -357,19 +321,20 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
     .group(dates)
     .x(d3.time.scale()
         .domain([new Date(2012, 0, 1), new Date(2012, 12, 31)])
-        .rangeRound([0, 10 * 90]))
+        .rangeRound([0, 10 * 80]))
         .filter([new Date(2012, 6, 1), new Date(2012, 7, 1)]),
 
     barChart()
     .dimension(dimImporti)
     .group(grpImporti)
+    /*.y(d3.scale.linear()
+      .range([100,0])
+      .domain([1,1000]))*/
     .x(d3.scale.linear()
-        .domain([1, 10000000])
-        .rangeRound([1, 250]))
+        .domain([0, 10000000])
+        .range([0,250])), 
 
-   
-  ];
- /*barChart()
+   barChart()
     .dimension(dimComuni)
     .group(grpComuni)
     .y(d3.scale.linear()
@@ -377,7 +342,8 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
       .domain([0,3]))
     .x(d3.scale.ordinal()
       .domain(comuniArray)
-      .rangePoints([0, 250]))*/
+      .rangePoints([0, 250]))
+  ];
 
   // Given our array of charts, which we assume are in the same order as the
   // .chart elements in the DOM, bind the charts to the DOM and render them.
@@ -386,33 +352,35 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
       .data(charts)
       .each(function(chart) { chart.on("brush", renderAll).on("brushend", renderAll); });
 
+ // Render the total.
+  d3.selectAll("#total")
+      .text(formatNumber(delibereCF.size()));
 
   // Render the initial lists.
   var list = d3.selectAll(".list")
-      .data([flightList]);
+        .data([delibereList]);
 
   // Renders the specified chart or list.
   function render(method) {
-    d3.select(this).call(method);
+        d3.select(this).call(method);
   }
   
   // Whenever the brush moves, re-rendering everything.
   function renderAll() {
-    chart.each(render);
-    list.each(render);
-    d3.select("#active").text(formatNumber(all.value()));
+        chart.each(render);
+        
+        //cleanup rows
+        jQuery("#determine-table").clearGridData();
+        
+        list.each(render);
+        d3.select("#active").text(formatNumber(all.value()));
   }
   
- /*
-    // Like d3.time.format, but faster.
-  function parseDate(d) {
-    return new Date(2001,
-        d.substring(0, 2) - 1,
-        d.substring(2, 4),
-        d.substring(4, 6),
-        d.substring(6, 8));
-  }*/
-
+  window.reset = function(i) {
+    charts[i].filter(null);
+    renderAll();
+  };
+ 
   function parseDate(input) {
     var parts = input.match(/(\d+)/g);
     // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
@@ -421,10 +389,21 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
     return ret;
   }
 
-  function flightList(div) {
-    var flightsByDate = nestByDate.entries(date.top(40));
+  function delibereList(div) {
+    var delibereByDate = nestByDate.entries(date.top(200));
 
     div.each(function() {
+      //console.log("each list");
+      
+      var table = jQuery("#determine-table");
+      
+      delibereByDate.forEach(function(dContainer,j) {
+          dContainer.values.forEach(function(delibera, i) {
+                var row = {codice:delibera.codice, comune:delibera.comune, descrizione:delibera.descrizione, importo:delibera.importo, DataSalvataggio:delibera.DataSalvataggio};
+                table.addRowData(i, row);
+          }); 
+      });
+      /*
       var date = d3.select(this).selectAll(".date")
           .data(flightsByDate, function(d) { return d.key; });
 
@@ -436,9 +415,17 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
 
       date.exit().remove();
 
-      var flight = date.order().selectAll(".flight")
+      
+      var delibera = date.order().selectAll(".flight")
           .data(function(d) { return d.values; }, function(d) { return d.index; });
 
+      var row = {codice:"1", comune:"Aversa", descrizione:"ipse lorum", importo:"10.00", DataSalvataggio:"2012-12-01"};
+      jQuery("#determine-table").addRowData("1", row);
+      
+      delibera.exit().remove();
+
+      delibera.order();
+      
       var flightEnter = flight.enter().append("div")
           .attr("class", "flight");
 
@@ -462,10 +449,7 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
           .attr("class", "delay")
           .classed("early", function(d) { return d.delay < 0; })
           .text(function(d) { return formatChange(d.delay) + " min."; });
-
-      flight.exit().remove();
-
-      flight.order();
+      */
     });
   }
 
@@ -490,6 +474,7 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
       y.domain([0, group.top(1)[0].value]);
 
       div.each(function() {
+          
         var div = d3.select(this),
             g = div.select("g");
 
@@ -597,7 +582,7 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
           .attr("x", x(extent[0]))
           .attr("width", x(extent[1]) - x(extent[0]));
       dimension.filterRange(extent);
-      console.log("brush on " + extent);
+      //console.log(dimension + " brush on " + extent);
     });
 
     brush.on("brushend.chart", function() {
@@ -619,6 +604,7 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
       if (!arguments.length) return x;
       x = _;
       axis.scale(x);
+      axis.ticks(5);
       brush.x(x);
       return chart;
     };
@@ -667,372 +653,15 @@ d3.csv("data/determinazioni/delibere.json", function(delibere){
   console.log("delibere load successfull.");
 
 });
-
-/*// (It's CSV, but GitHub Pages only gzip's JSON at the moment.)
-d3.csv("data/sample/flights-3m.json", function(flights) {
-
-  // Various formatters.
-  var formatNumber = d3.format(",d"),
-      formatChange = d3.format("+,d"),
-      formatDate = d3.time.format("%B %d, %Y"),
-      formatTime = d3.time.format("%I:%M %p");
-
-  // A nest operator, for grouping the flight list.
-  var nestByDate = d3.nest()
-      .key(function(d) { return d3.time.day(d.date); });
-
-  // A little coercion, since the CSV is untyped.
-  flights.forEach(function(d, i) {
-    d.index = i;
-    d.date = parseDate(d.date);
-    d.delay = +d.delay;
-    d.distance = +d.distance;
-  });
-
-  // Create the crossfilter for the relevant dimensions and groups.
-  var flight = crossfilter(flights),
-      all = flight.groupAll(),
-      date = flight.dimension(function(d) { return d3.time.day(d.date); }),
-      dates = date.group(),
-      hour = flight.dimension(function(d) { return d.date.getHours() + d.date.getMinutes() / 60; }),
-      hours = hour.group(Math.floor),
-      delay = flight.dimension(function(d) { return Math.max(-60, Math.min(149, d.delay)); }),
-      delays = delay.group(function(d) { return Math.floor(d / 10) * 10; }),
-      distance = flight.dimension(function(d) { return Math.min(1999, d.distance); }),
-      distances = distance.group(function(d) { return Math.floor(d / 50) * 50; });
-
-  var charts = [
-
-    barChart()
-        .dimension(hour)
-        .group(hours)
-      .x(d3.scale.linear()
-        .domain([0, 24])
-        .rangeRound([0, 10 * 24])),
-
-    barChart()
-        .dimension(delay)
-        .group(delays)
-      .x(d3.scale.linear()
-        .domain([-60, 150])
-        .rangeRound([0, 10 * 21])),
-
-    barChart()
-        .dimension(distance)
-        .group(distances)
-      .x(d3.scale.linear()
-        .domain([0, 2000])
-        .rangeRound([0, 10 * 40])),
-
-    barChart()
-        .dimension(date)
-        .group(dates)
-        .round(d3.time.day.round)
-      .x(d3.time.scale()
-        .domain([new Date(2001, 0, 1), new Date(2001, 3, 1)])
-        .rangeRound([0, 10 * 90]))
-        .filter([new Date(2001, 1, 1), new Date(2001, 2, 1)])
-
-  ];
-
-  // Given our array of charts, which we assume are in the same order as the
-  // .chart elements in the DOM, bind the charts to the DOM and render them.
-  // We also listen to the chart's brush events to update the display.
-  var chart = d3.selectAll(".chart")
-      .data(charts)
-      .each(function(chart) { chart.on("brush", renderAll).on("brushend", renderAll); });
-
-  // Render the initial lists.
-  var list = d3.selectAll(".list")
-      .data([flightList]);
-
-  // Render the total.
-  d3.selectAll("#total")
-      .text(formatNumber(flight.size()));
-
-  renderAll();
-
-  // Renders the specified chart or list.
-  function render(method) {
-    d3.select(this).call(method);
-  }
-
-  // Whenever the brush moves, re-rendering everything.
-  function renderAll() {
-    chart.each(render);
-    list.each(render);
-    d3.select("#active").text(formatNumber(all.value()));
-  }
-
-  // Like d3.time.format, but faster.
-  function parseDate(d) {
-    return new Date(2001,
-        d.substring(0, 2) - 1,
-        d.substring(2, 4),
-        d.substring(4, 6),
-        d.substring(6, 8));
-  }
-
-  window.filter = function(filters) {
-    filters.forEach(function(d, i) { charts[i].filter(d); });
-    renderAll();
-  };
-
-  window.reset = function(i) {
-    charts[i].filter(null);
-    renderAll();
-  };
-
-  function flightList(div) {
-    var flightsByDate = nestByDate.entries(date.top(40));
-
-    div.each(function() {
-      var date = d3.select(this).selectAll(".date")
-          .data(flightsByDate, function(d) { return d.key; });
-
-      date.enter().append("div")
-          .attr("class", "date")
-        .append("div")
-          .attr("class", "day")
-          .text(function(d) { return formatDate(d.values[0].date); });
-
-      date.exit().remove();
-
-      var flight = date.order().selectAll(".flight")
-          .data(function(d) { return d.values; }, function(d) { return d.index; });
-
-      var flightEnter = flight.enter().append("div")
-          .attr("class", "flight");
-
-      flightEnter.append("div")
-          .attr("class", "time")
-          .text(function(d) { return formatTime(d.date); });
-
-      flightEnter.append("div")
-          .attr("class", "origin")
-          .text(function(d) { return d.origin; });
-
-      flightEnter.append("div")
-          .attr("class", "destination")
-          .text(function(d) { return d.destination; });
-
-      flightEnter.append("div")
-          .attr("class", "distance")
-          .text(function(d) { return formatNumber(d.distance) + " mi."; });
-
-      flightEnter.append("div")
-          .attr("class", "delay")
-          .classed("early", function(d) { return d.delay < 0; })
-          .text(function(d) { return formatChange(d.delay) + " min."; });
-
-      flight.exit().remove();
-
-      flight.order();
-    });
-  }
-
-  function barChart() {
-    if (!barChart.id) barChart.id = 0;
-
-    var margin = {top: 10, right: 10, bottom: 20, left: 10},
-        x,
-        y = d3.scale.linear().range([100, 0]),
-        id = barChart.id++,
-        axis = d3.svg.axis().orient("bottom"),
-        brush = d3.svg.brush(),
-        brushDirty,
-        dimension,
-        group,
-        round;
-
-    function chart(div) {
-      var width = x.range()[1],
-          height = y.range()[0];
-
-      y.domain([0, group.top(1)[0].value]);
-
-      div.each(function() {
-        var div = d3.select(this),
-            g = div.select("g");
-
-        // Create the skeletal chart.
-        if (g.empty()) {
-          div.select(".title").append("a")
-              .attr("href", "javascript:reset(" + id + ")")
-              .attr("class", "reset")
-              .text("reset")
-              .style("display", "none");
-
-          g = div.append("svg")
-              .attr("width", width + margin.left + margin.right)
-              .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-              .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-          g.append("clipPath")
-              .attr("id", "clip-" + id)
-            .append("rect")
-              .attr("width", width)
-              .attr("height", height);
-
-          g.selectAll(".bar")
-              .data(["background", "foreground"])
-            .enter().append("path")
-              .attr("class", function(d) { return d + " bar"; })
-              .datum(group.all());
-
-          g.selectAll(".foreground.bar")
-              .attr("clip-path", "url(#clip-" + id + ")");
-
-          g.append("g")
-              .attr("class", "axis")
-              .attr("transform", "translate(0," + height + ")")
-              .call(axis);
-
-          // Initialize the brush component with pretty resize handles.
-          var gBrush = g.append("g").attr("class", "brush").call(brush);
-          gBrush.selectAll("rect").attr("height", height);
-          gBrush.selectAll(".resize").append("path").attr("d", resizePath);
-        }
-
-        // Only redraw the brush if set externally.
-        if (brushDirty) {
-          brushDirty = false;
-          g.selectAll(".brush").call(brush);
-          div.select(".title a").style("display", brush.empty() ? "none" : null);
-          if (brush.empty()) {
-            g.selectAll("#clip-" + id + " rect")
-                .attr("x", 0)
-                .attr("width", width);
-          } else {
-            var extent = brush.extent();
-            g.selectAll("#clip-" + id + " rect")
-                .attr("x", x(extent[0]))
-                .attr("width", x(extent[1]) - x(extent[0]));
-          }
-        }
-
-        g.selectAll(".bar").attr("d", barPath);
-      });
-
-      function barPath(groups) {
-        var path = [],
-            i = -1,
-            n = groups.length,
-            d;
-        while (++i < n) {
-          d = groups[i];
-          path.push("M", x(d.key), ",", height, "V", y(d.value), "h9V", height);
-        }
-        return path.join("");
-      }
-
-      function resizePath(d) {
-        var e = +(d == "e"),
-            x = e ? 1 : -1,
-            y = height / 3;
-        return "M" + (.5 * x) + "," + y
-            + "A6,6 0 0 " + e + " " + (6.5 * x) + "," + (y + 6)
-            + "V" + (2 * y - 6)
-            + "A6,6 0 0 " + e + " " + (.5 * x) + "," + (2 * y)
-            + "Z"
-            + "M" + (2.5 * x) + "," + (y + 8)
-            + "V" + (2 * y - 8)
-            + "M" + (4.5 * x) + "," + (y + 8)
-            + "V" + (2 * y - 8);
-      }
-    }
-
-    brush.on("brushstart.chart", function() {
-      var div = d3.select(this.parentNode.parentNode.parentNode);
-      div.select(".title a").style("display", null);
-    });
-
-    brush.on("brush.chart", function() {
-      var g = d3.select(this.parentNode),
-          extent = brush.extent();
-      if (round) g.select(".brush")
-          .call(brush.extent(extent = extent.map(round)))
-        .selectAll(".resize")
-          .style("display", null);
-      g.select("#clip-" + id + " rect")
-          .attr("x", x(extent[0]))
-          .attr("width", x(extent[1]) - x(extent[0]));
-      dimension.filterRange(extent);
-    });
-
-    brush.on("brushend.chart", function() {
-      if (brush.empty()) {
-        var div = d3.select(this.parentNode.parentNode.parentNode);
-        div.select(".title a").style("display", "none");
-        div.select("#clip-" + id + " rect").attr("x", null).attr("width", "100%");
-        dimension.filterAll();
-      }
-    });
-
-    chart.margin = function(_) {
-      if (!arguments.length) return margin;
-      margin = _;
-      return chart;
-    };
-
-    chart.x = function(_) {
-      if (!arguments.length) return x;
-      x = _;
-      axis.scale(x);
-      brush.x(x);
-      return chart;
-    };
-
-    chart.y = function(_) {
-      if (!arguments.length) return y;
-      y = _;
-      return chart;
-    };
-
-    chart.dimension = function(_) {
-      if (!arguments.length) return dimension;
-      dimension = _;
-      return chart;
-    };
-
-    chart.filter = function(_) {
-      if (_) {
-        brush.extent(_);
-        dimension.filterRange(_);
-      } else {
-        brush.clear();
-        dimension.filterAll();
-      }
-      brushDirty = true;
-      return chart;
-    };
-
-    chart.group = function(_) {
-      if (!arguments.length) return group;
-      group = _;
-      return chart;
-    };
-
-    chart.round = function(_) {
-      if (!arguments.length) return round;
-      round = _;
-      return chart;
-    };
-
-    return d3.rebind(chart, brush, "on");
-  }
-});*/
-
 </script>
 
+<!-- STYLE CSS customization -->
 <style type="text/css">
     
     .data-table {
         height: 100px;
         width: 100%;
     }
-    
     
     p { 
         clear:both; 
@@ -1183,9 +812,7 @@ d3.csv("data/sample/flights-3m.json", function(flights) {
 
 </style>      
 
-
 <style>
-
 .ui-jqgrid  {
     border: none;
 }
@@ -1266,6 +893,5 @@ d3.csv("data/sample/flights-3m.json", function(flights) {
 }
 
 </style>
-
 
 </html>
