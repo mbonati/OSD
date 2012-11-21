@@ -113,7 +113,7 @@
             <div class="span3 year-selection-container">
                 <div class="section-label"><h4>Filtri<h4></div>
                 <div class="dc-data-count">
-                    <span class="filter-count"></span> selected out of <span class="total-count"></span> records | <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+                    <span class="filter-count"></span> determine di <span class="total-count"></span> | <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
                 </div>
             </div>
         </div>
@@ -126,6 +126,17 @@
             </ul>
             
             <div class="tab-content">
+                  <div class="tab-pane table-container" id="determine">
+                        <table id="determine-table" class="tableGrid"></table>
+                        <div id="determine-table-pager"></div>
+                  </div>    
+                  <div class="tab-pane table-container" id="speseDL">
+                        <table id="speseDL-table"></table>
+                        <div id="speseDL-table-pager"></div>
+                  </div>
+            </div>  
+          </div>
+          <!--  <div class="tab-content">
                   <div class="tab-pane table-container" id="determine">
                         <table class="dc-data-table">
                             <thead>
@@ -143,9 +154,10 @@
                         <table id="speseDL-table"></table>
                         <div id="speseDL-table-pager"></div>
                   </div>
-               </div>  
+               </div>
+               
           </div>
-
+          -->  
 
            <div class="span3 filter-container">
                 <div id="importi-chart" >
@@ -157,7 +169,7 @@
           
             <div class="span3 filter-container">
                   <div id="comuni-chart" >
-                        <span>Importi </span>
+                        <span>Comuni </span>
                         <a class="reset" href="javascript:comuniChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
                         <div class="clear"></div>
                 </div>
@@ -175,8 +187,73 @@
 
 </body>
 
-<script type="text/javascript">
+<!--------- jqGrid Table ------------------------->
+<script>
+jQuery("#determine-table").jqGrid({
+    // load ONLY 5 + recenti altrimenti per popolare table altrimenti non funziona sorting griglia dopo con load dinamico!
+    url:'https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=agg_det_com&query=select%20comune%2C%20codice%2C%20DataSalvataggio%2C%20descrizione%2C%20importo%20from%20%60swdata%60%20%20order%20by%20DataSalvataggio%20DESC%20limit%205',
+    datatype: "json",
+   	colNames:['#', 'comune', 'descrizione', 'importo','data'],
+   	colModel:[
+   		{name:'codice',index:'codice', width:60},
+        {name:'comune',index:'comune', align:"center", width:90},
+   		{name:'descrizione',index:'descrizione', width:350},
+   		{name:'importo',index:'importo', width:130, align:"right",sorttype:"float", formatter:"number"},
+   		{name:'DataSalvataggio',index:'DataSalvataggio', width:120, align:"right",sorttype:'date', formatter:'date', datefmt:'Y-m-d'}	
+   	],
+   	rowNum: 10,
+    height: 500,
+   	pager: "#determine-table-pager",
+   	sortname: 'DataSalvataggio',
+    loadonce:true,
+    viewrecords: true,
+    sortorder: "desc",
+    sortable:true,
+    altRows:true,
+    altclass:'myAltRowClass',
+    caption:"Determinazioni",
+    // needed for soring correctly the grid after loading
+    loadComplete: function() {
+        var $this = $(this);
+        console.log("load complete");
+        
+        if ($this.jqGrid('getGridParam', 'datatype') == 'json') {
+            if ($this.jqGrid('getGridParam', 'sortname') != '') {
+                // we need reload grid only if we use sortname parameter,
+                // but the server return unsorted data
+                setTimeout(function () {
+                    $this.triggerHandler('reloadGrid');
+                }, 50);
+            }
+        }
+    },
+    jsonReader: {
+                    repeatitems: false,
+                    id: "Id",
+                    root: function (obj) { return obj; },
+                    page: function (obj) { return 1; },
+                    total: function (obj) { return 1; },
+                    records: function (obj) { return obj.length; }
+                }
+    /*grouping:true,
+    groupingView : {
+       	groupField : ['comune']
+   	}*/
+});
+jQuery("#determine-table-pager").jqGrid('navGrid','#determine-table-pager',{edit:false,add:false,del:false});
+$(".ui-jqgrid-titlebar").hide();
+</script>
 
+<!----  Tab selection ---->
+<script>
+//Activate the first Viz tab
+$(function () {
+    $('#viz-tab a:first').tab('show');
+ });
+</script>
+
+<!--------- CrossFilter & dc.js ------------------------->
+<script type="text/javascript">
 var fluctuationChart = dc.barChart("#fluctuation-chart");
 var importiChart = dc.pieChart("#importi-chart");
 var comuniChart = dc.pieChart("#comuni-chart");
@@ -184,26 +261,28 @@ var comuniChart = dc.pieChart("#comuni-chart");
 // set dc.js version in title
 d3.selectAll("#version").text(dc.version);
 
-// load data from a csv file
-//d3.csv("ndx.csv", function(data) {
+// load data from a scaperwiki file
 d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=agg_det_com&query=select%20comune%2Ccodice%2CDataSalvataggio%2Cdescrizione%2Cimporto%20from%20%60swdata%60" , function(delibere){ 
 
-            // since its a csv file we need to format the data a bit
-            var dateFormat = d3.time.format("%B %d, %Y");
-            var numberFormat = d3.format(".2f");
+        // since its a csv file we need to format the data a bit
+        var dateFormat = d3.time.format("%B %d, %Y");
+        var numberFormat = d3.format(".2f");
 
-            delibere.forEach(function(e) {
-                e.DataSalvataggio = parseDate(e.DataSalvataggio);
-                //e.month = d3.time.month(e.dd); // pre-calculate month for better performance
-            });
-
-            function parseDate(input) {
-                var parts = input.match(/(\d+)/g);
-                // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
-                var ret = new Date(parts[0], parts[1]-1, parts[2]); // months are 0-based
-                //console.log("parse date called for "+input + " result: " +ret);
-                return ret;
-             }
+        delibere.forEach(function(e) {
+            e.DataSalvataggio = parseDate(e.DataSalvataggio);
+            //e.month = d3.time.month(e.dd); // pre-calculate month for better performance
+        });
+        
+        function test() {
+            console.log("test");
+        }
+        
+        function parseDate(input) {
+            var parts = input.match(/(\d+)/g);
+            // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
+            var ret = new Date(parts[0], parts[1]-1, parts[2]); // months are 0-based
+            return ret;
+        }
   
             // feed it through crossfilter
             var delibereCF = crossfilter(delibere);
@@ -212,65 +291,24 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
             var date = delibereCF.dimension(function(d){ return d.DataSalvataggio;} );
             var dates = date.group();
 
-             //dimensione Comune
-              var dimComuni = delibereCF.dimension(function(d){ return d.comune;} );
-              var grpComuni = dimComuni.group();
+            //dimensione Comune
+            var dimComuni = delibereCF.dimension(function(d){ return d.comune;} );
+            var grpComuni = dimComuni.group();
               
-              //dimensione Importo
-              //var dimImporti = delibereCF.dimension(function(d){ return d.importo;} );
-              var dimImporti = delibereCF.dimension(function(d){
-                            if (d.importo <= 1000)
-                                return "< 1K";
-                            else if (d.importo > 1000 && d.importo <= 100000)
-                                return "< 100K";
-                            else if (d.importo > 100000 && d.importo <= 1000000)
-                                return "< 1M";
-                            else
-                                return "> 1M";                 
-                            });
-              var grpImporti = dimImporti.group();
-            /*var dateDimension = ndx.dimension(function(d) {
-                return d.dd;
+            //dimensione Importo (Pivotting per ranges di importo)
+            var dimImporti = delibereCF.dimension(function(d) {
+                if (d.importo <= 1000) 
+                    return "<1K";
+                else if (d.importo > 1000 && d.importo <= 100000) 
+                    return ">1K <100K";
+                else if (d.importo > 100000 && d.importo <= 500000) 
+                    return ">100K <500K";
+                else if (d.importo > 500000 && d.importo <= 1000000) 
+                    return ">500K <1Mil";
+                else 
+                    return ">1Mil";
             });
-
-            // monthly index avg fluctuation in percentage
-            var moveMonths = ndx.dimension(function(d) {
-                return d.month;
-            });
-            var monthlyMoveGroup = moveMonths.group().reduceSum(function(d) {
-                return Math.abs(+d.close - +d.open);
-            });
-            var volumeByMonthGroup = moveMonths.group().reduceSum(function(d) {
-                return d.volume / 500000;
-            });
-            var indexAvgByMonthGroup = moveMonths.group().reduce(
-                    function(p, v) {
-                        ++p.days;
-                        p.total += (+v.open + +v.close) / 2;
-                        p.avg = Math.round(p.total / p.days);
-                        return p;
-                    },
-                    function(p, v) {
-                        --p.days;
-                        p.total -= (+v.open + +v.close) / 2;
-                        p.avg = p.days==0?0:Math.round(p.total / p.days);
-                        return p;
-                    },
-                    function() {
-                        return {days:0, total:0, avg:0};
-                    }
-            );
-
-            var gainOrLoss = ndx.dimension(function(d) {
-                return +d.open > +d.close ? "Loss" : "Gain";
-            });
-            var gainOrLossGroup = gainOrLoss.group();
-
-            var fluctuation = ndx.dimension(function(d) {
-                return Math.round((d.close - d.open) / d.open * 100);
-            });
-            var fluctuationGroup = fluctuation.group();
-            */
+            var grpImporti = dimImporti.group();
 
 
             fluctuationChart.width(820)
@@ -306,7 +344,7 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
                     .dimension(delibereCF)
                     .group(all);
 
-            dc.dataTableExt(".dc-data-table")
+            dc.dataTableExt(".tableGrid")
                     .dimension(date)
                     //.group(all)
                     .group(function(d) {
@@ -314,19 +352,14 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
                         return d.DataSalvataggio.getFullYear() + "/" + format((d.DataSalvataggio.getMonth() + 1));
                     })
                     .size(100)
-                    .columns([
-                        function(d) { return d.codice; },
-                        function(d) { return d.comune; },
-                        function(d) { return d.descrizione; },
-                        function(d) { return d.importo; },
-                        function(d) { return d.DataSalvataggio; }
-                    ])
+                    .columns([])
                     .sortBy(function(d) {
                         return d.DataSalvataggio;
                     })
                     .order(d3.ascending);
-
+             
             dc.renderAll();
+            
         }
 );
 
@@ -341,6 +374,36 @@ dc.dataTableExt = function(parent, chartGroup) {
     var _order = d3.ascending;
     var _sort;
 
+    // jqGrid table writer
+    //function updateGridRows(div) {
+    function updateGridRows() {
+        var delibereByDate = nestEntries(); 
+
+        var table = jQuery("#determine-table");
+
+        table.clearGridData();
+
+        var rowcount = 1;
+        delibereByDate.forEach(function(dContainer, j) {
+            dContainer.values.forEach(function(delibera, i) {
+                if (i > 0) {
+                    var row = {
+                        codice: delibera.codice,
+                        comune: delibera.comune,
+                        descrizione: delibera.descrizione,
+                        importo: delibera.importo,
+                        DataSalvataggio: delibera.DataSalvataggio
+                    };
+                    table.addRowData(rowcount, row);
+                    console.log("adding j:"+ j +" row:"+i + " codice:"+delibera.codice)
+                    rowcount++;
+                }
+            });
+        });
+
+        table.trigger("reloadGrid");
+    }
+
     _chart.doRender = function() {
         _chart.selectAll("tbody").remove();
 
@@ -350,65 +413,29 @@ dc.dataTableExt = function(parent, chartGroup) {
     };
 
     function renderGroups() {
-        var groups = _chart.root().selectAll("tbody")
-            .data(nestEntries(), function(d) {
-                return _chart.keyAccessor()(d);
-            });
-
-        var rowGroup = groups
-            .enter()
-            .append("tbody");
-
-        /*rowGroup
-            .append("tr")
-            .attr("class", "group")
-                .append("td")
-                .attr("class", "label")
-                .attr("colspan", _columns.length)
-                .text(function(d) {
-                    return _chart.keyAccessor()(d);
-                });*/
-
-        groups.exit().remove();
-
-        return rowGroup;
+        // noop
     }
 
     function nestEntries() {
-        if (!_sort)
-            _sort = crossfilter.quicksort.by(_sortBy);
+        if (!_sort) _sort = crossfilter.quicksort.by(_sortBy);
 
         var entries = _chart.dimension().top(_size);
 
-        return d3.nest()
-            .key(_chart.group())
-            .sortKeys(_order)
-            .entries(_sort(entries, 0, entries.length));
+        return d3.nest().key(_chart.group()).sortKeys(_order).entries(_sort(entries, 0, entries.length));
     }
 
     function renderRows(groups) {
-        var rows = groups.order()
-            .selectAll("tr.row")
-            .data(function(d) {
-                return d.values;
-            });
-
-        var rowEnter = rows.enter()
-            .append("tr")
-            .attr("class", "row");
-
-        for (var i = 0; i < _columns.length; ++i) {
-            var f = _columns[i];
-            rowEnter.append("td")
-                .attr("class", "column " + i)
-                .text(function(d) {
-                    return f(d);
-                });
-        }
-
-        rows.exit().remove();
-
-        return rows;
+        /*var tables = d3.selectAll(".tableGrid")
+        
+        tables.forEach(function(dTable,j) {
+            updateGridRows(dTable);
+        });*/
+        
+        updateGridRows();
+        
+        delibere.test();
+       
+        return {};
     }
 
     _chart.doRedraw = function() {
@@ -443,4 +470,250 @@ dc.dataTableExt = function(parent, chartGroup) {
 };
 </script>
 
+<!-- STYLE CSS customization -->
+<style type="text/css">
+    
+    .data-table {
+        height: 100px;
+        width: 100%;
+    }
+    
+    p { 
+        clear:both; 
+    }
+    
+    div.year-selection-container {
+        margin-bottom: 50px;
+    }
+    
+    #year-selection-slider .ui-slider-label {
+        font-size: 10px;
+    }
+    
+    #year-selection-slider fieldset { 
+        border:0; 
+        margin-top: 0;
+    }
+    
+	#year-selection-slider label {
+        font-weight: bold; 
+        float: left; 
+        margin-right: .5em; 
+        font-size: 1.1em;
+    }
+    
+	#year-selection-slider .ui-slider {
+        clear: both; 
+        top: 0em;
+    }
+    
+    #year-selection-slider select {
+        visibility: hidden;
+    }
+    
+    .background {
+      fill: none;
+      pointer-events: all;
+    }
+    
+    .filter-container ul {
+        list-style: none;
+    }
+    
+    .filter-container label {
+        font-size: 10px;
+        font-weight: bold;
+    }
+    
+
+    #charts {
+      padding: 0px 0;
+    }
+    
+    .chart {
+      /*display: inline-block;*/
+      height: 151px;
+      margin-bottom: 20px;
+    }
+
+    	
+    .background.bar {
+      fill: #ccc;
+    }
+    
+    .foreground.bar {
+      fill: steelblue;
+    }
+    
+    .axis path, .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+    
+    .axis text {
+      font: 10px sans-serif;
+    }
+    
+    .brush rect.extent {
+      fill: steelblue;
+      fill-opacity: .125;
+    }
+    
+    .brush .resize path {
+      fill: #eee;
+      stroke: #666;
+    }
+    
+    #hour-chart {
+      width: 260px;
+    }
+    
+    #delay-chart {
+      width: 230px;
+    }
+    
+    #distance-chart {
+      width: 420px;
+    }
+    
+    #date-chart {
+      width: 920px;
+    }
+    
+    #comuni-chart {
+      width: 400px;
+    }
+    
+    #importi-chart {
+      width: 400px;
+    }
+    
+    #flight-list {
+      min-height: 1024px;
+    }
+    
+    #flight-list .date,
+    #flight-list .day {
+      margin-bottom: .4em;
+    }
+    
+    #flight-list .flight {
+      line-height: 1.5em;
+      background: #eee;
+      width: 640px;
+      margin-bottom: 1px;
+    }
+    
+    #flight-list .time {
+      color: #999;
+    }
+    
+    #flight-list .flight div {
+      display: inline-block;
+      width: 100px;
+    }
+    
+    #flight-list div.distance,
+    #flight-list div.delay {
+      width: 160px;
+      padding-right: 10px;
+      text-align: right;
+    }
+    
+    #flight-list .early {
+      color: green;
+    }
+
+</style>      
+<!--
+<style>
+.myAltRowClass { background-color: #EEE; background-image: none; }
+
+.ui-jqgrid  {
+    border: none;
+}
+
+.ui-jqgrid .ui-jqgrid-htable th {
+    background-color:  white;
+    background-image:  none;
+    height: 30px;
+    padding-top: 4px;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid transparent;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.ui-jqgrid tr.jqgrow td  {
+    font-weight: normal;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    padding: 4px;
+}
+
+.ui-jqgrid tr.ui-row-ltr td {
+    border-color: transparent;
+    border-top: 1px solid #DDD;
+}
+
+
+.ui-jqgrid .ui-jqgrid-btable  {
+    border-color: transparent;
+}
+
+.ui-jqgrid table  {
+    border-collapse: initial;
+}
+
+.ui-jqgrid .jqgrow  {
+    line-height: 23px;
+    padding: 8px;
+}
+
+.ui-jqgrid td {
+}
+
+.ui-jqgrid .ui-jqgrid-pager {
+    color: #111;
+    background-color:  #FFF;
+    background-image:  none;
+}
+
+.ui-jqgrid-pager .ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+-moz-border-radius-bottomleft: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.ui-jqgrid-pager input.text {
+    background-color:  white;
+    background-image:  none;
+    margin-bottom: 2px;
+}
+
+.ui-jqgrid tr.jqgrow td {
+        white-space: normal !important;
+}
+
+.ui-jqgrid  .ui-state-hover {
+  background-image: none;
+  background-color: #DDDDDC;
+}
+
+.ui-jqgrid .ui-jqgrid-hdiv {
+  background-image: none;
+  background-color: transparent;
+}
+
+</style>
+-->
 
