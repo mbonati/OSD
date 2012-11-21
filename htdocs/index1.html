@@ -105,9 +105,8 @@
             <div class="span9 year-selection-container">
                 <div class="section-label"><h4>Selettore<h4></div>
                   <div id="fluctuation-chart" >
-                        <span>Days by Fluctuation(%)</span>
+                        <span>Periodo</span>
                         <a class="reset" href="javascript:fluctuationChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-                    
                         <div class="clear"></div>
                 </div>
             </div>
@@ -124,7 +123,7 @@
             <ul class="nav nav-tabs" id="viz-tab">
                 <li><a href="#determine" data-toggle="tab">Determinazioni</a></li>
                 <li><a href="#speseDL" data-toggle="tab">Spese D.L. n.83/2012</a></li>
-             </ul>
+            </ul>
             
             <div class="tab-content">
                   <div class="tab-pane table-container" id="determine">
@@ -148,20 +147,22 @@
           </div>
 
 
-         <!--   <div class="span3 filter-container">
-                  <div id="importi-chart" class="chart">
-                    <div class="title">Importi </div>
-                  </div>
+           <div class="span3 filter-container">
+                <div id="importi-chart" >
+                        <span>Importi </span>
+                        <a class="reset" href="javascript:importiChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                        <div class="clear"></div>
+                </div>
            </div>
           
             <div class="span3 filter-container">
-                  <div id="comuni-chart" class="chart">
-                    <div class="title">Comuni </div>
-                  </div>
+                  <div id="comuni-chart" >
+                        <span>Importi </span>
+                        <a class="reset" href="javascript:comuniChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                        <div class="clear"></div>
+                </div>
             </div>
-          -->
         </div>
-
 
     </div> <!-- /container q -->
     
@@ -177,6 +178,8 @@
 <script type="text/javascript">
 
 var fluctuationChart = dc.barChart("#fluctuation-chart");
+var importiChart = dc.pieChart("#importi-chart");
+var comuniChart = dc.pieChart("#comuni-chart");
 
 // set dc.js version in title
 d3.selectAll("#version").text(dc.version);
@@ -198,7 +201,7 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
                 var parts = input.match(/(\d+)/g);
                 // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
                 var ret = new Date(parts[0], parts[1]-1, parts[2]); // months are 0-based
-                console.log("parse date called for "+input + " result: " +ret);
+                //console.log("parse date called for "+input + " result: " +ret);
                 return ret;
              }
   
@@ -209,6 +212,23 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
             var date = delibereCF.dimension(function(d){ return d.DataSalvataggio;} );
             var dates = date.group();
 
+             //dimensione Comune
+              var dimComuni = delibereCF.dimension(function(d){ return d.comune;} );
+              var grpComuni = dimComuni.group();
+              
+              //dimensione Importo
+              //var dimImporti = delibereCF.dimension(function(d){ return d.importo;} );
+              var dimImporti = delibereCF.dimension(function(d){
+                            if (d.importo <= 1000)
+                                return "< 1K";
+                            else if (d.importo > 1000 && d.importo <= 100000)
+                                return "< 100K";
+                            else if (d.importo > 100000 && d.importo <= 1000000)
+                                return "< 1M";
+                            else
+                                return "> 1M";                 
+                            });
+              var grpImporti = dimImporti.group();
             /*var dateDimension = ndx.dimension(function(d) {
                 return d.dd;
             });
@@ -250,43 +270,8 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
                 return Math.round((d.close - d.open) / d.open * 100);
             });
             var fluctuationGroup = fluctuation.group();
-
-            var quarter = ndx.dimension(function(d) {
-                var month = d.dd.getMonth();
-                if (month <= 3)
-                    return "Q1";
-                else if (month > 3 && month <= 5)
-                    return "Q2";
-                else if (month > 5 && month <= 7)
-                    return "Q3";
-                else
-                    return "Q4";
-            });
-            var quarterGroup = quarter.group().reduceSum(function(d) {
-                return d.volume;
-            });
-
-            var dayOfWeek = ndx.dimension(function(d) {
-                var day = d.dd.getDay();
-                switch (day) {
-                    case 0:
-                        return "Sun";
-                    case 1:
-                        return "Mon";
-                    case 2:
-                        return "Tue";
-                    case 3:
-                        return "Wed";
-                    case 4:
-                        return "Thu";
-                    case 5:
-                        return "Fri";
-                    case 6:
-                        return "Sat";
-                }
-            });
-            var dayOfWeekGroup = dayOfWeek.group();
             */
+
 
             fluctuationChart.width(820)
                     .height(180)
@@ -302,19 +287,33 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
                     .renderHorizontalGridLines(true)
                     .xAxis();
                     
+            importiChart.width(180)
+                    .height(180)
+                    .radius(80)
+                    .innerRadius(30)
+                    .dimension(dimImporti)
+                    .group(grpImporti);
 
-
+            comuniChart.width(180)
+                    .height(180)
+                    .radius(80)
+                    .colors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
+                    .innerRadius(30)
+                    .dimension(dimComuni)
+                    .group(grpComuni);
+                    
             dc.dataCount(".dc-data-count")
                     .dimension(delibereCF)
                     .group(all);
 
-            dc.dataTable(".dc-data-table")
+            dc.dataTableExt(".dc-data-table")
                     .dimension(date)
+                    //.group(all)
                     .group(function(d) {
                         var format = d3.format("02d");
                         return d.DataSalvataggio.getFullYear() + "/" + format((d.DataSalvataggio.getMonth() + 1));
                     })
-                    .size(10)
+                    .size(100)
                     .columns([
                         function(d) { return d.codice; },
                         function(d) { return d.comune; },
@@ -330,6 +329,118 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
             dc.renderAll();
         }
 );
+
+dc.dataTableExt = function(parent, chartGroup) {
+    var _chart = dc.baseChart({});
+
+    var _size = 25;
+    var _columns = [];
+    var _sortBy = function(d) {
+        return d;
+    };
+    var _order = d3.ascending;
+    var _sort;
+
+    _chart.doRender = function() {
+        _chart.selectAll("tbody").remove();
+
+        renderRows(renderGroups());
+
+        return _chart;
+    };
+
+    function renderGroups() {
+        var groups = _chart.root().selectAll("tbody")
+            .data(nestEntries(), function(d) {
+                return _chart.keyAccessor()(d);
+            });
+
+        var rowGroup = groups
+            .enter()
+            .append("tbody");
+
+        /*rowGroup
+            .append("tr")
+            .attr("class", "group")
+                .append("td")
+                .attr("class", "label")
+                .attr("colspan", _columns.length)
+                .text(function(d) {
+                    return _chart.keyAccessor()(d);
+                });*/
+
+        groups.exit().remove();
+
+        return rowGroup;
+    }
+
+    function nestEntries() {
+        if (!_sort)
+            _sort = crossfilter.quicksort.by(_sortBy);
+
+        var entries = _chart.dimension().top(_size);
+
+        return d3.nest()
+            .key(_chart.group())
+            .sortKeys(_order)
+            .entries(_sort(entries, 0, entries.length));
+    }
+
+    function renderRows(groups) {
+        var rows = groups.order()
+            .selectAll("tr.row")
+            .data(function(d) {
+                return d.values;
+            });
+
+        var rowEnter = rows.enter()
+            .append("tr")
+            .attr("class", "row");
+
+        for (var i = 0; i < _columns.length; ++i) {
+            var f = _columns[i];
+            rowEnter.append("td")
+                .attr("class", "column " + i)
+                .text(function(d) {
+                    return f(d);
+                });
+        }
+
+        rows.exit().remove();
+
+        return rows;
+    }
+
+    _chart.doRedraw = function() {
+        return _chart.doRender();
+    };
+
+    _chart.size = function(s) {
+        if (!arguments.length) return _size;
+        _size = s;
+        return _chart;
+    };
+
+    _chart.columns = function(_) {
+        if (!arguments.length) return _columns;
+        _columns = _;
+        return _chart;
+    };
+
+    _chart.sortBy = function(_) {
+        if (!arguments.length) return _sortBy;
+        _sortBy = _;
+        return _chart;
+    };
+
+    _chart.order = function(_) {
+        if (!arguments.length) return _order;
+        _order = _;
+        return _chart;
+    };
+
+    return _chart.anchor(parent, chartGroup);
+};
 </script>
 
 
