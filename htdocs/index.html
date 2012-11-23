@@ -105,15 +105,15 @@
             <div class="span9 year-selection-container">
                 <div class="section-label"><h4>Selettore<h4></div>
                   <div id="fluctuation-chart" class="chart">
-                        <span>Periodo</span>
-                        <a class="reset" href="javascript:fluctuationChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                        <span>Selettore Periodo</span>
+                        <a class="reset" href="javascript:fluctuationChart.filterAll();dc.redrawAll();" style="display: none;">rimuovi filtro</a>
                         <div class="clear"></div>
                 </div>
             </div>
             <div class="span3 year-selection-container">
                 <div class="section-label"><h4>Filtri<h4></div>
                 <div class="dc-data-count">
-                    <span class="filter-count"></span> determine di <span class="total-count"></span> | <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+                    <span class="filter-count"></span> determine di <span class="total-count"></span> | <a href="javascript:dc.filterAll(); dc.renderAll();">rimuovi tutti filtri</a>
                 </div>
             </div>
         </div>
@@ -139,16 +139,24 @@
 
            <div class="span3 filter-container">
                 <div id="importi-chart" >
-                        <span>Importi </span>
-                        <a class="reset" href="javascript:importiChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                        <span>Selettore Importi </span>
+                        <a class="reset" href="javascript:importiChart.filterAll();dc.redrawAll();" style="display: none;">rimuovi filtro</a>
                         <div class="clear"></div>
                 </div>
            </div>
           
             <div class="span3 filter-container">
                   <div id="comuni-chart" >
-                        <span>Comuni </span>
-                        <a class="reset" href="javascript:comuniChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                        <span>Selettore Comuni </span>
+                        <a class="reset" href="javascript:comuniChart.filterAll();dc.redrawAll();" style="display: none;">rimuovi filtro</a>
+                        <div class="clear"></div>
+                </div>
+            </div>
+            
+            <div class="span3 filter-container">
+                  <div id="regioni-chart" >
+                        <span>Selettore Regioni </span>
+                        <a class="reset" href="javascript:regioniChart.filterAll();dc.redrawAll();" style="display: none;">rimuovi filtro</a>
                         <div class="clear"></div>
                 </div>
             </div>
@@ -233,6 +241,7 @@ $(function () {
 var fluctuationChart = dc.barChart("#fluctuation-chart");
 var importiChart = dc.pieChart("#importi-chart");
 var comuniChart = dc.pieChart("#comuni-chart");
+var regioniChart = dc.geoChoroplethChart("#regioni-chart");
 var counter;
 
 // set dc.js version in title
@@ -264,13 +273,26 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
         // feed it through crossfilter
         var delibereCF = crossfilter(delibere);
         var all = delibereCF.groupAll();
-            
+         
+        // dimensioni date
         var date = delibereCF.dimension(function(d){ return d.DataSalvataggio;} );
         var dates = date.group();
 
         //dimensione Comune
         var dimComuni = delibereCF.dimension(function(d){ return d.comune;} );
         var grpComuni = dimComuni.group();
+        
+        //dimensione Regioni per ora scolpite da citta' poi va caricato file di mapping comune-regioni
+        var dimRegioni = delibereCF.dimension(function(d){ 
+            if (d.comune == "Torino") 
+                return "PIEMONTE"; // piemonte
+            else if (d.comune == "Milano")
+                return "LOMBARDIA"; // lombardia
+            else if (d.comune == "Venezia") 
+                return "VENETO"; // veneto
+        
+        });
+        var grpRegioni = dimRegioni.group();
               
         //dimensione Importo (Pivotting per ranges di importo)
         var dimImporti = delibereCF.dimension(function(d) {
@@ -288,7 +310,22 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
         var grpImporti = dimImporti.group();
 
 
-        fluctuationChart.width(820)
+        d3.json("data/geo/italia.regioni.geojson", function(italyJson) {
+        //d3.json("data/geo/usa.geojson" , function(italyJson) {
+          regioniChart.width(280)
+                    .height(400)
+                    .dimension(dimRegioni)
+                    .group(grpRegioni)
+                    .projection(d3.geo.mercator()
+                            .scale(9300)
+                            .translate([-170, 1400]))
+                    .colors(["#ccc", "#E2F2FF","#C4E4FF","#9ED2FF","#81C5FF","#6BBAFF","#51AEFF","#36A2FF","#1E96FF","#0089FF","#0061B5"])
+                    .colorDomain([-5, 250])
+                    .overlayGeoJson(italyJson.features, "Regione", function(d) {
+                        return d.properties.NOME_REG;
+                    });
+
+            fluctuationChart.width(820)
                     .height(180)
                     .margins({top: 10, right: 50, bottom: 30, left: 40})
                     .dimension(date)
@@ -303,76 +340,79 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
                     .renderHorizontalGridLines(true)
                     .xAxis();
                     
-        importiChart.width(180)
-                    .height(180)
+            importiChart.width(170)
+                    .height(170)
                     .radius(80)
                     .innerRadius(30)
                     .dimension(dimImporti)
                     .group(grpImporti);
 
-        comuniChart.width(180)
-                    .height(180)
+            comuniChart.width(170)
+                    .height(170)
                     .radius(80)
                     .colors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
                     .innerRadius(30)
                     .dimension(dimComuni)
                     .group(grpComuni);
-                    
+        
         counter = dc.dataCountExt(".dc-data-count")
                     .dimension(delibereCF)
                     .group(all);
             
-        dc.renderAll();
-            
-        // trigger temporized table rendering
-        setTimeout(function () {
-            renderTable();
-                }, 500);
-            
-        function renderTable() {             
-            updateGridRows();
-        }  
-             
-        // A nest operator, for grouping the delibere by year.
-        var nestByDate = d3.nest().key(function(d) {
-            //console.log("nest called for " + d.DataSalvataggio); 
-            return d.DataSalvataggio;
-        });            
-                    
-            
-        function updateGridRows() {
-            var delibereByDate = nestByDate.entries(date.top(200));
-            
-            if (counter.dirty()) {
-                var table = jQuery("#determine-table");
-            
-                table.clearGridData();
-            
-                var rowcount = 1;
-                delibereByDate.forEach(function(dContainer, j) {
-                    dContainer.values.forEach(function(delibera, i) {
-                        var row = {
-                            codice: delibera.codice,
-                            comune: delibera.comune,
-                            descrizione: delibera.descrizione,
-                            importo: delibera.importo,
-                            DataSalvataggio: delibera.DataSalvataggio
-                        };
-                        table.addRowData(rowcount, row);
-                        //console.log("adding j:" + j + " row:" + i + " codice:" + delibera.codice)
-                        rowcount++;
-                    });
-                });
-            
-                table.trigger("reloadGrid");
+            dc.renderAll();
                 
-                counter.dirty(false);
-            }
-            //...finally a new timer to be updated!
-            setTimeout(function() {
+            // trigger temporized table rendering
+            setTimeout(function () {
                 renderTable();
-            }, 500);
-        }
+                    }, 500);
+                
+            function renderTable() {             
+                updateGridRows();
+            }  
+                 
+            // A nest operator, for grouping the delibere by year.
+            var nestByDate = d3.nest().key(function(d) {
+                //console.log("nest called for " + d.DataSalvataggio); 
+                return d.DataSalvataggio;
+            });            
+                        
+                
+            function updateGridRows() {
+                var delibereByDate = nestByDate.entries(date.top(200));
+                
+                if (counter.dirty()) {
+                    var table = jQuery("#determine-table");
+                
+                    table.clearGridData();
+                
+                    var rowcount = 1;
+                    delibereByDate.forEach(function(dContainer, j) {
+                        dContainer.values.forEach(function(delibera, i) {
+                            var row = {
+                                codice: delibera.codice,
+                                comune: delibera.comune,
+                                descrizione: delibera.descrizione,
+                                importo: delibera.importo,
+                                DataSalvataggio: delibera.DataSalvataggio
+                            };
+                            table.addRowData(rowcount, row);
+                            //console.log("adding j:" + j + " row:" + i + " codice:" + delibera.codice)
+                            rowcount++;
+                        });
+                    });
+                
+                    table.trigger("reloadGrid");
+                    
+                    counter.dirty(false);
+                }
+                //...finally a new timer to be updated!
+                setTimeout(function() {
+                    renderTable();
+                }, 500);
+            }
+        });
+        
+        
              
     }
 );
