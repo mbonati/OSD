@@ -107,8 +107,8 @@
                 <fieldset id="year-selection-slider">
         			<select name="yearSelection" id="yearSelection">
         				<option value="2007">2007</option>
-        				<option value="2008">2008</option>
-        				<option value="2009" selected="selected">2009</option>
+        				<option value="2008" selected="selected">2008</option>
+        				<option value="2009">2009</option>
         				<option value="2010">2010</option>
         				<option value="2011">2011</option>
             			<option value="2012">2012</option>
@@ -120,59 +120,61 @@
             </div>
         </div>
         
-
-        
         <div class="row-fluid">
             <div class="span3 filter-container section-label">
-                <span class="filter-item-label-title"><h4>Granularità</h4></span>
-                    <form>
-                        <ul>
-                            <li>
-                              <label><input type="radio" name="radio" />Regione</label>
-                              <label><input type="radio" name="radio" />Provincia</label>
-                              <label><input type="radio" name="radio" />Comune</label>
-                            </li>
-                        </ul>
-                    </form>
-                    <span class="filter-item-label-title"><h4>Indicatori</h4></span>
-                    <form>
-                        <ul>
-                            <li>
-                              <label><input type="radio" name="radio" />Pressione finanziaria (m.p.c.)</label>
-                              <label><input type="radio" name="radio" />Pressione tributaria (m.p.c.)</label>
-                              <label><input type="radio" name="radio" />Intervento Erariale (m.p.c.)</label>
-                              <label><input type="radio" name="radio" />Intervento Regionale (m.p.c.)</label>
-                              <label><input type="radio" name="radio" />Vel.Ris.Ent. Pr. (%) (m.p.c.)</label>
-                              <label><input type="radio" name="radio" />Vel.Ges.Sp.Cor. (%) (m.p.c.)</label>
-                              <label><input type="radio" name="radio" />Autonomia Finanziaria (%) (m.p.c.)</label>
-                              <label><input type="radio" name="radio" />Autonomia Impositiva (%) (m.p.c.)</label>
-                            </li>
-                        </ul>
-                    </form>
+                <span class="filter-item-label-title">
+                    <h4>Granularità</h4>
+                </span>
+                <form>
+                    <ul>
+                        <li>
+                            <label><input type="radio" name="mapZoomLevel" value="regioni" onclick="changeMapDetails(this)" checked/>Regione</label>
+                            <label><input type="radio" name="mapZoomLevel" value="provincie" onclick="changeMapDetails(this)"/>Provincia</label>
+                            <label><input type="radio" name="mapZoomLevel" value="comuni" onclick="changeMapDetails(this)" disabled/>Comune</label>
+                        </li>
+                    </ul>
+                </form>
+                <span class="filter-item-label-title">
+                    <h4>Indicatori</h4>
+                </span>
+                <form>
+                    <ul>
+                        <li>
+                            <label><input type="radio" name="radio" checked/>Pressione finanziaria (m.p.c.)</label>
+                            <label><input type="radio" name="radio" />Pressione tributaria (m.p.c.)</label>
+                            <label><input type="radio" name="radio" />Intervento Erariale (m.p.c.)</label>
+                            <label><input type="radio" name="radio" />Intervento Regionale (m.p.c.)</label>
+                            <label><input type="radio" name="radio" />Vel.Ris.Ent. Pr. (%) (m.p.c.)</label>
+                            <label><input type="radio" name="radio" />Vel.Ges.Sp.Cor. (%) (m.p.c.)</label>
+                            <label><input type="radio" name="radio" />Autonomia Finanziaria (%) (m.p.c.)</label>
+                            <label><input type="radio" name="radio" />Autonomia Impositiva (%) (m.p.c.)</label>
+                        </li>
+                    </ul>
+                </form>
             </div>
-          
-          
-          <div class="span6 viz-container section-label">
-              <ul class="nav nav-tabs" id="viz-tab">
-                <li><a href="#map" data-toggle="tab">Mappa</a></li>
-                <li><a href="#table" data-toggle="tab">Tabella</a></li>
-              </ul>
-              
-              <div class="tab-content">
-                  <div class="tab-pane active map-container" id="map"></div>
-                  <div class="tab-pane table-container" id="table">
+            <div class="span6 viz-container section-label">
+                <ul class="nav nav-tabs" id="viz-tab">
+                    <li>
+                        <a href="#map" data-toggle="tab"><h5>Mappa</h5></a>
+                    </li>
+                    <li>
+                        <a href="#table" data-toggle="tab"><h5>Tabella Dati</h5></a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active map-container" id="map"></div>
+                    <div class="tab-pane table-container" id="table">
                         <table id="data-table"></table>
                         <div id="data-table-pager"></div>
-                  </div>
-              </div>
-          </div>
-          
-          
-          <div class="span3 details-container section-label"><h4>Dettagli<h4></div>
+                    </div>
+                </div>
+            </div>
+            <div class="span3 details-container section-label">
+                <h4>Dettagli</h4>
+            </div>
         </div>
-
-
-    </div> <!-- /container -->
+        </div>
+        <!-- /container -->
     
     <div id="viz-tooltip">
         <div id ="viz-tooltip-container">
@@ -183,42 +185,22 @@
 
 </body>
 
-<style>
-#viz-tooltip-container {
-  position: absolute;
-  bottom: 0;
-  width: 230px;
-  left: -125px;
-  font-size: 12px;
-  line-height: 16px;
-  padding: 10px;
-  border-radius: 3px;
-  background: rgba(255,255,255,0.9);
-  color: #000;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
-  -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.4);  
-  border:1px solid rgba(200,200,200,0.85);
-  text-align:center;
-}
+<!--- TODO!!!!
+approccio loading differito da applicare
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script>
+...
+queue()
+    .defer(d3.json, "../3750900/us-counties.json")
+    .defer(d3.json, "../3750900/us-states.json")
+    .defer(d3.tsv, "unemployment.tsv")
+    .await(ready);
 
-#viz-tooltip {
- text-align:center;  
-  z-index: 1000;
-  position: absolute;
-  display: none;
-}
+function ready(error, counties, states, unemployment) {
+  var rateById = {};
+-->
 
-#viz-tooltip .nytg-tail {
-  position: absolute;
-  bottom: -8px;
-  left: 105px;
-  width: 40px;
-  height: 8px;
-  background: url(img/tail_white.png) 50% 0%;
-}
-</style>
-
-
+<!--------------  Grid Table ------------------------------->
 <script>
 jQuery("#data-table").jqGrid({
     url:'data/indicatoriFinanziari/indicatoriProvincie.json',
@@ -230,15 +212,16 @@ jQuery("#data-table").jqGrid({
    		{name:'indicatore',index:'indicatore', width:200},
    		{name:'valoreEnte',index:'valoreEnte', width:90, align:"right",sorttype:"float", formatter:"number"}		
    	],
-   	rowNum: 50,
+   	rowNum: 30,
     height: 'auto',
    	pager: "#data-table-pager",
    	sortname: 'nomeEnte',
     loadonce:true,
     viewrecords: true,
     sortorder: "desc",
+    ignoreCase: true,
+    defaultSearch:"cn",
     caption:"Indicatori Finanziari",
-    
     jsonReader: {
                     repeatitems: false,
                     id: "Id",
@@ -252,10 +235,11 @@ jQuery("#data-table").jqGrid({
        	groupField : ['DataSalvataggio']
    	}*/
 });
-jQuery("#data-table-pager").jqGrid('navGrid','#data-table-pager',{edit:false,add:false,del:false});
-
+jQuery("#data-table").jqGrid('navGrid','#data-table-pager',{search:true,edit:false,add:false,del:false,searchtext:"Cerca"},
+{},{},{},{width:640,sopt:['cn','eq','ne','lt','le','gt','ge']},{});
 </script>
 
+<!--------------  Gestore selezione Tab Mappa/Table ------------------------------->
 <script>
 //Activate the first Viz tab
 $(function () {
@@ -263,26 +247,36 @@ $(function () {
  });
 </script>
 
-
-<script type="text/javascript" charset="utf-8">
-    //Activate Uniform UI
-      $(function(){
-        $("input, textarea, button").uniform();
-      });
+<!--------------  Gestore RadioButton per Granularita' (Regioni/Provincie/comuni ------------------------------->
+<script type="text/javascript">
+    function changeMapDetails(id){
+        console.log("selezionato:" + id + " " + id.name)
+    	deletePaths();
+        currentZoomLevel = id.value;
+        loadMapPaths(currentZoomLevel);
+    };
 </script>
-    
+
+<!--------------  Mappa ------------------------------->
 <script type="text/javascript">
     var svg;
     var projection;
     var centered;
     var path;
     var g;
+    var indicatoriProvincie = d3.json('data/indicatoriFinanziari/indicatoriProvincie.json');
+    var indicatoriRegioni = d3.json('data/indicatoriFinanziari/indicatoriRegioni.json');
+    var currentZoomLevel = "regioni";
+    
+    var quantize = d3.scale.quantize()
+                    .domain([0, 120])
+                    .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
     
     $(document).ready(function(){
         var w = 1000 /2,
             h = 1000 /2;
         
-         projection = d3.geo.mercator()
+        projection = d3.geo.mercator()
                             .scale(12000)
                             .translate([-380, 1560]);
           
@@ -305,27 +299,55 @@ $(function () {
             .append("g")
             .attr("id", "states");
 
-        //d3.json("data/geo/italia.regioni.geojson", function(collection) {
-        d3.json("data/geo/italia.provincie.semplificato.geojson", function(collection) {
+        loadMapPaths(currentZoomLevel);
+    });
+    
+    function deletePaths() {
+         g.selectAll("path").remove();
+    }
+    
+    function loadMapPaths(tipo) {
+        if (tipo=="regioni") {
+            d3.json("data/geo/italia.regioni.geojson", function(collection) {
                 feature = g.selectAll("path")
                     .data(collection.features)
                     .enter().append("path")
                     .attr("d", path)
-                    .attr('stroke', function(d) {
-                         return "#AFAFAF"; //default color
-                    })
+                    .attr('stroke', function(d) { return "#AFAFAF"; /*default color*/  })
                     .attr('stroke-width', 1)
-                    .attr('fill', function(d){
-                            return colorForItem(d);
-                        })
+                    .attr('fill', function(d){  return colorForItem(d); })
                     .on("mouseover",function(d,i){
                         //tooltip show/hide code
                         var el = d3.select(this)
-                        var xpos = event.pageX;// Number(el.attr('cx'))
-                        var ypos = event.pageY-10;//(el.attr('cy') - d.radius - 10)
+                        var xpos = d3.event.pageX;
+                        var ypos = d3.event.pageY-10;
                         d3.select("#viz-tooltip").style('top',ypos+"px").style('left',xpos+"px").style('display','block');
                         // mouseover regioni
-                        //d3.select(".viz-tooltip-value").html("Regione Selezionata: " +  d.properties["NOME_REG"] + " (istatCode:" + d.properties["COD_REG"] + ")" );
+                        d3.select(".viz-tooltip-value").html("Regione Selezionata: " +  d.properties["NOME_REG"] + " (istatCode:" + d.properties["COD_REG"] + ")" );
+                        //console.log(d + " " + i);
+                    })
+                    .on("mouseout",function(d,i) { 
+                        d3.select("#viz-tooltip").style('display','none')
+                    })
+                    .on("click", click)
+                    ;
+                    
+            });
+        } else if ( tipo=="provincie") {
+            d3.json("data/geo/italia.provincie.semplificato.geojson", function(collection) {
+                feature = g.selectAll("path")
+                    .data(collection.features)
+                    .enter().append("path")
+                    .attr("d", path)
+                    .attr('stroke', function(d) { return "#AFAFAF"; /*default color*/  })
+                    .attr('stroke-width', 1)
+                    .attr('fill', function(d){  return colorForItem(d); })
+                    .on("mouseover",function(d,i){
+                        //tooltip show/hide code
+                        var el = d3.select(this)
+                        var xpos = d3.event.pageX;
+                        var ypos = d3.event.pageY-10;
+                        d3.select("#viz-tooltip").style('top',ypos+"px").style('left',xpos+"px").style('display','block');
                         // mouseover provincie
                         d3.select(".viz-tooltip-value").html("Provincia Selezionata: " +  d.properties["NOME_PRO"] + " (regioneCode:" + d.properties["COD_REG"] + ")" );
                         //console.log(d + " " + i);
@@ -333,19 +355,13 @@ $(function () {
                     .on("mouseout",function(d,i) { 
                         d3.select("#viz-tooltip").style('display','none')
                     })
-                    .on("click", click)
-                    /*
-                    .append("svg:title")
-                    .text(function(d){
-                        return "d.name TODO!!";    
-                    })
-                    */
-                    ;
-                    
-        });
-    });
+                    .on("click", click);
+            });    
+        }
+    }
 
     function colorForItem(item){
+        //d.properties["COD_REG"];
         var random = randomInt(0,100);
         return d3.interpolateRgb("#F1EEF6", "#034E7B")(random/100);
     }
@@ -420,8 +436,6 @@ $(function () {
       svg.attr("width", window.innerWidth-45);
       svg.attr("height", window.innerHeight-45);
     }
-
-    
 </script>
 
 <script type="text/javascript">
@@ -429,6 +443,59 @@ $(function () {
 		var abc = $('select#yearSelection').selectToUISlider().next();
     });
 </script>        
+
+<script type="text/javascript" charset="utf-8">
+    //Activate Uniform UI
+      $(function(){
+        $("input, textarea, button").uniform();
+      });
+</script>
+
+<style>
+#viz-tooltip-container {
+  position: absolute;
+  bottom: 0;
+  width: 230px;
+  left: -125px;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 10px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.9);
+  color: #000;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.4);  
+  border:1px solid rgba(200,200,200,0.85);
+  text-align:center;
+}
+
+#viz-tooltip {
+ text-align:center;  
+  z-index: 1000;
+  position: absolute;
+  display: none;
+}
+
+#viz-tooltip .nytg-tail {
+  position: absolute;
+  bottom: -8px;
+  left: 105px;
+  width: 40px;
+  height: 8px;
+  background: url(img/tail_white.png) 50% 0%;
+}
+
+.Blues .q0-9{fill:rgb(247,251,255)}
+.Blues .q1-9{fill:rgb(222,235,247)}
+.Blues .q2-9{fill:rgb(198,219,239)}
+.Blues .q3-9{fill:rgb(158,202,225)}
+.Blues .q4-9{fill:rgb(107,174,214)}
+.Blues .q5-9{fill:rgb(66,146,198)}
+.Blues .q6-9{fill:rgb(33,113,181)}
+.Blues .q7-9{fill:rgb(8,81,156)}
+.Blues .q8-9{fill:rgb(8,48,107)}
+
+</style>
 
 <style type="text/css">
 

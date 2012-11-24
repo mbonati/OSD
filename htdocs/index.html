@@ -103,17 +103,16 @@
 
         <div class="row-fluid">
             <div class="span9 year-selection-container">
-                <div class="section-label"><h4>Selettore<h4></div>
-                  <div id="fluctuation-chart" class="chart">
-                        <span>Selettore Periodo</span>
-                        <a class="reset" href="javascript:fluctuationChart.filterAll();dc.redrawAll();" style="display: none;">rimuovi filtro</a>
+                  <div id="periodi-chart" class="chart">
+                        <span><h4>Selettore Periodo</h4></span>
+                        <a class="reset" href="javascript:periodiChart.filterAll();dc.redrawAll();" style="display: none;">rimuovi filtro</a>
                         <div class="clear"></div>
                 </div>
             </div>
             <div class="span3 year-selection-container">
                 <div class="section-label"><h4>Filtri<h4></div>
                 <div class="dc-data-count">
-                    <span class="filter-count"></span> determine di <span class="total-count"></span> | <a href="javascript:dc.filterAll(); dc.renderAll();">rimuovi tutti filtri</a>
+                    <span class="filter-count"></span> determine di <span class="total-count"></span> | <a href="javascript:dc.filterAll(); dc.renderAll();">rimuovi filtri</a>
                 </div>
             </div>
         </div>
@@ -121,8 +120,8 @@
         <div class="row">
           <div class="span9 viz-container section-label">
             <ul class="nav nav-tabs" id="viz-tab">
-                <li><a href="#determine" data-toggle="tab">Determinazioni</a></li>
-                <li><a href="#speseDL" data-toggle="tab">Spese D.L. n.83/2012</a></li>
+                <li><a href="#determine" data-toggle="tab"><h5>Determinazioni</h5></a></li>
+                <li><a href="#speseDL" data-toggle="tab"><h5>Spese D.L. n.83/2012</h5></a></li>
             </ul>
             
             <div class="tab-content">
@@ -179,11 +178,11 @@ jQuery("#determine-table").jqGrid({
     datatype: "local",
    	colNames:['#', 'comune', 'descrizione', 'importo','data'],
    	colModel:[
-   		{name:'codice',index:'codice', width:60},
+   		{name:'codice',index:'codice', width:60,search:false},
         {name:'comune',index:'comune', align:"center", width:90},
-   		{name:'descrizione',index:'descrizione', width:370},
+   		{name:'descrizione',index:'descrizione', width:400},
    		{name:'importo',index:'importo', width:115, align:"right",sorttype:"float", formatter:"number"},
-   		{name:'DataSalvataggio',index:'DataSalvataggio', width:120, align:"right",sorttype:'date', formatter:'date', datefmt:'Y-m-d'}	
+   		{name:'DataSalvataggio',index:'DataSalvataggio', width:120, align:"right",sorttype:'date', formatter:'date', datefmt:'Y-m-d',search:false}	
    	],
    	rowNum: 10,
     height: 550,
@@ -196,6 +195,8 @@ jQuery("#determine-table").jqGrid({
     altRows:true,
     altclass:'myAltRowClass',
     caption:"Determinazioni",
+    ignoreCase: true,
+    defaultSearch:"cn",
     // needed for soring correctly the grid after loading
     loadComplete: function() {
         var $this = $(this);
@@ -224,7 +225,8 @@ jQuery("#determine-table").jqGrid({
        	groupField : ['comune']
    	}*/
 });
-jQuery("#determine-table-pager").jqGrid('navGrid','#determine-table-pager',{edit:false,add:false,del:false});
+jQuery("#determine-table").jqGrid('navGrid','#determine-table-pager',{search:true,edit:false,add:false,del:false,searchtext:"Cerca"},
+{},{},{},{width:640,sopt:['cn','eq','ne','lt','le','gt','ge']},{});
 $(".ui-jqgrid-titlebar").hide();
 </script>
 
@@ -238,7 +240,7 @@ $(function () {
 
 <!--------- CrossFilter & dc.js ------------------------->
 <script type="text/javascript">
-var fluctuationChart = dc.barChart("#fluctuation-chart");
+var periodiChart = dc.barChart("#periodi-chart");
 var importiChart = dc.pieChart("#importi-chart");
 var comuniChart = dc.pieChart("#comuni-chart");
 var regioniChart = dc.geoChoroplethChart("#regioni-chart");
@@ -311,7 +313,6 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
 
 
         d3.json("data/geo/italia.regioni.geojson", function(italyJson) {
-        //d3.json("data/geo/usa.geojson" , function(italyJson) {
           regioniChart.width(280)
                     .height(400)
                     .dimension(dimRegioni)
@@ -320,13 +321,13 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
                             .scale(9300)
                             .translate([-170, 1400]))
                     .colors(["#ccc", "#E2F2FF","#C4E4FF","#9ED2FF","#81C5FF","#6BBAFF","#51AEFF","#36A2FF","#1E96FF","#0089FF","#0061B5"])
-                    .colorDomain([-5, 250])
+                    .colorDomain([-5, 500])
                     .overlayGeoJson(italyJson.features, "Regione", function(d) {
                         return d.properties.NOME_REG;
                     });
 
-            fluctuationChart.width(820)
-                    .height(180)
+            periodiChart.width(820)
+                    .height(160)
                     .margins({top: 10, right: 50, bottom: 30, left: 40})
                     .dimension(date)
                     .group(dates)
@@ -355,7 +356,7 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
                     .dimension(dimComuni)
                     .group(grpComuni);
         
-        counter = dc.dataCountExt(".dc-data-count")
+            counter = dc.dataCountExt(".dc-data-count")
                     .dimension(delibereCF)
                     .group(all);
             
@@ -659,6 +660,7 @@ dc.dataCountExt = function(parent, chartGroup) {
     color: #111;
     background-color:  #FFF;
     background-image:  none;
+    height:50px;
 }
 
 .ui-jqgrid-pager .ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
@@ -674,11 +676,11 @@ dc.dataCountExt = function(parent, chartGroup) {
 .ui-jqgrid-pager input.text {
     background-color:  white;
     background-image:  none;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
 }
 
 .ui-jqgrid tr.jqgrow td {
-        white-space: normal !important;
+    white-space: normal !important;
 }
 
 .ui-jqgrid  .ui-state-hover {
