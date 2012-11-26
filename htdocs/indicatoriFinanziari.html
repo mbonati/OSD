@@ -21,6 +21,7 @@
 
     <!-- D3.js -->
     <script src="http://d3js.org/d3.v2.js"></script>
+    <script src="http://d3js.org/queue.v1.min.js"></script>
     
     <!-- SelectToUISlider -->
     <link href="js/selectToUISlider/css/redmond/jquery-ui-1.7.1.custom.css" type="text/css" rel="stylesheet" />
@@ -102,21 +103,22 @@
     <div class="container">
 
         <div class="row-fluid">
-            <div class="span12 year-selection-container">
-                <div class="section-label"><h4>Anno<h4></div>
+            <div class="span9 year-selection-container">
+                <div class="section-label"><h4>Selettore Anno<h4></div>
                 <fieldset id="year-selection-slider">
-        			<select name="yearSelection" id="yearSelection">
-        				<option value="2007">2007</option>
+            		<select name="yearSelection" id="yearSelection">
+        				<option value="2005">2005</option>
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
         				<option value="2008" selected="selected">2008</option>
         				<option value="2009">2009</option>
         				<option value="2010">2010</option>
         				<option value="2011">2011</option>
-            			<option value="2012">2012</option>
         			</select>
         		</fieldset>
-                <!--
-                <div id="year-selection-slider"></div>
-                -->
+                
+                <!--<div id="anno-selection-slider"></div>-->
+                
             </div>
         </div>
         
@@ -125,29 +127,29 @@
                 <span class="filter-item-label-title">
                     <h4>Granularità</h4>
                 </span>
-                <form>
+                <form name="mapZoomLevels">
                     <ul>
                         <li>
-                            <label><input type="radio" name="mapZoomLevel" value="regioni" onclick="changeMapDetails(this)" checked/>Regione</label>
-                            <label><input type="radio" name="mapZoomLevel" value="provincie" onclick="changeMapDetails(this)"/>Provincia</label>
-                            <label><input type="radio" name="mapZoomLevel" value="comuni" onclick="changeMapDetails(this)" disabled/>Comune</label>
+                            <label><input type="radio" name="mapZoomLevel" value="regioni" onclick="onChangedGranularity(this)" checked/>Regione</label>
+                            <label><input type="radio" name="mapZoomLevel" value="provincie" onclick="onChangedGranularity(this)"/>Provincia</label>
+                            <label><input type="radio" name="mapZoomLevel" value="comuni" onclick="onChangedGranularity(this)" disabled/>Comune</label>
                         </li>
                     </ul>
                 </form>
                 <span class="filter-item-label-title">
                     <h4>Indicatori</h4>
                 </span>
-                <form>
+                <form name="Indicators">
                     <ul>
                         <li>
-                            <label><input type="radio" name="radio" checked/>Pressione finanziaria (m.p.c.)</label>
-                            <label><input type="radio" name="radio" />Pressione tributaria (m.p.c.)</label>
-                            <label><input type="radio" name="radio" />Intervento Erariale (m.p.c.)</label>
-                            <label><input type="radio" name="radio" />Intervento Regionale (m.p.c.)</label>
-                            <label><input type="radio" name="radio" />Vel.Ris.Ent. Pr. (%) (m.p.c.)</label>
-                            <label><input type="radio" name="radio" />Vel.Ges.Sp.Cor. (%) (m.p.c.)</label>
-                            <label><input type="radio" name="radio" />Autonomia Finanziaria (%) (m.p.c.)</label>
-                            <label><input type="radio" name="radio" />Autonomia Impositiva (%) (m.p.c.)</label>
+                            <label><input type="radio" name="Indicator" value=0 onclick="onChangedIndicator(this)" checked/>Pressione finanziaria (m.p.c.)</label>
+                            <label><input type="radio" name="Indicator" value=1 onclick="onChangedIndicator(this)"/>Pressione tributaria (m.p.c.)</label>
+                            <label><input type="radio" name="Indicator" value=2 onclick="onChangedIndicator(this)"/>Intervento Erariale (m.p.c.)</label>
+                            <label><input type="radio" name="Indicator" value=3 onclick="onChangedIndicator(this)"/>Intervento Regionale (m.p.c.)</label>
+                            <label><input type="radio" name="Indicator" value=4 onclick="onChangedIndicator(this)"/>Vel.Ris.Ent. Pr. (%) (m.p.c.)</label>
+                            <label><input type="radio" name="Indicator" value=5 onclick="onChangedIndicator(this)"/>Vel.Ges.Sp.Cor. (%) (m.p.c.)</label>
+                            <label><input type="radio" name="Indicator" value=6 onclick="onChangedIndicator(this)"/>Autonomia Finanziaria (%) (m.p.c.)</label>
+                            <label><input type="radio" name="Indicator" value=7 onclick="onChangedIndicator(this)"/>Autonomia Impositiva (%) (m.p.c.)</label>
                         </li>
                     </ul>
                 </form>
@@ -182,7 +184,12 @@
             <div class="nytg-tail"></div>
         </div>
     </div>
-
+    
+    <div class="row-fluid">
+        <div class="span12 filter-container section-label">
+            <span class="citation">Fonte Dati: <a href="http://finanzalocale.interno.it/apps/floc.php/in/cod/8">Ministero Interno - Potale finanza locale</a>  (estratti tramite scrpaing)</p></span>
+        </div>
+    </div>
 </body>
 
 <!--- TODO!!!!
@@ -249,10 +256,20 @@ $(function () {
 
 <!--------------  Gestore RadioButton per Granularita' (Regioni/Provincie/comuni ------------------------------->
 <script type="text/javascript">
-    function changeMapDetails(id){
+    function onChangedGranularity(id){
         console.log("selezionato:" + id + " " + id.name)
     	deletePaths();
         currentZoomLevel = id.value;
+        loadMapPaths(currentZoomLevel);
+    };
+</script>
+
+<!--------------  Gestore RadioButton per Indicatore finanziario ------------------------------->
+<script type="text/javascript">
+    function onChangedIndicator(id){
+        console.log("selezionato:" + id + " " + id.name)
+        deletePaths();
+        currentIndicator = id.value;
         loadMapPaths(currentZoomLevel);
     };
 </script>
@@ -264,17 +281,81 @@ $(function () {
     var centered;
     var path;
     var g;
-    var indicatoriProvincie = d3.json('data/indicatoriFinanziari/indicatoriProvincie.json');
-    var indicatoriRegioni = d3.json('data/indicatoriFinanziari/indicatoriRegioni.json');
     var currentZoomLevel = "regioni";
+    var currentIndicator = 0; //pressionefinanziaria
+    var indicatoriProvincieDict = {};
+    var indicatoriRegioniDict = {};
+    var regioniGeoJsonFeatures;
+    var provincieGeoJsonFeatures;
+    var jsonToWait = 4;
+    var indicators = ["Pressione Finanziaria (m.p.c.)", "Pressione Tributaria (m.p.c.)", "Intervento Erariale (m.p.c.)", "Intervento Regionale (m.p.c.)",
+                        "Vel. Ris. En. Pr. (%)", "Vel.Ges.Sp.Cor. (%)", "Autonomia Finanziaria (%)", "Autonomia Impositiva (%)"];
+    var indicatorsDecodeDictionary = {"Pressione Finanziaria (m.p.c.)":0, "Pressione Tributaria (m.p.c.)":1,
+                                      "Intervento Erariale (m.p.c.)":2, "Intervento Regionale (m.p.c.)":3,
+                                      "Vel. Ris. En. Pr. (%)":4, "Vel.Ges.Sp.Cor. (%)":5,
+                                      "Autonomia Finanziaria (%)":6,"Autonomia Impositiva (%)":7};
+    var colors = ["#ccc", "#E2F2FF","#C4E4FF","#9ED2FF","#81C5FF","#6BBAFF","#51AEFF","#36A2FF","#1E96FF","#0089FF","#0061B5"];
+    var slider;
+    var maxValByIndicator= {0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0};
+    var minValByIndicator= {0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0};
+    var quantize = [];
+
+    // reset filter values
+    setCheckedValue(document.forms['mapZoomLevels'].elements['mapZoomLevel'], currentZoomLevel);
+    setCheckedValue(document.forms['Indicators'].elements['Indicator'], currentIndicator);
     
-    var quantize = d3.scale.quantize()
-                    .domain([0, 120])
-                    .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+    d3.json("data/indicatoriFinanziari/indicatoriProvincie.json", function(provInd) {
+       for (var indicatore in provInd) {
+            el = provInd[indicatore];
+            if (el.anno >= 2005) {
+                //console.log(el.anno + "_" + el.nomeEnte + "_" + el.indicatore);
+                indicatoriProvincieDict[el.anno + "_" + el.nomeEnte.substring(0,el.nomeEnte.length-5) + "_" + el.indicatore] = el.valoreEnte;
+                updateMinMax(indicatorsDecodeDictionary[el.indicatore], el.valoreEnte);
+            }
+        }
+        notifyJsonLoaded();
+    });
+   
+    d3.json("data/indicatoriFinanziari/indicatoriRegioni.json", function(regInd) {
+       for (var indicatore in regInd) {
+            el = regInd[indicatore];
+            if (el.anno >= 2005) { 
+                //console.log(el.anno + "_" + el.nomeEnte + "_" + el.indicatore);
+                indicatoriRegioniDict[el.anno + "_" + el.nomeEnte + "_" + el.indicatore] = el.valoreEnte;
+                updateMinMax(indicatorsDecodeDictionary[el.indicatore], el.valoreEnte);
+            }
+        }
+        notifyJsonLoaded();
+    });
     
-    $(document).ready(function(){
-        var w = 1000 /2,
-            h = 1000 /2;
+    d3.json("data/geo/italia.regioni.geojson", function(regGeo) {
+        regioniGeoJsonFeatures = regGeo.features;
+        notifyJsonLoaded();
+    });
+    
+    d3.json("data/geo/italia.provincie.semplificato.geojson", function(provGeo) {
+        provincieGeoJsonFeatures = provGeo.features;
+        notifyJsonLoaded();
+    });
+                    
+    function notifyJsonLoaded() {
+        jsonToWait--;
+        if (jsonToWait == 0)
+            loadedJsonData();
+    }
+    
+    //$(document).ready(function(){
+    function loadedJsonData() {
+        
+        for (var count=0; count<8; count++) {
+            quantize[count] = d3.scale.quantize()
+                            .domain([minValByIndicator[count], maxValByIndicator[count]])
+                            .range(d3.range(9).map(function(i) { return colors[i] }));
+        }
+        
+        // map construction!
+        var w = 500,
+            h = 500;
         
         projection = d3.geo.mercator()
                             .scale(12000)
@@ -300,17 +381,21 @@ $(function () {
             .attr("id", "states");
 
         loadMapPaths(currentZoomLevel);
-    });
+    }
     
     function deletePaths() {
          g.selectAll("path").remove();
     }
     
     function loadMapPaths(tipo) {
+        if (tipo == null)
+            tipo = currentZoomLevel;
+            
         if (tipo=="regioni") {
-            d3.json("data/geo/italia.regioni.geojson", function(collection) {
+            //d3.json("data/geo/italia.regioni.geojson", function(collection) {
                 feature = g.selectAll("path")
-                    .data(collection.features)
+                    //.data(collection.features)
+                    .data(regioniGeoJsonFeatures)
                     .enter().append("path")
                     .attr("d", path)
                     .attr('stroke', function(d) { return "#AFAFAF"; /*default color*/  })
@@ -323,8 +408,11 @@ $(function () {
                         var ypos = d3.event.pageY-10;
                         d3.select("#viz-tooltip").style('top',ypos+"px").style('left',xpos+"px").style('display','block');
                         // mouseover regioni
-                        d3.select(".viz-tooltip-value").html("Regione Selezionata: " +  d.properties["NOME_REG"] + " (istatCode:" + d.properties["COD_REG"] + ")" );
-                        //console.log(d + " " + i);
+                        year = $('select#yearSelection').val();
+                        key = year + "_" + d.properties["NOME_REG"] + "_" + indicators[currentIndicator];
+                        d3.select(".viz-tooltip-value").html("Regione: <b>" +  d.properties["NOME_REG"] + "</b><br> " +
+                                                              indicators[currentIndicator] + ":<b>" + indicatoriRegioniDict[key] +
+                                                             "</b><br> anno:<b>" + year + "</b>" );
                     })
                     .on("mouseout",function(d,i) { 
                         d3.select("#viz-tooltip").style('display','none')
@@ -332,11 +420,12 @@ $(function () {
                     .on("click", click)
                     ;
                     
-            });
+            //});
         } else if ( tipo=="provincie") {
-            d3.json("data/geo/italia.provincie.semplificato.geojson", function(collection) {
+            //d3.json("data/geo/italia.provincie.semplificato.geojson", function(collection) {
                 feature = g.selectAll("path")
-                    .data(collection.features)
+                    //.data(collection.features)
+                    .data(provincieGeoJsonFeatures)
                     .enter().append("path")
                     .attr("d", path)
                     .attr('stroke', function(d) { return "#AFAFAF"; /*default color*/  })
@@ -349,26 +438,52 @@ $(function () {
                         var ypos = d3.event.pageY-10;
                         d3.select("#viz-tooltip").style('top',ypos+"px").style('left',xpos+"px").style('display','block');
                         // mouseover provincie
-                        d3.select(".viz-tooltip-value").html("Provincia Selezionata: " +  d.properties["NOME_PRO"] + " (regioneCode:" + d.properties["COD_REG"] + ")" );
-                        //console.log(d + " " + i);
+                        year = $('select#yearSelection').val();
+                        key = year + "_" + d.properties["NOME_PRO"] + "_" + indicators[currentIndicator];
+                        d3.select(".viz-tooltip-value").html("Provincia: <b>" +  d.properties["NOME_PRO"] + "</b><br> " +
+                                                              indicators[currentIndicator] + ":<b>" + indicatoriProvincieDict[key] +
+                                                             "</b><br> anno:<b>" + year + "</b>" );
                     })
                     .on("mouseout",function(d,i) { 
                         d3.select("#viz-tooltip").style('display','none')
                     })
                     .on("click", click);
-            });    
+            //});    
         }
     }
 
     function colorForItem(item){
-        //d.properties["COD_REG"];
-        var random = randomInt(0,100);
-        return d3.interpolateRgb("#F1EEF6", "#034E7B")(random/100);
+        value = 0.0;
+        year =$('select#yearSelection').val();
+        
+        if (currentZoomLevel == "regioni") {
+            key = year + "_" + item.properties["NOME_REG"] + "_" + indicators[currentIndicator];
+            //console.log("key:"+key);
+            value = indicatoriRegioniDict[key];
+        } else if (currentZoomLevel == "provincie") {
+            key = year + "_" + item.properties["NOME_PRO"] + "_" + indicators[currentIndicator];
+            //console.log("key:"+key);
+            value = indicatoriProvincieDict[key];
+        }
+        if (value == null)
+            value = 0.0;
+        return quantize[currentIndicator](value);
     }
     
     //Return a random number between min and max
     function randomInt(min, max){
         return Math.floor((Math.random()*max)+1)+min;
+    }
+    
+    function updateMinMax(indicatorCode,value) {
+        if (maxValByIndicator[indicatorCode] == 0)
+            maxValByIndicator[indicatorCode] = value;
+        else if (value>maxValByIndicator[indicatorCode])
+            maxValByIndicator[indicatorCode] = value;
+        if (minValByIndicator[indicatorCode] == 0)
+            minValByIndicator[indicatorCode] = value;
+        else if (value>0 && value<minValByIndicator[indicatorCode])
+            minValByIndicator[indicatorCode] = value;
     }
     
     function updateViz(){
@@ -431,17 +546,57 @@ $(function () {
         console.log("clicked!");
     }
 
-    
     window.onresize = function(event) {
       svg.attr("width", window.innerWidth-45);
       svg.attr("height", window.innerHeight-45);
     }
+    
+    
+// set the radio button with the given value as being checked
+// do nothing if there are no radio buttons
+// if the given value does not exist, all the radio buttons
+// are reset to unchecked
+function setCheckedValue(radioObj, newValue) {
+    if(!radioObj)
+		return;
+	var radioLength = radioObj.length;
+	if(radioLength == undefined) {
+		radioObj.checked = (radioObj.value == newValue.toString());
+		return;
+	}
+	for(var i = 0; i < radioLength; i++) {
+		radioObj[i].checked = false;
+		if(radioObj[i].value == newValue.toString()) {
+			radioObj[i].checked = true;
+		}
+	}
+}
 </script>
 
 <script type="text/javascript">
-    $(function(){
-		var abc = $('select#yearSelection').selectToUISlider().next();
+
+<!---------------Slider ------------------>
+$(function() {
+    $('select#yearSelection').selectToUISlider({
+        labels:7,
+        sliderOptions: {
+                change: function(event, ui) {
+                    deletePaths();
+                    loadMapPaths();
+                }}
+        });
+    //anno-selection-slider
+    /*
+    slider=$("#anno-selection-slider").slider( {
+        min:2006, max:2012, animate: true, change: function(event, ui) {
+            deletePaths();
+            loadMapPaths();
+        }
     });
+    slider.slider("value", 2008);
+    */
+});
+
 </script>        
 
 <script type="text/javascript" charset="utf-8">
@@ -546,31 +701,10 @@ $(function () {
         font-weight: bold;
     }
     
-    /*
-    svg {
-      border-style:solid;
-      border-width:2px;
-      border-color: yellow;
-    }
-
-    .filter-container {
-      border-style:solid;
-      border-width:1px;
-      border-color: blue;
-    }
-
-    .details-container {
-      border-style:solid;
-      border-width:1px;
-      border-color: blue;
-    }
-
-    .map-container {
-      border-style:solid;
-      border-width:1px;
-      border-color: blue;
-    }
-    */
+    span.citation {
+        font-style:oblique;
+        margin-left: 50px;
+        font-size: 10px;}
 	
 </style>      
 
