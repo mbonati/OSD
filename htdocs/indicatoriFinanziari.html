@@ -21,7 +21,6 @@
 
     <!-- D3.js -->
     <script src="http://d3js.org/d3.v2.js"></script>
-    <script src="http://d3js.org/queue.v1.min.js"></script>
     
     <!-- SelectToUISlider -->
     <link href="js/selectToUISlider/css/redmond/jquery-ui-1.7.1.custom.css" type="text/css" rel="stylesheet" />
@@ -29,7 +28,7 @@
     <link rel="Stylesheet" href="js/selectToUISlider/css/ui.slider.extras.css" type="text/css" />
     
     <!-- Uniform.js -->
-    <script src="js/uniform.js/jquery.uniform.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/uniform.js/jquery.uniform.min.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="js/uniform.js/css/uniform.default.css" type="text/css" media="screen">
     
     <!-- jqGrid -->
@@ -56,7 +55,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">OpenSpendingReview</a>
+          <a class="brand" href="index.html">OpenSpendingReview</a>
           <div class="nav-collapse collapse">
             
             <!-- Navigation Menu -->
@@ -70,6 +69,7 @@
               
             <!-- Login -->
             <ul class="nav pull-right">
+                <li><a href="FAQs.html">FAQs</a></li>
                 <li><a href="/users/sign_up">Sign Up</a></li>
                 <li class="divider-vertical"></li>
                 <li class="dropdown">
@@ -153,6 +153,9 @@
                         </li>
                     </ul>
                 </form>
+                <span class="indicatorDetails"></span>
+                <br><br><br>
+                <span class="citation">Fonte Dati: <a href="http://finanzalocale.interno.it/apps/floc.php/in/cod/8">Ministero Interno - Potale finanza locale</a>  (estratti tramite scrpaing)</p></span>
             </div>
             <div class="span6 viz-container section-label">
                 <ul class="nav nav-tabs" id="viz-tab">
@@ -185,27 +188,7 @@
         </div>
     </div>
     
-    <div class="row-fluid">
-        <div class="span12 filter-container section-label">
-            <span class="citation">Fonte Dati: <a href="http://finanzalocale.interno.it/apps/floc.php/in/cod/8">Ministero Interno - Potale finanza locale</a>  (estratti tramite scrpaing)</p></span>
-        </div>
-    </div>
 </body>
-
-<!--- TODO!!!!
-approccio loading differito da applicare
-<script src="http://d3js.org/queue.v1.min.js"></script>
-<script>
-...
-queue()
-    .defer(d3.json, "../3750900/us-counties.json")
-    .defer(d3.json, "../3750900/us-states.json")
-    .defer(d3.tsv, "unemployment.tsv")
-    .await(ready);
-
-function ready(error, counties, states, unemployment) {
-  var rateById = {};
--->
 
 <!--------------  Grid Table ------------------------------->
 <script>
@@ -237,10 +220,6 @@ jQuery("#data-table").jqGrid({
                     total: function (obj) { return 1; },
                     records: function (obj) { return obj.length; }
                 }
-    /*grouping:true,
-    groupingView : {
-       	groupField : ['DataSalvataggio']
-   	}*/
 });
 jQuery("#data-table").jqGrid('navGrid','#data-table-pager',{search:true,edit:false,add:false,del:false,searchtext:"Cerca"},
 {},{},{},{width:640,sopt:['cn','eq','ne','lt','le','gt','ge']},{});
@@ -257,7 +236,7 @@ $(function () {
 <!--------------  Gestore RadioButton per Granularita' (Regioni/Provincie/comuni ------------------------------->
 <script type="text/javascript">
     function onChangedGranularity(id){
-        console.log("selezionato:" + id + " " + id.name)
+        //console.log("selezionato:" + id + " " + id.name)
     	deletePaths();
         currentZoomLevel = id.value;
         loadMapPaths(currentZoomLevel);
@@ -267,9 +246,10 @@ $(function () {
 <!--------------  Gestore RadioButton per Indicatore finanziario ------------------------------->
 <script type="text/javascript">
     function onChangedIndicator(id){
-        console.log("selezionato:" + id + " " + id.name)
+        //console.log("selezionato:" + id + " " + id.name)
         deletePaths();
         currentIndicator = id.value;
+        d3.select(".indicatorDetails").text(indicatorsDesc[currentIndicator]);
         loadMapPaths(currentZoomLevel);
     };
 </script>
@@ -281,7 +261,7 @@ $(function () {
     var centered;
     var path;
     var g;
-    var currentZoomLevel = "regioni";
+    var currentZoomLevel = "provincie";
     var currentIndicator = 0; //pressionefinanziaria
     var indicatoriProvincieDict = {};
     var indicatoriRegioniDict = {};
@@ -290,19 +270,31 @@ $(function () {
     var jsonToWait = 4;
     var indicators = ["Pressione Finanziaria (m.p.c.)", "Pressione Tributaria (m.p.c.)", "Intervento Erariale (m.p.c.)", "Intervento Regionale (m.p.c.)",
                         "Vel. Ris. En. Pr. (%)", "Vel.Ges.Sp.Cor. (%)", "Autonomia Finanziaria (%)", "Autonomia Impositiva (%)"];
+    var indicatorsDesc = ["PRESSIONE FINANZIARIA: somma delle entrate tributarie ed extra tributarie rapportata alla popolazione. Valore in media procapite (m.p.c.) espresso in EURO",
+                          "PRESSIONE TRIBUTARIA: entrate tributarie rapportate alla popolazione. Valore in media procapite (m.p.c.) espresso in EURO",
+                          "INTERVENTO ERARIALE: trasferimenti statali rapportati alla popolazione. Valore in media procapite (m.p.c.) espresso in EURO",
+                          "INTERVENTO REGIONALE: trasferimenti regionali rapportati alla popolazione. Valore in media procapite (m.p.c.) espresso in EURO",
+                          "VELOCITA' DI RISCOSSIONE DELLE ENTRATE PROPRIE: somma della riscossione delle entrate tributarie e delle entrate extratributarie rapportata alla somma degli accertamenti delle entrate tributarie e delle entrate extratributarie. Valore in percentuale (%)",
+                          "VELOCITA' DI GESTIONE DELLE SPESE CORRENTI: pagamenti in conto competenza delle spese correnti rapportati agli impegni delle spese correnti. Valore in percentuale (%)",
+                          "AUTONOMIA FINANZIARIA: somma delle entrate tributarie ed entrate extratributarie rapportata alla somma delle entrate tributarie, delle entrate derivanti da contributi e trasferimenti correnti e delle entrate extratributarie. Valore in percentuale (%)",
+                          "AUTONOMIA IMPOSITIVA: entrate tributarie rapportate alla somma delle entrate tributarie, delle entrate derivanti da contributi e trasferimenti correnti e delle entrate extratributarie. Valore in percentuale (%)"];
     var indicatorsDecodeDictionary = {"Pressione Finanziaria (m.p.c.)":0, "Pressione Tributaria (m.p.c.)":1,
                                       "Intervento Erariale (m.p.c.)":2, "Intervento Regionale (m.p.c.)":3,
                                       "Vel. Ris. En. Pr. (%)":4, "Vel.Ges.Sp.Cor. (%)":5,
                                       "Autonomia Finanziaria (%)":6,"Autonomia Impositiva (%)":7};
+                                      
     var colors = ["#ccc", "#E2F2FF","#C4E4FF","#9ED2FF","#81C5FF","#6BBAFF","#51AEFF","#36A2FF","#1E96FF","#0089FF","#0061B5"];
     var slider;
     var maxValByIndicator= {0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0};
     var minValByIndicator= {0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0};
     var quantize = [];
 
-    // reset filter values
+    // reset filter values to default ones
     setCheckedValue(document.forms['mapZoomLevels'].elements['mapZoomLevel'], currentZoomLevel);
     setCheckedValue(document.forms['Indicators'].elements['Indicator'], currentIndicator);
+    
+    //se indicator description
+    d3.select(".indicatorDetails").text(indicatorsDesc[currentIndicator]);
     
     d3.json("data/indicatoriFinanziari/indicatoriProvincie.json", function(provInd) {
        for (var indicatore in provInd) {
@@ -344,12 +336,15 @@ $(function () {
             loadedJsonData();
     }
     
-    //$(document).ready(function(){
     function loadedJsonData() {
         
         for (var count=0; count<8; count++) {
+            min = minValByIndicator[count];
+            max = maxValByIndicator[count];
+            if (min==0 && max==0)
+                max = 100;
             quantize[count] = d3.scale.quantize()
-                            .domain([minValByIndicator[count], maxValByIndicator[count]])
+                            .domain([min,max])
                             .range(d3.range(9).map(function(i) { return colors[i] }));
         }
         
@@ -392,9 +387,7 @@ $(function () {
             tipo = currentZoomLevel;
             
         if (tipo=="regioni") {
-            //d3.json("data/geo/italia.regioni.geojson", function(collection) {
                 feature = g.selectAll("path")
-                    //.data(collection.features)
                     .data(regioniGeoJsonFeatures)
                     .enter().append("path")
                     .attr("d", path)
@@ -420,11 +413,8 @@ $(function () {
                     .on("click", click)
                     ;
                     
-            //});
         } else if ( tipo=="provincie") {
-            //d3.json("data/geo/italia.provincie.semplificato.geojson", function(collection) {
                 feature = g.selectAll("path")
-                    //.data(collection.features)
                     .data(provincieGeoJsonFeatures)
                     .enter().append("path")
                     .attr("d", path)
@@ -447,8 +437,7 @@ $(function () {
                     .on("mouseout",function(d,i) { 
                         d3.select("#viz-tooltip").style('display','none')
                     })
-                    .on("click", click);
-            //});    
+                    .on("click", click); 
         }
     }
 
@@ -469,6 +458,29 @@ $(function () {
             value = 0.0;
         return quantize[currentIndicator](value);
     }
+    
+    
+    // Legenda per il binning uniforme (TODO DA inserire legenda colori)
+    /*var bins = 9;
+    var palette = "Blues"; 
+    function init_legenda_quantizes(viz_id,quantize) {
+        // Creo la legenda
+        jQuery("div#" + viz_id + "-controls div.legenda ul li").remove();
+        var delta = 1, bins = quantize.range().length;
+        for(var i=0; i<bins; i++) {
+            jQuery("div#" + viz_id + "-controls div.legenda ul").append(
+                    '<li class="' +
+                    palette +
+                    '"><span class="arrow"></span> <span class="color q' +
+                    (4 - i) +
+                    '-' +
+                    bins +
+                    '"></span> <span class="text">' +
+                    int(delta*i+1) +
+                    '</span></li>'
+            );
+        }
+    }*/
     
     //Return a random number between min and max
     function randomInt(min, max){
@@ -543,7 +555,7 @@ $(function () {
                 .style("opacity","1");
         }
         
-        console.log("clicked!");
+        //console.log("clicked!");
     }
 
     window.onresize = function(event) {
@@ -703,8 +715,13 @@ $(function() {
     
     span.citation {
         font-style:oblique;
-        margin-left: 50px;
+        margin-left: 0px;
         font-size: 10px;}
+        
+    span.indicatorDetails {
+        font-style:oblique;
+        margin-left: 0px;
+        font-size: 11px;}   
 	
 </style>      
 
