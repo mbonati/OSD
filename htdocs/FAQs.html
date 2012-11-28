@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>OpenSpendingReview - Bilanci</title>
+    <title>OpenSpendingReview - FAQs</title>
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -96,10 +96,47 @@
         </div>
         <div class="row-fluid">
             <div class="span9 todoMessage">
-            <h3>Cosa vorrebbe diventare OpenSpendingReview?</h3>
-            <h5>L'idea del progetto e' quella di fornire una piattaforma di acquisizione, aggregazione, condivisione e monitoraggio di spesa delle realtà della Pubblica Amministrazione locali italiane (comuni e provincie)</h5>
             <h3>Cosa è OpenSpendingReview?</h3>
-            <h5>Al momento e' un semplice prototipo che raccoglie e monitora una serie di dati reali presi da un sottoinsieme molto limitato di comuni attraverso il monitoraggio dei loro Albi pretori online.</h5>
+            <p>Il progetto prende spunto da quanto contenuto nel "decreto sviluppo" DL.83/2012 (legge 134/2012), in particolare per l'obbligo di rendere fruibili online le voci di spesa pubblica 
+               (vedi <a href="http://www.leggioggi.it/2012/06/28/decreto-sviluppo-entro-sei-mesi-amministrazioni-piu-aperte-e-trasparenti-bozza/" >articolo di Ernesto Belisario</a>) a partire da Gennaio 2013.
+               L'idea è quella di rendere disponibile uno <b>strumento di acquisizione, aggregazione e condivisione di questi dati di spesa</b>, dando comunque la possibilità di raffrontarli con i informazioni e dati "a consuntivo", 
+               che offrono sicuramente visioni interessanti e utili, anche se purtroppo "soffrono" del fatto di essere fruibili molto tardi nel tempo (vedi indicatori finanziari sintetici calcolcati dal ministero disponibili al 2008) o
+               in forme leggibili solo da adetti ai lavori (vedi bilanci enti locali forniti mediamente in 50-60 pagine).  
+            <h3>Cosa è adesso OpenSpendingReview?</h3>
+            <p>E' un prototipo basato su <b>dati reali</b> ma ancora molto limitati. Come proof-of-concept ed in attesa dell'applicazione del DL. 83/2012, sono state integrate da un lato (spesa corrente) altre fonti di dati di spesa quali le
+                le <b>determinazioni</b> fornite online da alcuni comuni nei rispettivi "albi pretori", dall'altro (consuntivo) sono stati integrati gli indicatori finanziari del Ministero per regioni e provincie. </p>
+            <h3>Perchè si chiama OpenSpendingReview?</h3>
+            <p><b>Open</b> perchè vuole essere un progetto aperto su tutti i fronti, quindi: 
+            <p><ul><li>open data: utilizza fonti dati Open della PA e ridistribuisce open data raffinati, arricchiti</li>
+            <li>open source: tutti sorgenti disponibili su GitHub</li>
+            <li>open technology</li>
+            <li>crowdsourcing: mettere a disposizione procedure e strumenti per permettere a utenti qualificati di aggiungere e/o modificare nuove sorgenti di dati (i comuni italiani sono oltre 8800!)</li>
+            <li>specifiche e progetto gestito in modo open: il prototipo vuole essere una bozza di lavoro su cui discutere e da mettere in discussione</li></ul></p></p>
+            <p><b>Spending Review</b> perchè:
+            <p><ul><li>si trattano dati di spesa, ben sapendo che non sono l'unico, ne' forse il principale, indice di operato di una buona amministrazione. Ma sono dati che aiutiano per la loro tempestività ad essere informati e vicini 
+            al processo decisionale della PA, oltre che essere un passo importante versa la maggiore trasparenza della stessa.</li>
+            <li>e' decisamente un termine molto usato in questo periodo sia in ambito politico che giornalistico. OpenSpendingReview d'altro canto potrebbe essere un tipo di spending review di tipo molto diverso, con le caratteristiche 
+            peculiari di partire dal basso e di essere capillare, tempestiva e continua nel tempo, a differenza di una SpendingReview fatta dall'alto, fatta sui grandi numeri e una volta ogni tanto.</li></ul></p></p>
+            <h3>Dati</h3>
+            Come strumento di acquisizione e hosting dei dati è stato utilizzato ScraperWiki. In particolare sono disponibili e pubblici:
+            <p><ul>
+            <li><a href="https://scraperwiki.com/scrapers/agg_det_com/">Scraper Determinazioni Comuni</a></li>
+            <li><a href="https://scraperwiki.com/scrapers/provincieindicatorifinanziari/">Scraper Indicatori Finanziari</a></li>
+            </ul></p>
+            <h3>Sorgenti</h3>
+            <p>Sono attualmente disponibili su questo progetto <a href="https://github.com/mbonati/OSD">GitHub</a></p>
+            <h3>Software Stack Utilizzato</h3>
+            <p><ul>
+            <li>Connect</li>
+            <li>BootStrap</li>
+            <li>jQuery</li>
+            <li>D3.js</li>
+            <li>CrossFilter</li>
+            <li>Dc.js</li>
+            <li>jqGrid</li>
+            <li>Choroplet</li>
+            <li>selecttoUISlider</li>
+            </ul></p>
             </div>
         </div>
 
@@ -144,7 +181,6 @@
 </style>
 
 
-
 <script type="text/javascript" charset="utf-8">
     //Activate Uniform UI
       $(function(){
@@ -152,6 +188,20 @@
       });
 </script>
      
+<!--------- google Analytics  ------------------------->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36651498-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 
 <style type="text/css">
 

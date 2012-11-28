@@ -10,8 +10,8 @@
     <meta name="author" content="">
 
     <!-- JQuery -->
-    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
     <link href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" type="text/css" rel="stylesheet">
 
     <!-- Bootstrap -->
@@ -51,8 +51,6 @@
               <li><a href="indicatoriFinanziari.html">Indicatori Finanziari</a></li>
               <li class="active"><a href="bilanci.html">Bilanci</a></li>
             </ul>
-            
-            
               
             <!-- Login -->
             <ul class="nav pull-right">
@@ -104,6 +102,21 @@
     
 
 </body>
+
+<!--------- google Analytics  ------------------------->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36651498-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 
 <style>
 #viz-tooltip-container {

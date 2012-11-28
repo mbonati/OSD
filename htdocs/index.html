@@ -10,8 +10,8 @@
     <meta name="author" content="">
 
     <!-- JQuery -->
-    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
     <link href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" type="text/css" rel="stylesheet">
 
     <!-- Bootstrap -->
@@ -20,7 +20,7 @@
     <script src="./js/bootstrap/js/bootstrap.min.js"></script> 
 
     <!-- D3.js -->
-    <script src="http://d3js.org/d3.v2.js"></script>
+    <script src="http://d3js.org/d3.v2.min.js"></script>
     
     <!-- Uniform.js -->
     <!--<script src="js/uniform.js/jquery.uniform.js" type="text/javascript" charset="utf-8"></script>
@@ -129,7 +129,7 @@
                   <div class="tab-pane table-container" id="determine">
                         <table id="determine-table" class="list"></table>
                         <div id="determine-table-pager"></div>
-                        <span class="citation">Fonte Dati: Albi Pretori online dei comuni di <a href="http://www.comune.milano.it/albopretorio/AlboPretorioWeb/AlboPretorio.aspx">Milano</a>, <a href="http://www.comune.torino.it/determinazioni/2012/">Torino</a> e <a href="http://portale.comune.venezia.it/albopretorio">Venezia</a> (estratti tramite scrpaing)</p>
+                        <span class="citation">Fonte Dati: Albi Pretori online dei comuni di <a href="http://www.comune.milano.it/albopretorio/AlboPretorioWeb/AlboPretorio.aspx">Milano</a>, <a href="http://www.comune.torino.it/determinazioni/2012/">Torino</a> e <a href="http://portale.comune.venezia.it/albopretorio">Venezia</a> (estratti tramite scraping)</p>
                         </span>
                   </div>    
                   <div class="tab-pane table-container" id="speseDL">
@@ -447,6 +447,21 @@ dc.dataCountExt = function(parent, chartGroup) {
     
     return _chart.anchor(parent, chartGroup);
 };
+
+</script>
+
+<!--------- google Analytics  ------------------------->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36651498-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
 </script>
 
