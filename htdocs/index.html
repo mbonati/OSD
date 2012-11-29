@@ -64,7 +64,6 @@
             <ul class="nav pull-left">
               <li class="active"><a href="index.html">Spese Correnti</a></li>
               <li><a href="indicatoriFinanziari.html">Indicatori Finanziari</a></li>
-              <li><a href="bilanci.html">Bilanci</a></li>
             </ul>
               
             <!-- Login -->
@@ -111,7 +110,7 @@
                 </div>
             </div>
             <div class="span3 year-selection-container">
-                <div class="section-label"><h4>Filtri<h4></div>
+                <div class="section-label"><h4>Filtri</h4></div>
                 <div class="dc-data-count">
                     <span class="filter-count"></span> determine di <span class="total-count"></span> | <a href="javascript:dc.filterAll(); dc.renderAll();">rimuovi filtri</a>
                 </div>
@@ -172,6 +171,7 @@
             <div class="nytg-tail"></div>
         </div>
     </div>
+    
 </body>
 
 <!--------- jqGrid Table ------------------------->
@@ -202,7 +202,7 @@ jQuery("#determine-table").jqGrid({
     // needed for soring correctly the grid after loading
     loadComplete: function() {
         var $this = $(this);
-        console.log("load complete");
+        //console.log("load complete");
         
         if ($this.jqGrid('getGridParam', 'datatype') == 'json') {
             if ($this.jqGrid('getGridParam', 'sortname') != '') {
@@ -222,10 +222,6 @@ jQuery("#determine-table").jqGrid({
                     total: function (obj) { return 1; },
                     records: function (obj) { return obj.length; }
                 }
-    /*grouping:true,
-    groupingView : {
-       	groupField : ['comune']
-   	}*/
 });
 jQuery("#determine-table").jqGrid('navGrid','#determine-table-pager',{search:true,edit:false,add:false,del:false,searchtext:"Cerca"},
 {},{},{},{width:640,sopt:['cn','eq','ne','lt','le','gt','ge']},{});
@@ -248,6 +244,13 @@ var comuniChart = dc.pieChart("#comuni-chart");
 var regioniChart = dc.geoChoroplethChart("#regioni-chart");
 var counter;
 
+
+// load l'immagine animata di wait loading
+$(document).ready(function(){
+    $('body').append("<div class='modal'></div>");
+    $('body').addClass("loading");
+});
+
 // set dc.js version in title
 d3.selectAll("#version").text(dc.version);
 
@@ -260,12 +263,7 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
 
         delibere.forEach(function(e) {
             e.DataSalvataggio = parseDate(e.DataSalvataggio);
-            //e.month = d3.time.month(e.dd); // pre-calculate month for better performance
         });
-        
-        function test() {
-            console.log("test");
-        }
         
         function parseDate(input) {
             var parts = input.match(/(\d+)/g);
@@ -413,11 +411,12 @@ d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&na
                     renderTable();
                 }, 500);
             }
+            
+            // rimuovi wait loading
+            $('body').removeClass("loading");
         });
-        
-        
-             
     }
+    
 );
 
 // specializzata DataCount per aggiornare table solo se serve (qualcosa e' cambiato)
@@ -622,6 +621,37 @@ dc.dataCountExt = function(parent, chartGroup) {
 .ui-jqgrid .ui-jqgrid-hdiv {
   background-image: none;
   background-color: transparent;
+}
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   speak for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     150%;
+    width:      150%;
+    background: rgba( 255, 255, 255, .9 ) 
+                url('http://i.stack.imgur.com/FhHRx.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
 }
 
 </style>

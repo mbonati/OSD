@@ -62,7 +62,6 @@
             <ul class="nav pull-left">
               <li><a href="index.html">Spese Correnti</a></li>
               <li class="active"><a href="indicatoriFinanziari.html">Indicatori Finanziari</a></li>
-              <li><a href="bilanci.html">Bilanci</a></li>
             </ul>
             
             
@@ -104,7 +103,7 @@
 
         <div class="row-fluid">
             <div class="span9 year-selection-container">
-                <div class="section-label"><h4>Selettore Anno<h4></div>
+                <div class="section-label"><h4>Selettore Anno</h4></div>
                 <fieldset id="year-selection-slider">
             		<select name="yearSelection" id="yearSelection">
         				<option value="2005">2005</option>
@@ -193,8 +192,9 @@
 <!--------------  Grid Table ------------------------------->
 <script>
 jQuery("#data-table").jqGrid({
-    url:'data/indicatoriFinanziari/indicatoriProvincie.json',
-	datatype: "json",
+    //url:'data/indicatoriFinanziari/indicatoriProvincie.json',
+	//datatype: "json",
+    datatype: "local",
    	colNames:['anno','ente', 'indicatore', 'valore'],
    	colModel:[
    		{name:'anno',index:'anno', width:50},
@@ -240,6 +240,7 @@ $(function () {
     	deletePaths();
         currentZoomLevel = id.value;
         loadMapPaths(currentZoomLevel);
+        setTimeout(function() {loadDataTable(); }, 500);
     };
 </script>
 
@@ -282,12 +283,20 @@ $(function () {
                                       "Intervento Erariale (m.p.c.)":2, "Intervento Regionale (m.p.c.)":3,
                                       "Vel. Ris. En. Pr. (%)":4, "Vel.Ges.Sp.Cor. (%)":5,
                                       "Autonomia Finanziaria (%)":6,"Autonomia Impositiva (%)":7};
-                                      
+    var provincieJsonRawData;
+    var regioniJsonRawData;
+    
     var colors = ["#ccc", "#E2F2FF","#C4E4FF","#9ED2FF","#81C5FF","#6BBAFF","#51AEFF","#36A2FF","#1E96FF","#0089FF","#0061B5"];
     var slider;
     var maxValByIndicator= {0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0};
     var minValByIndicator= {0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0};
     var quantize = [];
+
+    // load l'immagine animata di wait loading
+    $(document).ready(function(){
+        $('body').append("<div class='modal'></div>");
+        $('body').addClass("loading");
+    });
 
     // reset filter values to default ones
     setCheckedValue(document.forms['mapZoomLevels'].elements['mapZoomLevel'], currentZoomLevel);
@@ -297,6 +306,7 @@ $(function () {
     d3.select(".indicatorDetails").text(indicatorsDesc[currentIndicator]);
     
     d3.json("data/indicatoriFinanziari/indicatoriProvincie.json", function(provInd) {
+       provincieJsonRawData = provInd;
        for (var indicatore in provInd) {
             el = provInd[indicatore];
             if (el.anno >= 2005) {
@@ -309,6 +319,7 @@ $(function () {
     });
    
     d3.json("data/indicatoriFinanziari/indicatoriRegioni.json", function(regInd) {
+       regioniJsonRawData = regInd;
        for (var indicatore in regInd) {
             el = regInd[indicatore];
             if (el.anno >= 2005) { 
@@ -332,8 +343,12 @@ $(function () {
                     
     function notifyJsonLoaded() {
         jsonToWait--;
-        if (jsonToWait == 0)
+        if (jsonToWait == 0) {
             loadedJsonData();
+            loadDataTable();
+            // rimuovi wait loading
+            $('body').removeClass("loading");
+        }
     }
     
     function loadedJsonData() {
@@ -376,6 +391,46 @@ $(function () {
             .attr("id", "states");
 
         loadMapPaths(currentZoomLevel);
+    }
+    
+    function loadDataTable() {
+        var table = jQuery("#data-table");
+
+        year =$('select#yearSelection').val();
+        
+        table.clearGridData();
+        var rowcount = 1;
+        if (currentZoomLevel=="regioni") {
+            for (var indicatore in regioniJsonRawData) {
+                el = regioniJsonRawData[indicatore];
+                if (el.anno == year) {
+                    var row = {
+                        anno: el.anno,
+                        nomeEnte: el.nomeEnte,
+                        indicatore: el.indicatore,
+                        valoreEnte: el.valoreEnte
+                    };
+                    table.addRowData(rowcount, row);
+                    rowcount++;
+                }
+            }
+        } else {
+            for (var indicatore in provincieJsonRawData) {
+                el = provincieJsonRawData[indicatore];
+                if (el.anno == year) {
+                    var row = {
+                        anno: el.anno,
+                        nomeEnte: el.nomeEnte,
+                        indicatore: el.indicatore,
+                        valoreEnte: el.valoreEnte
+                    };
+                    table.addRowData(rowcount, row);
+                    rowcount++;
+                }
+            }
+        }
+        
+        table.trigger("reloadGrid");
     }
     
     function deletePaths() {
@@ -595,6 +650,7 @@ $(function() {
                 change: function(event, ui) {
                     deletePaths();
                     loadMapPaths();
+                    setTimeout(function() {loadDataTable(); }, 500);
                 }}
         });
 });
@@ -727,6 +783,37 @@ $(function() {
         font-style:oblique;
         margin-left: 0px;
         font-size: 11px;}   
+        
+    /* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   speak for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+    .modal {
+        display:    none;
+        position:   fixed;
+        z-index:    1000;
+        top:        0;
+        left:       0;
+        height:     150%;
+        width:      150%;
+        background: rgba( 255, 255, 255, .9 ) 
+                    url('http://i.stack.imgur.com/FhHRx.gif') 
+                    50% 50% 
+                    no-repeat;
+    }
+    
+    /* When the body has the loading class, we turn
+       the scrollbar off with overflow:hidden */
+    body.loading {
+        overflow: hidden;   
+    }
+    
+    /* Anytime the body has the loading class, our
+       modal element will be visible */
+    body.loading .modal {
+        display: block;
+    }
 	
 </style>      
 
