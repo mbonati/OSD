@@ -14,6 +14,9 @@
     <link href="./js/bootstrap/css/bootstrap-responsive.css" type="text/css" rel="stylesheet">
     <script src="./js/bootstrap/js/bootstrap.min.js"></script> 
     
+    <!-- JQuery -->
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    
     <style>
       body {
         font-family:"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif; 
@@ -218,18 +221,17 @@
 }
 </style>
 
-
-<script type="text/javascript" charset="utf-8">
-    //Activate Uniform UI
-      $(function(){
-        $("input, textarea, button").uniform();
-      });
+<script>
+    if ($.browser.msie && $.browser.version <= 8) {
+        alert("Internet Explorer supportato solo dalla versione 9!");
+    }
 </script>
-     
+
+
 <!--------- google Analytics  ------------------------->
 <script type="text/javascript">
 
-  var _gaq = _gaq || [];
+      var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-36651498-1']);
   _gaq.push(['_trackPageview']);
 

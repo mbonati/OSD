@@ -18,13 +18,9 @@
     <link href="./js/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="./js/bootstrap/css/bootstrap-responsive.css" type="text/css" rel="stylesheet">
     <script src="./js/bootstrap/js/bootstrap.min.js"></script> 
-
-    <!-- D3.js -->
-    <script src="http://d3js.org/d3.v2.min.js"></script>
     
-    <!-- Uniform.js -->
-    <!--<script src="js/uniform.js/jquery.uniform.js" type="text/javascript" charset="utf-8"></script>
-    <link rel="stylesheet" href="js/uniform.js/css/uniform.default.css" type="text/css" media="screen"> -->
+    <!-- D3.js -->
+    <script src="./js/d3.js/d3.v2.min.js"></script>
     
     <!-- jqGrid -->
     <script src="js/jqGrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
@@ -48,7 +44,6 @@
  </head>
  
 <body>
-
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -173,7 +168,6 @@
     </div>
     
 </body>
-
 <!--------- jqGrid Table ------------------------->
 <script>
 jQuery("#determine-table").jqGrid({
@@ -236,6 +230,13 @@ $(function () {
  });
 </script>
 
+<!----  Browser check ---->
+<script>
+    if ($.browser.msie && $.browser.version <= 8) {
+        alert("Internet Explorer supportato solo dalla versione 9!");
+    }
+</script>
+
 <!--------- CrossFilter & dc.js ------------------------->
 <script type="text/javascript">
 var periodiChart = dc.barChart("#periodi-chart");
@@ -243,7 +244,6 @@ var importiChart = dc.pieChart("#importi-chart");
 var comuniChart = dc.pieChart("#comuni-chart");
 var regioniChart = dc.geoChoroplethChart("#regioni-chart");
 var counter;
-
 
 // load l'immagine animata di wait loading
 $(document).ready(function(){

@@ -20,7 +20,7 @@
     <script src="./js/bootstrap/js/bootstrap.min.js"></script> 
 
     <!-- D3.js -->
-    <script src="http://d3js.org/d3.v2.min.js"></script>
+    <script src="./js/d3.js/d3.v2.min.js"></script>
     
     <!-- SelectToUISlider -->
     <link href="js/selectToUISlider/css/redmond/jquery-ui-1.7.1.custom.css" type="text/css" rel="stylesheet" />
@@ -231,6 +231,13 @@ jQuery("#data-table").jqGrid('navGrid','#data-table-pager',{search:true,edit:fal
 $(function () {
     $('#viz-tab a:first').tab('show');
  });
+</script>
+
+<!----  Browser check ---->
+<script>
+    if ($.browser.msie && $.browser.version <= 8) {
+        alert("Internet Explorer supportato solo dalla versione 9!");
+    }
 </script>
 
 <!--------------  Gestore RadioButton per Granularita' (Regioni/Provincie/comuni ------------------------------->
