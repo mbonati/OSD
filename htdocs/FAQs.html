@@ -9,13 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <!-- JQuery -->
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    
     <!-- Bootstrap -->
     <link href="./js/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="./js/bootstrap/css/bootstrap-responsive.css" type="text/css" rel="stylesheet">
     <script src="./js/bootstrap/js/bootstrap.min.js"></script> 
-    
-    <!-- JQuery -->
-    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     
     <style>
       body {
@@ -40,8 +40,26 @@
             
             <!-- Navigation Menu -->
             <ul class="nav pull-left">
-              <li><a href="index.html">Spese Correnti</a></li>
-              <li><a href="indicatoriFinanziari.html">Indicatori Finanziari</a></li>
+              <li class='dropdown'>
+                  <a class='dropdown-toggle' data-toggle='dropdown'>
+                                              Spese Correnti
+                                              <b class='caret'></b>
+                                            </a>
+                  <ul class='dropdown-menu'>
+                      <li><a href='determinazioni.html'>Determinazioni Dirigenziali</a></li>
+                      <li><a href='determinazioni.html'>Spese DL Sviluppo</a></li>
+                  </ul>
+              </li>
+              <li class='dropdown'>
+                  <a class='dropdown-toggle' data-toggle='dropdown'>
+                                              Dati Consuntivi
+                                              <b class='caret'></b>
+                                            </a>
+                  <ul class='dropdown-menu'>
+                      <li><a href='indicatoriFinanziari.html'>Indicatori Finanziari</a></li>
+                      <li><a href='indicatoriFinanziari.html'>Bilanci</a></li>
+                  </ul>
+              </li>
             </ul>
               
             <!-- Login -->
@@ -186,41 +204,6 @@
 
 </body>
 
-<style>
-#viz-tooltip-container {
-  position: absolute;
-  bottom: 0;
-  width: 230px;
-  left: -125px;
-  font-size: 12px;
-  line-height: 16px;
-  padding: 10px;
-  border-radius: 3px;
-  background: rgba(255,255,255,0.9);
-  color: #000;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
-  -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.4);  
-  border:1px solid rgba(200,200,200,0.85);
-  text-align:center;
-}
-
-#viz-tooltip {
- text-align:center;  
-  z-index: 1000;
-  position: absolute;
-  display: none;
-}
-
-#viz-tooltip .nytg-tail {
-  position: absolute;
-  bottom: -8px;
-  left: 105px;
-  width: 40px;
-  height: 8px;
-  background: url(img/tail_white.png) 50% 0%;
-}
-</style>
-
 <script>
     if ($.browser.msie && $.browser.version <= 8) {
         alert("Internet Explorer supportato solo dalla versione 9!");
@@ -242,83 +225,5 @@
   })();
 
 </script>
-
-<style type="text/css">
-
-    p { 
-        clear:both; 
-    }
-    
-    div.year-selection-container {
-        margin-bottom: 50px;
-    }
-    
-    #year-selection-slider .ui-slider-label {
-        font-size: 10px;
-    }
-    
-	#year-selection-slider fieldset { 
-        border:0; 
-        margin-top: 0;
-    }
-    
-	#year-selection-slider label {
-        font-weight: bold; 
-        float: left; 
-        margin-right: .5em; 
-        font-size: 1.1em;
-    }
-    
-	#year-selection-slider .ui-slider {
-        clear: both; 
-        top: 0em;
-    }
-    
-    #year-selection-slider select {
-        visibility: hidden;
-    }
-    
-    .background {
-      fill: none;
-      pointer-events: all;
-    }
-    
-    .filter-container ul {
-        list-style: none;
-    }
-    
-    .filter-container label {
-        font-size: 10px;
-        font-weight: bold;
-    }
-    
-    /*
-    svg {
-      border-style:solid;
-      border-width:2px;
-      border-color: yellow;
-    }
-
-    .filter-container {
-      border-style:solid;
-      border-width:1px;
-      border-color: blue;
-    }
-
-    .details-container {
-      border-style:solid;
-      border-width:1px;
-      border-color: blue;
-    }
-
-    .map-container {
-      border-style:solid;
-      border-width:1px;
-      border-color: blue;
-    }
-    */
-	
-</style>      
-
 
 </html>

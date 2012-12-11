@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>OpenSpendingReview - Spese Correnti</title>
+    <title>OpenSpendingReview - Home</title>
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,28 +11,11 @@
 
     <!-- JQuery -->
     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
-    <link href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" type="text/css" rel="stylesheet">
-
+    
     <!-- Bootstrap -->
     <link href="./js/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="./js/bootstrap/css/bootstrap-responsive.css" type="text/css" rel="stylesheet">
     <script src="./js/bootstrap/js/bootstrap.min.js"></script> 
-    
-    <!-- D3.js -->
-    <script src="./js/d3.js/d3.v2.min.js"></script>
-    
-    <!-- jqGrid -->
-    <script src="js/jqGrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
-    <script src="js/jqGrid/js/i18n/grid.locale-it.js"></script>
-    <link rel="stylesheet" href="js/jqGrid/css/ui.jqgrid.css" type="text/css" media="screen">
-
-    <!-- CrossFilter -->
-    <script src="js/square.crossfilter/crossfilter.min.js" type="text/javascript"></script>
-    
-    <!-- dc.js -->
-    <script type="text/javascript" src="js/dc.js/dc.min.js"></script>
-    <link rel="stylesheet" href="js/dc.js/dc.css" type="text/css" media="screen">
     
     <style>
       body {
@@ -40,7 +23,6 @@
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
-
  </head>
  
 <body>
@@ -57,13 +39,31 @@
             
             <!-- Navigation Menu -->
             <ul class="nav pull-left">
-              <li class="active"><a href="index.html">Spese Correnti</a></li>
-              <li><a href="indicatoriFinanziari.html">Indicatori Finanziari</a></li>
+              <li class='dropdown'>
+                  <a class='dropdown-toggle' data-toggle='dropdown'>
+                                              Spese Correnti
+                                              <b class='caret'></b>
+                                            </a>
+                  <ul class='dropdown-menu'>
+                      <li><a href='determinazioni.html'>Determinazioni Dirigenziali</a></li>
+                      <li><a href='determinazioni.html'>Spese DL Sviluppo</a></li>
+                  </ul>
+              </li>
+              <li class='dropdown'>
+                  <a class='dropdown-toggle' data-toggle='dropdown'>
+                                              Dati Consuntivi
+                                              <b class='caret'></b>
+                                            </a>
+                  <ul class='dropdown-menu'>
+                      <li><a href='indicatoriFinanziari.html'>Indicatori Finanziari</a></li>
+                      <li><a href='indicatoriFinanziari.html'>Bilanci</a></li>
+                  </ul>
+              </li>
             </ul>
               
             <!-- Login -->
             <ul class="nav pull-right">
-                <li><a href="FAQs.html">FAQs</a></li>
+                <li class="active"><a href="FAQs.html">FAQs</a></li>
                 <li><a href="/users/sign_up">Sign Up</a></li>
                 <li class="divider-vertical"></li>
                 <li class="dropdown">
@@ -95,364 +95,80 @@
     </div>
 
     <div class="container">
-
         <div class="row-fluid">
-            <div class="span9 year-selection-container">
-                  <div id="periodi-chart" class="chart">
-                        <span><h4>Selettore Periodo</h4></span>
-                        <a class="reset" href="javascript:periodiChart.filterAll();dc.redrawAll();" style="display: none;">rimuovi filtro</a>
-                        <div class="clear"></div>
-                </div>
-            </div>
-            <div class="span3 year-selection-container">
-                <div class="section-label"><h4>Filtri</h4></div>
-                <div class="dc-data-count">
-                    <span class="filter-count"></span> determine di <span class="total-count"></span> | <a href="javascript:dc.filterAll(); dc.renderAll();">rimuovi filtri</a>
-                </div>
+            <div class="span12 todoMessage">
             </div>
         </div>
-        
-        <div class="row">
-          <div class="span9 viz-container section-label">
-            <ul class="nav nav-tabs" id="viz-tab">
-                <li><a href="#determine" data-toggle="tab"><h5>Determinazioni</h5></a></li>
-                <li><a href="#speseDL" data-toggle="tab"><h5>Spese D.L. n.83/2012</h5></a></li>
+        <div class="row-fluid">
+            <div class="span8 todoMessage">
+            <h1>OpenSpendingReview</h1>
+            <br>
+            <p>Un progetto di acquisizione, aggregazione, condivisione e monitoraggio di spesa delle realtà locali della Pubblica Amministrazione Italiana: comuni e provincie</p>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12 todoMessage">
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12 todoMessage">
+            </div>
+        </div>
+        <div class='row-fluid'>
+            <div class="span2 todoMessage">
+            </div>
+            <ul class='thumbnails'>
+                <li class='span4 app'>
+                    <div class='thumbnail thumbnail-small'>
+                        <a href='determinazioni.html' target='_blank'>
+                                        <img alt='Spese Correnti - aggregazione e ricerca mediante filtri' src='/img/SpeseCorrentiThumb.png' />
+                                      </a>
+                        <div class='caption'>
+                            <h5>Spese Correnti</h5>
+                            <p></p>
+                            <p>
+                                <a class='btn btn-primary' href='determinazioni.html' target='_blank'>Determinazioni</a>
+                                <a class='btn' href='determinazioni.html' target='_blank'>Spese DL Sviluppo</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class='span4 app'>
+                    <div class='thumbnail thumbnail-small'>
+                        <a href='indicatoriFinanziari.html' target='_blank'>
+                                        <img alt='Dati a consuntivo' src='/img/IndicatoriFinanziariThumb.png' />
+                                      </a>
+                        <div class='caption'>
+                            <h5>Dati consuntivi</h5>
+                            <p></p>
+                            <p>
+                                <a class='btn btn-primary' href='indicatoriFinanziari.html' target='_blank'>
+                                         Indicatori Finanziari
+                                          </a>
+                                <a class='btn' href='indicatoriFinanziari.html' target='_blank'>
+                                           Bilanci
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
             </ul>
-            
-            <div class="tab-content">
-                  <div class="tab-pane table-container" id="determine">
-                        <table id="determine-table" class="list"></table>
-                        <div id="determine-table-pager"></div>
-                        <span class="citation">Fonte Dati: Albi Pretori online dei comuni di <a href="http://www.comune.milano.it/albopretorio/AlboPretorioWeb/AlboPretorio.aspx">Milano</a>, <a href="http://www.comune.torino.it/determinazioni/2012/">Torino</a> e <a href="http://portale.comune.venezia.it/albopretorio">Venezia</a> (estratti tramite scraping)</p>
-                        </span>
-                  </div>    
-                  <div class="tab-pane table-container" id="speseDL">
-                        <table id="speseDL-table"></table>
-                        <div id="speseDL-table-pager"></div>
-                  </div>
-            </div>  
-          </div> 
-
-           <div class="span3 filter-container">
-                <div id="importi-chart" >
-                        <span>Selettore Importi </span>
-                        <a class="reset" href="javascript:importiChart.filterAll();dc.redrawAll();" style="display: none;">rimuovi filtro</a>
-                        <div class="clear"></div>
-                </div>
-           </div>
-          
-            <div class="span3 filter-container">
-                  <div id="comuni-chart" >
-                        <span>Selettore Comuni </span>
-                        <a class="reset" href="javascript:comuniChart.filterAll();dc.redrawAll();" style="display: none;">rimuovi filtro</a>
-                        <div class="clear"></div>
-                </div>
-            </div>
-            
-            <div class="span3 filter-container">
-                  <div id="regioni-chart" >
-                        <span>Selettore Regioni </span>
-                        <a class="reset" href="javascript:regioniChart.filterAll();dc.redrawAll();" style="display: none;">rimuovi filtro</a>
-                        <div class="clear"></div>
-                </div>
-            </div>
-        </div>
-
-    </div> <!-- /container q -->
-    
-    <div id="viz-tooltip">
-        <div id ="viz-tooltip-container">
-            <span class="viz-tooltip-value"></span>
-            <div class="nytg-tail"></div>
         </div>
     </div>
-    
+
 </body>
-<!--------- jqGrid Table ------------------------->
-<script>
-jQuery("#determine-table").jqGrid({
-    datatype: "local",
-   	colNames:['#', 'comune', 'descrizione', 'importo','data'],
-   	colModel:[
-   		{name:'codice',index:'codice', width:60,search:false},
-        {name:'comune',index:'comune', align:"center", width:90},
-   		{name:'descrizione',index:'descrizione', width:400},
-   		{name:'importo',index:'importo', width:115, align:"right",sorttype:"float", formatter:"number"},
-   		{name:'DataSalvataggio',index:'DataSalvataggio', width:120, align:"right",sorttype:'date', formatter:'date', datefmt:'Y-m-d',search:false}	
-   	],
-   	rowNum: 10,
-    height: 550,
-   	pager: "#determine-table-pager",
-   	sortname: 'DataSalvataggio',
-    loadonce:true,
-    viewrecords: true,
-    sortorder: "desc",
-    sortable:true,
-    altRows:true,
-    altclass:'myAltRowClass',
-    caption:"Determinazioni",
-    ignoreCase: true,
-    defaultSearch:"cn",
-    // needed for soring correctly the grid after loading
-    loadComplete: function() {
-        var $this = $(this);
-        //console.log("load complete");
-        
-        if ($this.jqGrid('getGridParam', 'datatype') == 'json') {
-            if ($this.jqGrid('getGridParam', 'sortname') != '') {
-                // we need reload grid only if we use sortname parameter,
-                // but the server return unsorted data
-                setTimeout(function () {
-                    $this.triggerHandler('reloadGrid');
-                }, 50);
-            }
-        }
-    },
-    jsonReader: {
-                    repeatitems: false,
-                    id: "Id",
-                    root: function (obj) { return obj; },
-                    page: function (obj) { return 1; },
-                    total: function (obj) { return 1; },
-                    records: function (obj) { return obj.length; }
-                }
-});
-jQuery("#determine-table").jqGrid('navGrid','#determine-table-pager',{search:true,edit:false,add:false,del:false,searchtext:"Cerca"},
-{},{},{},{width:640,sopt:['cn','eq','ne','lt','le','gt','ge']},{});
-$(".ui-jqgrid-titlebar").hide();
-</script>
 
-<!----  Tab selection ---->
-<script>
-//Activate the first Viz tab
-$(function () {
-    $('#viz-tab a:first').tab('show');
- });
-</script>
-
-<!----  Browser check ---->
 <script>
     if ($.browser.msie && $.browser.version <= 8) {
         alert("Internet Explorer supportato solo dalla versione 9!");
     }
 </script>
 
-<!--------- CrossFilter & dc.js ------------------------->
-<script type="text/javascript">
-var periodiChart = dc.barChart("#periodi-chart");
-var importiChart = dc.pieChart("#importi-chart");
-var comuniChart = dc.pieChart("#comuni-chart");
-var regioniChart = dc.geoChoroplethChart("#regioni-chart");
-var counter;
-
-// load l'immagine animata di wait loading
-$(document).ready(function(){
-    $('body').append("<div class='modal'></div>");
-    $('body').addClass("loading");
-});
-
-// set dc.js version in title
-d3.selectAll("#version").text(dc.version);
-
-// load data from a scaperwiki file
-d3.json("https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=agg_det_com&query=select%20comune%2Ccodice%2CDataSalvataggio%2Cdescrizione%2Cimporto%20from%20%60swdata%60" , function(delibere){ 
-
-        // since its a csv file we need to format the data a bit
-        var dateFormat = d3.time.format("%B %d, %Y");
-        var numberFormat = d3.format(".2f");
-
-        delibere.forEach(function(e) {
-            e.DataSalvataggio = parseDate(e.DataSalvataggio);
-        });
-        
-        function parseDate(input) {
-            var parts = input.match(/(\d+)/g);
-            // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
-            var ret = new Date(parts[0], parts[1]-1, parts[2]); // months are 0-based
-            return ret;
-        }
-  
-        // feed it through crossfilter
-        var delibereCF = crossfilter(delibere);
-        var all = delibereCF.groupAll();
-         
-        // dimensioni date
-        var date = delibereCF.dimension(function(d){ return d.DataSalvataggio;} );
-        var dates = date.group();
-
-        //dimensione Comune
-        var dimComuni = delibereCF.dimension(function(d){ return d.comune;} );
-        var grpComuni = dimComuni.group();
-        
-        //dimensione Regioni per ora scolpite da citta' poi va caricato file di mapping comune-regioni
-        var dimRegioni = delibereCF.dimension(function(d){ 
-            if (d.comune == "Torino") 
-                return "PIEMONTE"; // piemonte
-            else if (d.comune == "Milano")
-                return "LOMBARDIA"; // lombardia
-            else if (d.comune == "Venezia") 
-                return "VENETO"; // veneto
-        
-        });
-        var grpRegioni = dimRegioni.group();
-              
-        //dimensione Importo (Pivotting per ranges di importo)
-        var dimImporti = delibereCF.dimension(function(d) {
-            if (d.importo <= 1000) 
-                return "<1K";
-            else if (d.importo > 1000 && d.importo <= 100000) 
-                return ">1K <100K";
-            else if (d.importo > 100000 && d.importo <= 500000) 
-                return ">100K <500K";
-            else if (d.importo > 500000 && d.importo <= 1000000) 
-                return ">500K <1Mil";
-            else 
-                return ">1Mil";
-        });
-        var grpImporti = dimImporti.group();
-
-
-        d3.json("data/geo/italia.regioni.geojson", function(italyJson) {
-          regioniChart.width(280)
-                    .height(400)
-                    .dimension(dimRegioni)
-                    .group(grpRegioni)
-                    .projection(d3.geo.mercator()
-                            .scale(9300)
-                            .translate([-170, 1400]))
-                    .colors(["#ccc", "#E2F2FF","#C4E4FF","#9ED2FF","#81C5FF","#6BBAFF","#51AEFF","#36A2FF","#1E96FF","#0089FF","#0061B5"])
-                    .colorDomain([-5, 500])
-                    .overlayGeoJson(italyJson.features, "Regione", function(d) {
-                        return d.properties.NOME_REG;
-                    });
-
-            periodiChart.width(820)
-                    .height(160)
-                    .margins({top: 10, right: 50, bottom: 30, left: 40})
-                    .dimension(date)
-                    .group(dates)
-                    .elasticY(true)
-                    .centerBar(true)
-                    .gap(0)
-                    .round(d3.time.day.round)
-                    .xUnits(d3.time.days)
-                    .x(d3.time.scale().domain([new Date(2012, 0, 1), new Date(2012, 12, 31)]))
-                    .filter([new Date(2012, 10, 1), new Date(2012, 11, 31)])
-                    .renderHorizontalGridLines(true)
-                    .xAxis();
-                    
-            importiChart.width(170)
-                    .height(170)
-                    .radius(80)
-                    .innerRadius(30)
-                    .dimension(dimImporti)
-                    .group(grpImporti);
-
-            comuniChart.width(170)
-                    .height(170)
-                    .radius(80)
-                    .colors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
-                    .innerRadius(30)
-                    .dimension(dimComuni)
-                    .group(grpComuni);
-        
-            counter = dc.dataCountExt(".dc-data-count")
-                    .dimension(delibereCF)
-                    .group(all);
-            
-            dc.renderAll();
-                
-            // trigger temporized table rendering
-            setTimeout(function () {
-                renderTable();
-                    }, 500);
-                
-            function renderTable() {             
-                updateGridRows();
-            }  
-                 
-            // A nest operator, for grouping the delibere by year.
-            var nestByDate = d3.nest().key(function(d) {
-                //console.log("nest called for " + d.DataSalvataggio); 
-                return d.DataSalvataggio;
-            });            
-                        
-                
-            function updateGridRows() {
-                var delibereByDate = nestByDate.entries(date.top(200));
-                
-                if (counter.dirty()) {
-                    var table = jQuery("#determine-table");
-                
-                    table.clearGridData();
-                
-                    var rowcount = 1;
-                    delibereByDate.forEach(function(dContainer, j) {
-                        dContainer.values.forEach(function(delibera, i) {
-                            var row = {
-                                codice: delibera.codice,
-                                comune: delibera.comune,
-                                descrizione: delibera.descrizione,
-                                importo: delibera.importo,
-                                DataSalvataggio: delibera.DataSalvataggio
-                            };
-                            table.addRowData(rowcount, row);
-                            //console.log("adding j:" + j + " row:" + i + " codice:" + delibera.codice)
-                            rowcount++;
-                        });
-                    });
-                
-                    table.trigger("reloadGrid");
-                    
-                    counter.dirty(false);
-                }
-                //...finally a new timer to be updated!
-                setTimeout(function() {
-                    renderTable();
-                }, 500);
-            }
-            
-            // rimuovi wait loading
-            $('body').removeClass("loading");
-        });
-    }
-    
-);
-
-// specializzata DataCount per aggiornare table solo se serve (qualcosa e' cambiato)
-dc.dataCountExt = function(parent, chartGroup) {
-    var _formatNumber = d3.format(",d");
-    var _chart = dc.baseChart({});
-    
-    var _dirty = false;
-    _chart.dirty = function(dirty) {
-        if (!arguments.length) return _dirty;
-        _dirty = dirty;
-        return _chart;
-    };
-
-    _chart.doRender = function() {
-        _dirty = true;
-        
-        _chart.selectAll(".total-count").text(_formatNumber(_chart.dimension().size()));
-        _chart.selectAll(".filter-count").text(_formatNumber(_chart.group().value()));
-
-        return _chart;
-    };
-
-    _chart.doRedraw = function(){
-        return _chart.doRender();
-    };
-    
-    return _chart.anchor(parent, chartGroup);
-};
-
-</script>
 
 <!--------- google Analytics  ------------------------->
 <script type="text/javascript">
 
-  var _gaq = _gaq || [];
+      var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-36651498-1']);
   _gaq.push(['_trackPageview']);
 
@@ -464,195 +180,4 @@ dc.dataCountExt = function(parent, chartGroup) {
 
 </script>
 
-<!-- STYLE CSS customization -->
-<style type="text/css">
-    
-    .data-table {
-        height: 100px;
-        width: 100%;
-    }
-    
-    p { 
-        clear:both; 
-    }
-    
-    div.year-selection-container {
-        margin-bottom: 50px;
-    }
-    
-    .background {
-      fill: none;
-      pointer-events: all;
-    }
-    
-    .filter-container ul {
-        list-style: none;
-    }
-    
-    .filter-container label {
-        font-size: 10px;
-        font-weight: bold;
-    }
-    
-    .chart {
-      /*display: inline-block;*/
-      height: 151px;
-      margin-bottom: 20px;
-    }
-
-    	
-    .background.bar {
-      fill: #ccc;
-    }
-    
-    .foreground.bar {
-      fill: steelblue;
-    }
-    
-    .axis path, .axis line {
-      fill: none;
-      stroke: #000;
-      shape-rendering: crispEdges;
-    }
-    
-    .axis text {
-      font: 10px sans-serif;
-    }
-    
-    .brush rect.extent {
-      fill: steelblue;
-      fill-opacity: .125;
-    }
-    
-    .brush .resize path {
-      fill: #eee;
-      stroke: #666;
-    }
-    
-    span.citation {
-        font-style:oblique;
-        margin-left: 50px;
-        font-size: 10px;}
-
-</style>      
-
-<style>
-.myAltRowClass { background-color: #EEE; background-image: none; }
-
-.ui-jqgrid  {
-    border: none;
-}
-
-.ui-jqgrid .ui-jqgrid-htable th {
-    background-color:  white;
-    background-image:  none;
-    height: 30px;
-    padding-top: 4px;
-}
-
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-    border: 1px solid transparent;
-    font-weight: bold;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #333;
-}
-
-.ui-jqgrid tr.jqgrow td  {
-    font-weight: normal;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    padding: 4px;
-}
-
-.ui-jqgrid tr.ui-row-ltr td {
-    border-color: transparent;
-    border-top: 1px solid #DDD;
-}
-
-
-.ui-jqgrid .ui-jqgrid-btable  {
-    border-color: transparent;
-}
-
-.ui-jqgrid table  {
-    border-collapse: initial;
-}
-
-.ui-jqgrid .jqgrow  {
-    line-height: 23px;
-    padding: 8px;
-}
-
-.ui-jqgrid td {
-}
-
-.ui-jqgrid .ui-jqgrid-pager {
-    color: #111;
-    background-color:  #FFF;
-    background-image:  none;
-    height:50px;
-}
-
-.ui-jqgrid-pager .ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
-    -moz-border-radius-bottomright: 0px;
-    -webkit-border-bottom-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-   -moz-border-radius-bottomleft: 0px;
-    -webkit-border-bottom-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-}
-
-.ui-jqgrid-pager input.text {
-    background-color:  white;
-    background-image:  none;
-    margin-bottom: 3px;
-}
-
-.ui-jqgrid tr.jqgrow td {
-    white-space: normal !important;
-}
-
-.ui-jqgrid  .ui-state-hover {
-  background-image: none;
-  background-color: #DDDDDC;
-}
-
-.ui-jqgrid .ui-jqgrid-hdiv {
-  background-image: none;
-  background-color: transparent;
-}
-
-/* Start by setting display:none to make this hidden.
-   Then we position it in relation to the viewport window
-   with position:fixed. Width, height, top and left speak
-   speak for themselves. Background we set to 80% white with
-   our animation centered, and no-repeating */
-.modal {
-    display:    none;
-    position:   fixed;
-    z-index:    1000;
-    top:        0;
-    left:       0;
-    height:     150%;
-    width:      150%;
-    background: rgba( 255, 255, 255, .9 ) 
-                url('http://i.stack.imgur.com/FhHRx.gif') 
-                50% 50% 
-                no-repeat;
-}
-
-/* When the body has the loading class, we turn
-   the scrollbar off with overflow:hidden */
-body.loading {
-    overflow: hidden;   
-}
-
-/* Anytime the body has the loading class, our
-   modal element will be visible */
-body.loading .modal {
-    display: block;
-}
-
-</style>
-
+</html>
