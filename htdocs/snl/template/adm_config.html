@@ -1,0 +1,181 @@
+<form method="post">
+<input type="hidden" name="username" value="%username%">
+<input type="hidden" name="password" value="%password%">
+<input type="hidden" name="action" value="%admin_keyword%">
+<input type="hidden" name="q" value="config">
+<input type="hidden" name="s" value="submit">
+<table border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#99FFCC">
+<tr bgcolor="#CCFFCC"><td colspan="2"><b>Configurazione</b></td>
+</tr>
+<tr><td colspan="2"><font size="-1">      <b><br>
+  Variabili</b>:</font></td>
+</tr>
+<tr>
+  <td colspan="2"><font size="-1"><em>%percentuale%list_name%percentuale%</em> = Il nome della news-letter<br>
+      <em>%percentuale%email%percentuale%</em> = Indirizzo e-mail dell'iscritto<br>
+      <em>%percentuale%confirm_url%percentuale%</em> = Indirizzo web internet per confermare l'iscrizione<br>
+      <em>%percentuale%subscribe_url%percentuale%</em> = Indirizzo web per effettuare la re-iscrizione<br>
+      <em>%percentuale%unsubscribe_url%percentuale%</em> = Indirizzo web per effettuare la cancellazione</font></td>
+</tr>
+<tr bgcolor="#CCFFCC">
+  <td colspan="2"><font size="-1"><strong><br>
+    Impostazioni generali</strong></font><font size="-1">:</font></td>
+</tr>
+<tr bgcolor="#CCFFCC">
+  <td><font size="-1">Nome utente: </font></td>
+  <td>    <font size="-1">
+    <input type="text" name="newusername" value="%username%">  
+    </font></td>
+</tr>
+<tr bgcolor="#CCFFCC">
+  <td><font size="-1">Password: </font></td>
+  <td><font size="-1">
+    <input type="password" name="newpassword" value="%password%">
+  </font></td>
+</tr>
+<tr bgcolor="#CCFFCC">
+  <td><font size="-1">Conferma password: </font></td>
+  <td>    <font size="-1">
+    <input name="newpassword1" type="password" id="newpassword1" value="%password%">  
+    </font></td>
+</tr>
+<tr bgcolor="#CCFFCC">
+  <td><font size="-1">File degli indirizzi:</font></td>
+  <td>    <font size="-1">
+    <input size="50" type="text" name="newlist_file" value="%list_file%">  
+    </font></td>
+</tr>
+<tr bgcolor="#CCFFCC">
+  <td bgcolor="#CCFFCC"><font size="-1">Ricarica lo script<br> 
+    ogni 
+    &quot;tot&quot; invii<em><br> 
+    (abbassare il numero<br>
+    se si verificano problemi)</em>:</font></td>
+  <td>    <font size="-1">
+    <input size="50" type="text" name="newmail_group" value="%mail_group%">  
+    </font></td>
+</tr>
+<tr bgcolor="#CCFFCC">
+  <td><font size="-1">Nome News-Letter: </font></td>
+  <td>    <font size="-1">
+    <input size="50" type="text" name="newlist_name" value="%list_name%">  
+    </font></td>
+</tr>
+<tr bgcolor="#CCFFCC">
+  <td><font size="-1">E-mail proprietario: </font></td>
+  <td>    <font size="-1">
+    <input size="50" type="text" name="newowner_email" value="%owner_email%">  
+    </font></td>
+</tr>
+<tr bgcolor="#CCFFCC">
+  <td bgcolor="#CCFFCC"><font size="-1">Indirizzi per pagina:</font></td>
+  <td>    <font size="-1">
+    <input size="4" maxlength="3" type="text" name="newdefault_per_page" value="%default_per_page%">  
+    </font></td>
+</tr>
+<tr>
+  <td colspan="2"><font size="-1">      <b><br>
+    Indirizzi esclusi, ai quali  sara' impedita l'iscrizione:</b></font></td>
+</tr>
+<tr>
+  <td valign="top"><font size="-1">Indirizzi:<br>
+    <i>(inserire 
+    un<br> 
+    indirizzo  
+    per<br> 
+    ogni riga)</i></font></td>
+  <td>
+    <font size="-1">
+    <textarea name="newbanned_addresses" cols="50" rows="4">%banned_addresses%</textarea>
+    </font></td>
+</tr>
+<tr bgcolor="#CCFFCC">
+  <td colspan="2"><font size="-1">      <b><br>
+    Firma (non utilizzare le variabili):</b></font></td>
+</tr>
+<tr bgcolor="#CCFFCC">
+  <td valign="top"><font size="-1">F</font><font size="-1">irma:<br>
+      <i>(sar&agrave; inclusa<br> 
+      in calce ad<br> 
+      ogni messaggio)</i></font></td>
+  <td>
+    <font size="-1">
+    <textarea name="newsig" rows="6" cols="70">%sig%</textarea>
+    </font></td>
+</tr>
+<tr><td colspan="2"><br>
+      <font size="-1"><b>      Conferme:</b></font></td>
+</tr>
+<tr>
+  <td><font size="-1">Richiedere<br>
+    conferma<br> 
+    iscrizione?</font></td>
+<td><font size="-1"><input name="newsend_confirm" type="checkbox" value="1" %send_confirm_chk%></font></td>
+</tr>
+<tr>
+  <td><font size="-1">Oggetto:</font></td>
+  <td>    <font size="-1">
+    <input size="70" type="text" name="newconfirm_subject" value="%confirm_subject%">  
+    </font></td>
+</tr>
+<tr>
+  <td valign="top"><font size="-1">Messaggio<br> 
+    di conferma:</font></td>
+  <td>
+    <font size="-1">
+    <textarea name="newconfirm_msg" rows="10" cols="70">%confirm_msg%</textarea>
+</font></td>
+</tr>
+<tr bgcolor="#CCFFCC"><td colspan="2"><font size="-1"><b><br>
+        Messaggio di benvenuto:</b></font></td>
+</tr>
+<tr bgcolor="#CCFFCC">
+  <td><font size="-1">Invio<br> 
+    messaggio di <br> 
+    benvenuto?</font></td>
+<td>  <font size="-1"><input name="newsend_welcome" type="checkbox" value="1" %send_welcome_chk%>
+</font></td>
+</tr>
+<tr bgcolor="#CCFFCC">
+  <td><font size="-1">Oggetto:</font></td>
+  <td>    <font size="-1">
+    <input size="70" type="text" name="newwelcome_subject" value="%welcome_subject%">  
+    </font></td>
+</tr>
+<tr bgcolor="#CCFFCC">
+  <td valign="top"><font size="-1">Messaggio<br> 
+    di benvenuto:</font></td>
+  <td>
+    <font size="-1">
+    <textarea name="newwelcome_msg" rows="10" cols="70">%welcome_msg%</textarea>
+    </font></td>
+</tr>
+<tr><td colspan="2"><font size="-1">      <b><br>
+      Messaggio di rimozione dalla lista:</b></font></td>
+</tr>
+<tr>
+  <td><font size="-1">Invio<br> 
+    messaggio di<br> 
+    rimozione?</font></td>
+<td><font size="-1"><input name="newsend_goodbye" type="checkbox" value="1" %send_goodbye_chk%></font></td>
+</tr>
+<tr>
+  <td><font size="-1">Oggetto:</font></td>
+  <td>    <font size="-1">
+    <input size="70" type="text" name="newgoodbye_subject" value="%goodbye_subject%">  
+    </font></td>
+</tr>
+<tr>
+  <td valign="top"><font size="-1">Messaggio<br> 
+    di rimozione:</font></td>
+  <td>
+    <font size="-1">
+    <textarea name="newgoodbye_msg" rows="10" cols="70">%goodbye_msg%</textarea>
+    </font></td>
+</tr>
+<tr bgcolor="#CCFFCC"><td colspan="2"><div align="center"><font size="-1"></font><font size="-1"><br>    
+          <input type="submit" value="Salva">&nbsp;<input type="reset" value="Annulla modifiche">
+</font></div></td>
+</tr>
+</table>
+</form>

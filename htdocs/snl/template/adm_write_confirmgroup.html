@@ -1,0 +1,33 @@
+<form method="post">
+  <table border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#99FFCC">
+    <tr>
+      <td align="center" valign="top">
+        <h3>Clicca per continuare l'invio con il prossimo gruppo di indirizzi</h3></td>
+    </tr>
+    <tr>
+      <td align="left" valign="top"><div align="center"><strong><font color="#FF0000">ATTENZIONE:<br>
+          Se non si continuera' l'invio premendo il tasto,<br>
+          il messaggio sar&agrave; spedito in modo parziale<br>
+      solo ad alcuni utenti della news-letter.<br><br></font></strong></div></td>
+    </tr>
+    <tr>
+      <td align="left" valign="top"><div align="center">Invia messaggio al gruppo <strong>%group_current%</strong> di <strong>%group_max%</strong> totali.</div></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+          <input type="hidden" name="username" value="%username%">
+          <input type="hidden" name="password" value="%password%">
+          <input type="hidden" name="message" value="%message_1%">
+          <input type="hidden" name="subject" value="%subject_1%">
+          <input type="hidden" name="use_sig" value="%use_sig%">
+          <input type="hidden" name="group_max" value="%group_max%">
+		  <input type="hidden" name="sucess_count" value="%sucess_count%">
+          <input type="hidden" name="fail_count" value="%fail_count%">
+		  <input type="hidden" name="group_current" value="%group_current%">
+		  <input type="hidden" name="action" value="%admin_keyword%">
+		  <input type="hidden" name="q" value="send_msg">
+          <input type="submit" value="Continua l'invio">
+</div></td>
+    </tr>
+  </table>
+</form>

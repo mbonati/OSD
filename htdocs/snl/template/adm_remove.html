@@ -1,0 +1,22 @@
+<div align="center">
+  <form method="post" name="remove">
+    <h3>
+      <input type="hidden" name="username" value="%username%">
+      <input type="hidden" name="password" value="%password%">
+      <input type="hidden" name="action" value="%admin_keyword%">
+      <input type="hidden" name="q" value="add_remove">
+      <input type="hidden" name="x" value="remove_submit">
+      <center>
+      Rimozione indirizzi:</h3>
+    Tenere premuto il tasto <i>Ctrl</i> per effettuare selezioni multiple. <br>
+    <br>
+    <select multiple name="remove_address_arr[]" size="7">
+%address_list%
+  </select>
+    <br>
+    <br>
+    <input type="submit" value="Rimuovi">
+&nbsp;
+    <input type="reset" value="Annulla">
+  </form>
+</div>

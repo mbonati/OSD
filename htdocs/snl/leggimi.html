@@ -1,0 +1,153 @@
+<html>
+<head>
+<title>PHP Simply News-Letter</title>
+<style>
+<!--
+body { background-color: white; color: black; font-family: arial; font-size: 90%; }
+a:link { color: blue; text-decoration: none; }
+a:active { color: red; text-decoration: underline; }
+a:hover { color: red; text-decoration: underline; }
+a:visited { color: purple; text-decoration: none }
+-->
+</style>
+</head>
+</body>
+
+<h2><a name="up">File leggimi per PHP Simply News-Letter 1.1.2</a></h2>
+<p><strong>Contenuto:</strong></p>
+<ul>
+  <li><a href="#about">Informazioni</a>
+  <li><a href="#include">File inclusi</a>
+  <li><a href="#install">Installazione ed uso</a>
+  <li><a href="#changelog">Change log</a>
+  <li><a href="#todo">To do</a>
+</ul>
+<h2><a name="about">Informazioni</a></h2>
+<p> PHP Simply News-Letter &egrave; un semplice script per la gestione di una news-letter con le seguenti caratteristiche:</p>
+<ul>
+  <li> Script di facilissima installazione;</li>
+  <li>Non utilizza Mysql;</li>
+  <li>Permette agli utenti di iscriversi/rimuoversi in totale autonomia;</li>
+  <li>Effettua un controllo sulla validita' dell'indirizzo e-mail;</li>
+  <li>Completamente amministrabile via web da un'apposita area protetta da password; </li>
+  <li>Permette l'invio in 'gruppi' di e-mail per evitare di sovraccaricare il web-server;</li>
+  <li> Funziona anche con REGISTER_GLOBALS OFF.</li>
+</ul>
+<a href="#up">Torna su al menu' principale &raquo;</a> <br>
+<h2><a name="include">File inclusi</a></h2>
+Questi sono i file inclusi per il corretto funzionamento dello script:
+<ol>
+  <li><i><strong>leggimi.html</strong></i><br>
+    Questo documento.<br>
+  <li><i><strong>snl.php</strong></i> <br>
+    Lo script php che controlla l'invio della news-letter e l'iscrizione.<br>
+  <li><i><strong>inc/snl_list.dat</strong></i><br>
+    Il file dove sono memorizzati gli indirizzi e-mail degli iscritti. Questo file &egrave; gestito direttamente dallo script php. <br>
+  <li><i><strong>inc/snl_config.dat</strong></i> <br>
+    Il file dove vengono memorizzate le preferenze della news-letter. Questo file &egrave; gestito direttamente dallo script php.<br>
+  <li><strong><em>inc/.htaccess<br>
+    </em><font color="#FF0000">ATTENZIONE. Questo file e' importante.</font></strong> Contiene un'impostazione che protegge i file <strong>.dat</strong> da malintenzionati. Se non viene caricato, i file con gli indirizzi e-mail e quelli con le configurazioni diverranno di pubblico dominio. Per gli ambienti windows provvedere a proteggere la cartella <strong>inc/</strong> <br>
+  <li><em><strong>template/<br>
+    </strong></em>In questa cartella sono riposti tutti i file template (semplici file HTML) necessari per il corretto funzionamento dello script. E' possibile personalizzare tali file a proprio piacimento. Potete cominciare dai due file <strong>footer.html</strong> ed <strong>header.html</strong>.<br>
+  <li><strong><em>esempio.html</em></strong><br>
+    File di esempio con il codice html da incollare nella propria pagina web per il box dell'iscrizione/rimozione dalla news-letter.
+</ol>
+<a href="#up">Torna su al menu' principale &raquo;</a> <br>
+<h2><a name="install">Installazione ed uso</a></h2>
+<ol>
+  <li>Requisiti necessari:
+    <ul>
+      <li>PHP Version 4.2.1 o maggiore. Lo script &egrave; testato su PHP 4.3.10 e ambiente Linux.</li>
+      <li> I parametri per l'istruzione php <strong>mail()</strong> devono essere configurati correttamente e funzionanti. Vai all'indirizzo <a href="http://www.php.net/manual/en/function.mail.php">http://www.php.net/manual/en/function.mail.php</a> per maggiori informazioni e al limite contatta il tuo provider per sapere se tale istruzione e' supportata.</li>
+      <li>MINIMA conoscenza del php per editare una linea e configurare lo script come successivamente descritto.</li>
+      <li>Il browser che si utilizza per l'amministrazione deve avere javascript abilitato. <br>
+      </li>
+    </ul>
+  <li><strong>E' necessario procedere alla configurazione solo se viene dato un messaggio di errore in fase di esecuzione o se si cambia il nome dello script di base, altrimenti <font color="#FF0000">di solito in ambiente Linux non &egrave; necessario effettuare nessuna operazione</font>.</strong><br>
+    Apri lo script <strong>snl.php</strong> con un editor di testo tipo notepad. Proprio nelle righe iniziali sono riportate le istruzioni dell'unica riga da configurare. Se si utilizza windows ricordarsi l'uso delle doppie barre (\\).
+    <pre>Es: $config_file = "c:\\www\\config.dat";
+    $config_file = "/home/user/maillist/config.dat";</pre>
+  <li>Caricare i file e settare i permessi.<br>
+    <ul>
+      <li>Caricare i file nel server lasciando inalterati i nomi dei file e delle cartelle. </li>
+      <li>Se si utilizza Unix settare i permessi come segue: <br>
+        <i>snl_list.dat:</i> CHMOD 666 (or 777 if that fails) <br>
+        <i>snl_config.dat:</i> CHMOD 666 (or 777 if that fails)<br>
+      </li>
+    </ul>
+  <li>Lanciare lo script in modalit&agrave; amministrazione:
+    <pre>http://www.nomedelsito.estensione/snl/snl.php?action=admin</pre>
+    Questi sono i dati di base per l'accesso effettuato la prima volta
+    <pre>Username: admin
+Password: password</pre>
+    Ora, dal menu' di amministrazione scegliere <strong>configurazione</strong> e poi premere il tasto <strong>Esegui</strong>.<br>
+    Dalla pagina di configurazione si pu&ograve; procedere alla personalizzazione della propria news-letter.<br>
+    <br>
+    E' necessario cambiare subito le seguenti impostazioni:
+    <ul>
+      <li><strong>Password </strong><br>
+        Scegliere una password di almeno 4 caratteri e che si possa ricordare con facilia'. Attenzione alle maiuscole/minuscole.
+      <li><strong>Nome news letter</strong><br>
+        Il titolo della news-letter.
+      <li><strong>E-mail proprietario</strong><br>
+        L'indirizzo e-mail da cui risulteranno inviati tutti i messaggi della news-letter. Deve essere un indirizzo e-mail funzionante.
+    </ul>
+    <br>
+    Il resto dei parametri sono opzionali e se lo script funziona correttamente consigliamo di non modificarli.<br>
+    <br>
+    <i><b>Note sulle Variabili:</b></i>
+    <p>Ci sono un certo numero di <strong>variabili</strong> che possono essere inserite all'interno dei messaggi per la personalizzazione dei messaggi di benvenuto. Fare riferimento ai file di base pre-configurati per vederne l'utilizzo. <br>
+      <br>
+      Di seguito un esempio:<br>
+      <br>
+      <code>Per confermare la tua iscrizione alla news-letter %list_name% clicca sull'indirizzo di seguito indicato: %confirm_url%.<br>
+      <br>
+      </code>Lo script sostituir&agrave; automaticamente la variabile <strong>%list_name% </strong>con il nome della news-letter e <strong>%confirm_url%</strong> con l'indirizzo web dove si deve andare per completare l'iscrizione.<br>
+      <br>
+      Elenco delle variabili per le mail di benvenuto e conferma iscrizione:<br>
+      <br>
+      <em><strong>%list_name%</strong></em> = Il nome della news-letter<br>
+      <em><strong>%email%</strong></em> = Indirizzo e-mail dell'iscritto<br>
+      <em><strong>%confirm_url%</strong></em> = Indirizzo web internet per confermare l'iscrizione<br>
+      <em><strong>%subscribe_url%</strong></em> = Indirizzo web per effettuare la re-iscrizione<br>
+      <em><strong>%unsubscribe_url%</strong></em> = Indirizzo web per effettuare la cancellazione<font size="-1"><br>
+      </font><br>
+      <br>
+      Elenco delle variabili per le mail della news-letter:<br>
+      <br>
+      <em><strong>%unsub%</strong></em> = Indirizzo web per effettuare la cancellazione dalla news-letter. <br>
+    </p>
+</ol>
+<a href="#up">Torna su al menu' principale &raquo;</a> <br>
+<h2><a name="changelog">Elenco cambiamenti </a></h2>
+<li><i>  2005-08-01 ver. 1.1.2</i>
+  <ul>
+    <li>Risolto il bug della vulnerabilit&agrave; XSS (Cross Site Scripting) per il dirottamento degli utenti verso dominio di terze 
+parti (<em>grazie a Francy e a Kaesar83</em>) 
+  </ul>
+<li><i>  2005-05-26 ver. 1.1.1</i>
+  <ul>
+    <li>Risolto il bug della firma che veniva ripetuta piu' volte
+    
+    <li>Risolto il bug delle variabili che non venivano sostituite correttamente
+  </ul>
+<li><i>  2005-04-05 ver. 1.1.0</i>
+  <ul>
+    <li>Possibilit&agrave; di suddividere l'invio dei messaggi in sottogruppi di e-mail per non saturare il web-server
+    <li>Previsto nei sistemi linux una funzione di autoconfigurazione che apprende da sola il percorso di installazione dello script
+</ul>
+<li><i>2005-04-01 ver. 1.0.0 </i>
+  <ul>
+    <li>Versione iniziale derivata dallo script di David Broker
+    <li>Funziona correttamente con REGISTER_GLOBALS OFF
+    <li>Possibilit&agrave; di personalizzare lo script attraverso l'uso dei template
+    <li>Aggiunta la variabile %unsub% nella composizione dei messaggi
+    <li>Previsto un opportuno file <strong>.htaccess </strong>per la protezione dei file <strong>.dat</strong> in ambiente Linux
+  </ul>
+<li>
+  <h2><a name="todo">Da fare</a></h2>
+  <ul>
+    <li>Per ora nulla. </li>
+  </ul>
+  <a href="#up">Torna su al menu' principale &raquo;</a>
+</body></html>

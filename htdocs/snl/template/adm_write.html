@@ -1,0 +1,30 @@
+<form method="post">
+<input type="hidden" name="username" value="%username%">
+<input type="hidden" name="password" value="%password%">
+<input type="hidden" name="action" value="%admin_keyword%">
+<input type="hidden" name="q" value="send_msg_confirm">
+<table border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#99FFCC">
+<tr>
+  <td colspan="2" align="center" valign="top">
+    <h3>Invia un messaggio</h3></td></tr>
+<tr>
+  <td colspan="2"><font size="-1"> <b>    Variabile utilizzabile solo nel messaggio</b>:<br>
+    <em>%percentuale%unsub%percentuale%</em> = Indirizzo web per effettuare la cancellazione dalla news-letter. <br>
+  </font></td>
+</tr>
+<tr>
+  <td align="left" valign="top"><b>Da:</b></td>
+<td align="left" valign="top">%list_name% &lt;%owner_email%&gt;</td>
+</tr>
+<tr>
+  <td align="left" valign="top"><b>Oggetto: </b></td>
+  <td align="left" valign="top"><input type="text" name="subject" size="50"></td></tr>
+<tr>
+  <td colspan="2" align="left" valign="top"><b>Messaggio:<br> 
+    </b>    <textarea name="message" cols="76" rows="15"></textarea></td>
+  </tr>
+<tr><td></td><td align="left" valign="top"><input name="use_sig" type="checkbox" value="1" checked>
+  <i>Aggiungi firma</i></td>
+</tr>
+<tr><td></td><td align="left" valign="top"><input type="submit" value="Invia">&nbsp;<input type="reset" value="Pulisci campi"></td></tr></table>
+</form>

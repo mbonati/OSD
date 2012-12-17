@@ -1,0 +1,29 @@
+<form method="post">
+  <table border="0" align="center" cellpadding="4" cellspacing="0">
+    <tr>
+      <td colspan="2" valign="top"><div align="center"><h3>Aggiungi indirizzi</h3></div></td>
+    </tr>
+    <tr>
+      <td valign="top">Indirizzi e-mail<br>
+        da aggiungere<br>
+        alla news-letter<br>
+      <i>(uno per linea):</i></td>
+      <td><textarea name="email" rows="6" cols="45"></textarea></td>
+    </tr>
+    <tr>
+      <td><input type="hidden" name="username" value="%username%">
+        <input type="hidden" name="password" value="%password%">
+        <input type="hidden" name="action" value="%admin_keyword%">
+        <input type="hidden" name="q" value="add_remove">
+        <input type="hidden" name="x" value="add">
+        <input type="hidden" name="y" value="many"></td>
+      <td><input type="radio" name="admin_add_email_opt" value="welcome">&nbsp;invia il messaggio di benvenuto</td>
+    </tr>
+	<tr>
+      <td>&nbsp;</td><td><input type="radio" name="admin_add_email_opt" value="confirm">&nbsp;chiedi la conferma di iscrizione</td>
+	</tr>
+    <tr>
+      <td colspan="2"><div align="center"><input type="submit" value="Aggiungi indirizzi">&nbsp;<input type="reset" value="Svuota campo"></div></td>
+    </tr>
+  </table>
+</form>

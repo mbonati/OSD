@@ -1,0 +1,35 @@
+<form method="post">
+  <table border="0" align="center" cellpadding="4" cellspacing="0" bgcolor="#99FFCC">
+    <tr>
+      <td colspan="2" align="center" valign="top">
+        <h3>Rileggi con attenzione prima di confermare l'invio vero e proprio</h3></td>
+    </tr>
+    <tr>
+      <td align="left" valign="top"><b>Da: </b></td>
+      <td align="left" valign="top">"%list_name%" &lt;%owner_email%&gt;</td>
+    </tr>
+    <tr>
+      <td align="left" valign="top"><b>Oggetto: </b></td>
+      <td align="left" valign="top">%subject%</td>
+    </tr>
+    <tr>
+      <td colspan="2" align="left" valign="top"><b>Messaggio:<br> 
+        </b>
+	    <textarea name="message" cols="76" rows="15" readonly>%message% %view_sig%</textarea>	  </td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+          <input type="hidden" name="username" value="%username%">
+          <input type="hidden" name="password" value="%password%">
+          <input type="hidden" name="message" value="%message_1%">
+          <input type="hidden" name="subject" value="%subject_1%">
+          <input type="hidden" name="use_sig" value="%use_sig%">
+          <input type="hidden" name="action" value="%admin_keyword%">
+          <input type="hidden" name="q" value="send_msg">
+          <input type="submit" value="Invia messaggio">
+&nbsp;
+          <input type="reset" value="Modifica" OnClick="history.go(-1); return true;">
+        </div></td>
+    </tr>
+  </table>
+</form>

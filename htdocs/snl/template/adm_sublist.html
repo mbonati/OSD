@@ -1,0 +1,33 @@
+<h3 align="center">Elenco iscritti</h3>
+<div align="center">Ci sono <strong>%count%</strong> indirizzi iscritti a questa news-letter<br>
+  <br>
+<i>Iscritti  %start_num% - %end_num%</i><br><br></div><table border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#009900">
+  <tr>
+    <td>
+<table width="100%" border="0" align="center" cellpadding="4" cellspacing="1">
+<tr bgcolor="#99FFCC"><td align="center"><b>#</b></td>
+<td align="center"><b>Indirizzo</b></td>
+</tr>
+%elenco_indirizzi%
+</table></td>
+  </tr>
+</table>
+<br>
+<form method="post" name="view">
+<div align="center">
+  <input type="hidden" name="username" value="%username%">
+  <input type="hidden" name="password" value="%password%">
+  <input type="hidden" name="action" value="%admin_keyword%">
+  <input type="hidden" name="q" value="view_subs">
+  <input type="hidden" name="page">
+  <input type="hidden" name="per_page">
+  <br>
+  <font size="-1">Vedi 
+  | <a href="" Onclick="per_page.value='10'; submit(); return false;" >10</a> 
+  | <a href="" Onclick="per_page.value='20'; submit(); return false;" >20</a> 
+  | <a href="" Onclick="per_page.value='30'; submit(); return false;" >30</a> 
+  | <a href="" Onclick="per_page.value='50'; submit(); return false;" >50</a> 
+  | <a href="" Onclick="per_page.value='100'; submit(); return false;">100</a> | indirizzi per pagina<br>
+  %prec_succ%<br>
+  <i>Pagina %page% di %total_page%</i>
+  </font></div>
