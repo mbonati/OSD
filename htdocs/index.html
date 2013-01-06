@@ -61,22 +61,25 @@
               </li>
             </ul>
               
-            <!-- Login -->
+            <!-- FAQs & Login -->
             <ul class="nav pull-right">
                 <li class="active"><a href="FAQs.html">FAQs</a></li>
+                <!--
                 <li><a href="/users/sign_up">Sign Up</a></li>
                 <li class="divider-vertical"></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
                     <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                -->
                         <!-- Login form here -->
-                        <form action="[YOUR ACTION]" method="post" accept-charset="UTF-8">
+                <!--      <form action="[YOUR ACTION]" method="post" accept-charset="UTF-8">
                           <input id="user_username" style="margin-bottom: 15px;" type="text" name="user[username]" size="30" placeholder="Username" />
                           <input id="user_password" style="margin-bottom: 15px;" type="password" name="user[password]" size="30" placeholder="Password" />
                           <input id="user_remember_me" style="float: left; margin-right: 10px;" type="checkbox" name="user[remember_me]" value="1" />
                           <label class="string optional" for="user_remember_me"> Remember me</label>
                           <input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Sign In" />
                         </form>
+                -->
                     </div>
                 </li>
             </ul>
@@ -94,12 +97,20 @@
       </div>
     </div>
 
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <br>
+    <h1>OpenSpendingReview</h1>
+    <p class="lead">Un progetto di acquisizione, aggregazione, condivisione e monitoraggio di spesa delle realtà locali della Pubblica Amministrazione Italiana: comuni e provincie.</p>
+  </div>
+</header>
+
     <div class="container">
         <div class="row-fluid">
             <div class="span12 todoMessage">
             </div>
         </div>
-        <div class="row-fluid">
+        <!--<div class="row-fluid">
             <div class="span1 todoMessage">
             </div>
             <div class="span10 todoMessage">
@@ -109,7 +120,7 @@
               <p>Un progetto di acquisizione, aggregazione, condivisione e monitoraggio di spesa delle realtà locali della Pubblica Amministrazione Italiana: comuni e provincie</p>
             </div>  
             </div>
-        </div>
+        </div>-->
         <div class="row-fluid">
             <div class="span12 todoMessage">
             </div>
@@ -124,7 +135,7 @@
             <ul class='thumbnails'>
                 <li class='span5 app'>
                     <div class='thumbnail thumbnail-small'>
-                        <a href='determinazioni.html' target='_blank'>
+                        <a href='determinazioni.html'>
                                         <img alt='Spese Correnti - aggregazione e ricerca mediante filtri' src='./img/SpeseCorrentiThumb.png' />
                                       </a>
                         <div class='caption'>
@@ -134,8 +145,8 @@
                             </p>
                             <br>
                             <p>
-                                <a class='btn btn-primary' href='determinazioni.html' target='_blank'>Determinazioni</a>
-                                <a class='btn disabled' href='determinazioni.html' target='_blank'>Spese DL Sviluppo</a>
+                                <a class='btn btn-primary' href='determinazioni.html'>Determinazioni</a>
+                                <a class='btn disabled' >Spese DL Sviluppo</a>
                             </p>
                         </div>
                     </div>
@@ -144,7 +155,7 @@
                 </div>
                 <li class='span5 app'>
                     <div class='thumbnail thumbnail-small'>
-                        <a href='indicatoriFinanziari.html' target='_blank'>
+                        <a href='indicatoriFinanziari.html'>
                                         <img alt='Dati a consuntivo' src='./img/IndicatoriFinanziariThumb.png' />
                                       </a>
                         <div class='caption'>
@@ -154,10 +165,10 @@
                             <br>
                             <br>
                             <p>
-                                <a class='btn btn-primary' href='indicatoriFinanziari.html' target='_blank'>
+                                <a class='btn btn-primary' href='indicatoriFinanziari.html'>
                                          Indicatori Finanziari
                                           </a>
-                                <a class='btn disabled' href='indicatoriFinanziari.html' target='_blank'>
+                                <a class='btn disabled'>
                                            Bilanci
                                 </a>
                             </p>
@@ -167,7 +178,13 @@
             </ul>
         </div>
         <div class="row-fluid">
-            <div class="span12 todoMessage">
+            <div class="span2 todoMessage">
+            </div>
+            <div class="span8 todoMessage">
+               <div class="alert alert-error">
+                Il servizio è in fase prototipale, di conseguenza le funzionalità e i dati presentati sono limitati ed incompleti. 
+                Essendo in fase di sviluppo, e' inoltre possibile che il sito possa essere temporaneamente irraggiungibile o mal funzionante.  
+               </div>
             </div>
         </div>
         <div class="row-fluid">
