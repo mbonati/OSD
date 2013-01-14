@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>OpenSpendingReview - OSR Score - Indice Trasparenza</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- JQuery -->
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
+    <link href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" type="text/css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="../js/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="../js/bootstrap/css/bootstrap-responsive.css" type="text/css" rel="stylesheet">
+    <script src="../js/bootstrap/js/bootstrap.min.js"></script> 
+
+    <!-- D3.js -->
+    <script src="../js/d3.js/d3.v2.min.js"></script>
+    
+    <!-- Uniform.js -->
+    <script src="../js/uniform.js/jquery.uniform.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="../js/uniform.js/css/uniform.default.css" type="text/css" media="screen">
+    
+    <!-- jqGrid -->
+    <script src="../js/jqGrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+    <script src="../js/jqGrid/js/i18n/grid.locale-it.js"></script>
+    <link rel="stylesheet" href="../js/jqGrid/css/ui.jqgrid.css" type="text/css" media="screen">
+
+    <style>
+      body {
+        font-family:"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif; 
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+
+      .stars {
+        color: gold;
+        font-size: 16pt;
+        margin-right: 18px;
+        text-align: right;
+        }
+    </style>
+
+ </head>
+ 
+<body>
+
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <br>
+    <h1>OSR Score - Indice Trasparenza sui dati</h1>
+    <p class="lead">indicatore sintetico che valuta con criteri oggettivi la trasparenza sui dati economico/finanziari dei comuni italiani</p>
+  </div>
+</header>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="index.html">OpenSpendingReview</a>
+          <div class="nav-collapse collapse">
+            
+            <!-- Navigation Menu -->
+            <ul class="nav pull-left">
+              <li class='dropdown'>
+                  <a class='dropdown-toggle' data-toggle='dropdown'>
+                                              Spese Correnti
+                                              <b class='caret'></b>
+                                            </a>
+                  <ul class='dropdown-menu'>
+                      <li><a href='determinazioni.html'>Determinazioni Dirigenziali</a></li>
+                      <li><a href='determinazioni.html'>Spese DL Sviluppo</a></li>
+                  </ul>
+              </li>
+              <li class='dropdown'>
+                  <a class='dropdown-toggle' data-toggle='dropdown'>
+                                              Dati Consuntivi
+                                              <b class='caret'></b>
+                                            </a>
+                  <ul class='dropdown-menu'>
+                      <li><a href='indicatoriFinanziari.html'>Indicatori Finanziari</a></li>
+                      <li><a href='indicatoriFinanziari.html'>Bilanci</a></li>
+                  </ul>
+              </li>
+            </ul>
+              
+            <!-- FAQs & Login -->
+            <ul class="nav pull-right">
+                <li class="active"><a href="FAQs.html">FAQs</a></li>
+                <!--
+                <li><a href="/users/sign_up">Sign Up</a></li>
+                <li class="divider-vertical"></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+                    <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                -->
+                        <!-- Login form here -->
+                <!--      <form action="[YOUR ACTION]" method="post" accept-charset="UTF-8">
+                          <input id="user_username" style="margin-bottom: 15px;" type="text" name="user[username]" size="30" placeholder="Username" />
+                          <input id="user_password" style="margin-bottom: 15px;" type="password" name="user[password]" size="30" placeholder="Password" />
+                          <input id="user_remember_me" style="float: left; margin-right: 10px;" type="checkbox" name="user[remember_me]" value="1" />
+                          <label class="string optional" for="user_remember_me"> Remember me</label>
+                          <input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Sign In" />
+                        </form>
+                -->
+                    </div>
+                </li>
+            </ul>
+            
+            <!-- Search Box -->
+            <!--
+            <form class=navbar-search pull-right">
+                <input type="text" class="search-query" placeholder="Search">
+            </form>
+            -->
+
+            </div><!--/.nav-collapse -->
+        
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span2 todoMessage">
+            </div>
+            <div class="span8 todoMessage">
+               <div class="alert alert-error">
+                <h4>Pagina di test!</h4> I dati contenuti sono solo di prova e si prega quindi di non farne alcun affidamento  
+               </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span1 todoMessage">
+            </div>
+            <div class="span10 todoMessage">
+               <div class="alert warn-error">
+                <h4>Rettifiche</h4>Qualora ente valutato non reputi corretta valutazione secondo i criteri definiti, e' possibile inviare una mail a info@openspendingreview.it indicando esplicitamente link che dimostra disponibilità del servizio e da quando esso e' disponibile. 
+                <h5>Spazio rettifiche</h5>Comune TORINO - valutato da OSR a 2 Stelline il 10/1/2013 e' stato modificato a 3 stelline per valutazione Bilancio (data rettifca:16/1/2013)
+               </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span10 viz-container section-label">
+                <ul class="nav nav-tabs" id="viz-tab">
+                    <li>
+                        <a href="#table" data-toggle="tab"><h5>Tabella Dati</h5></a>
+                    </li>
+                    <li>
+                        <a href="#map" data-toggle="tab"><h5>Mappa</h5></a>
+                    </li>
+                    <li>
+                        <a href="#criteri" data-toggle="tab"><h5>Criteri Valutazione</h5></a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane map-container" id="map"></div>
+                    <div class="tab-pane active table-container" id="table">
+                        <table id="data-table"></table>
+                        <div id="data-table-pager"></div>
+                    </div>
+                    <div class="tab-pane criteri-container" id="criteri">
+                        <h5>OSR Score viene calcolato come media aritmetica sui 3 seguenti temi</h5>
+                        <ul>
+                            <li>trasparenza sui dati di bilancio
+                            </li>
+                            <li>trasparenza albo pretorio (determinazioni dirigenziali)
+                            </li>
+                            <li>trasperenza amministrazione aperta (art. 18 DL 83/2012), in vigore da gennaio 2013
+                            </li>
+                        </ul>
+                        <br>                
+                        <h5>Vengono assegnate da 0 a 5 stelline per ogni tema secondo le seguenti regole</h5>
+                        <br>
+                        <h4>Bilancio</h4>
+                        <table class="table">
+                            <tr>
+                                <td class="stars"></td>
+                                <td>Non ha sito o non sono disponibili dati di bilancio su sito</td>
+                            </tr>
+                            <tr>
+                                <td class="stars">★</td>
+                                <td>Bilanci disponibile ma non aggiornati, oppure aggiornati ma non con link in homepage</td>
+                            </tr>
+                            <tr>
+                                <td class="stars">★★</td>
+                                <td>Bilanci preventivi e consuntivi disponibili ma pdf, con link da homepage</td>
+                            </tr>
+                            <tr>
+                                <td class="stars">★★★</td>
+                                <td>Bilanci disponibili in excel/csv</td>
+                            </tr>
+                            <tr>
+                                <td class="stars">★★★★</td>
+                                <td>Bilanci disponibili in excel/csv + Sintesi/note esplicative user friendly, visualizzazioni (stile OpenBilancio)</td>
+                            </tr>
+                            <tr>
+                                <td class="stars">★★★★★</td>
+                                <td>Bilanci disponibili con API e visualizzazioni</td>
+                            </tr>
+                        </table>
+                        Bonus/Malus Stelline (applicabili a diversi livelli)
+                        +0.5 Archivio bilanci disponibile
+                        -0.5 dati opachi ai motori di ricerca (link anomali, robots.txt)
+                        <br><br>
+                        <h4>Albo pretorio (determinazioni)</h4>
+                        <table class="table">
+                            <tr>
+                                <td class="stars"></td>
+                                <td>Non ha sito o non e' disponibile albo su sito</td>
+                            </tr>
+                            <tr>
+                                <td class="stars">★</td>
+                                <td>Determinazioni dirigenziali disponibili ma non aggiornate o aggiornate batch</td>
+                            </tr>
+                            <tr>
+                                <td class="stars">★★</td>
+                                <td>Determinazioni dirigenziali disponibili, aggiornate, ma solo pdf, con link albo pretorio da homepage</td>
+                            </tr>
+                            <tr>
+                                <td class="stars">★★★</td>
+                                <td>Determinazioni dirigenziali disponibili, aggiornate, ma solo html o form scrapabile</td>
+                            </tr>
+                            <tr>
+                                <td class="stars">★★★★</td>
+                                <td>Determinazioni dirigenziali disponibili, aggiornate in cvs o excel</td>
+                            </tr>
+                            <tr>
+                                <td class="stars">★★★★★</td>
+                                <td>Determinazioni dirigenziali disponibili, aggiornate e disponibili API</td>
+                            </tr>
+                        </table>
+                        Bonus/Malus Stelline (applicabili a diversi livelli)
+                        +0.5 Archivio determinazioni disponibile
+                        <br><br>
+                        <h4>Amministrazione Aperta - Art. 18</h4>
+                        <table class="table">
+                            <tr>
+                                <td class="stars"></td>
+                                <td>Non ha sito o non e' disponibile sezione amministrazione aperta su sito</td>
+                            </tr>
+                            <tr>
+                                <td class="stars">★</td>
+                                <td>Disponibile link amministrazione aperta ma non su homepage (come prescrive la legge)</td>
+                            </tr>
+                            <tr>
+                                <td class="stars">★★</td>
+                                <td>Disponibili dati di amministrazione aperta aggiornati ma non csv come prescrive la legge, con link da homepage</td>
+                            </tr>
+                            <tr>
+                                <td class="stars">★★★</td>
+                                <td>Disponibili dati di amministrazione aperta in csv ma non seguono standard(*) (una volta che attuatori definiranno standard)</td>
+                            </tr>
+                            <tr>
+                                <td class="stars">★★★★</td>
+                                <td>Disponibili dati di amministrazione aperta in csv e seguono standard(*)</td>
+                            </tr>
+                            <tr>
+                                <td class="stars">★★★★★</td>
+                                <td>Disponibili dati di amministrazione aperta sia in csv che API</td>
+                            </tr>
+                        </table>             
+                        Bonus/Malus Stelline (applicabili a diversi livelli)
+                        -0.5 dati opachi ai motori di ricerca (link anomali, robots.txt) <br>
+                        <br>
+                        (*) standard dovrebbe essere in via di definizione Ministero Funzione Pubblica, al fine di definire i campi da utilizzare nel CSV già previsto per legge ed integrarli per informazioni mancanti nella legge, quali data di pagamento
+
+                    </div>
+                </div>
+            </div>
+            <div class="span1 details-container section-label">
+                <h4>Dettagli</h4>
+            </div>
+        </div>
+        </div>
+        <!-- /container -->
+    
+    <div id="viz-tooltip">
+        <div id ="viz-tooltip-container">
+            <span class="viz-tooltip-value"></span>
+            <div class="nytg-tail"></div>
+        </div>
+    </div>
+</body>
+
+<!--------------  Grid Table ------------------------------->
+<script>
+jQuery("#data-table").jqGrid({
+    datatype: "local",
+   	colNames:['ente','OSR_Score', 'Valutazione Bilancio', 'ValutazioneAlbo Pretorio', "Valutazione Amm. Aperta (Art.18)"],
+   	colModel:[
+   		{name:'ente',index:'ente', width:100},
+   		{name:'OSR_Score',index:'OSR_Score', align:"center", width:120},
+   		{name:'Valutazione_Bilancio',index:'Valutazione_Bilancio', align:"center", width:240},
+        {name:'Valutazione_Albo_Pretorio',index:'Valutazione_Albo_Pretorio', align:"center", width:240},
+        {name:'Valutazione_Amministrazione_Aperta',index:'Valutazione_Amministrazione_Aperta',align:"center", width:240},
+   	],
+   	rowNum: 30,
+    height: 'auto',
+   	pager: "#data-table-pager",
+   	sortname: 'OSR_Score',
+    loadonce:true,
+    viewrecords: true,
+    sortorder: "desc",
+    ignoreCase: true,
+    defaultSearch:"cn",
+    caption:"Indici trasparenza dati",
+    jsonReader: {
+                    repeatitems: false,
+                    id: "Id",
+                    root: function (obj) { return obj; },
+                    page: function (obj) { return 1; },
+                    total: function (obj) { return 1; },
+                    records: function (obj) { return obj.length; }
+                }
+});
+jQuery("#data-table").jqGrid('navGrid','#data-table-pager',{search:true,edit:false,add:false,del:false,searchtext:"Cerca"},
+{},{},{},{width:640,sopt:['cn','eq','ne','lt','le','gt','ge']},{});
+</script>
+
+<!--------------  Gestore selezione Tab Mappa/Table ------------------------------->
+<script>
+//Activate the first Viz tab
+$(function () {
+    $('#viz-tab a:first').tab('show');
+ });
+</script>
+
+<!----  Browser check ---->
+<script>
+    if ($.browser.msie && $.browser.version <= 8) {
+        alert("Internet Explorer supportato solo dalla versione 9!");
+    }
+</script>
+
+<!--------------  Gestore RadioButton per Granularita' (Regioni/Provincie/comuni ------------------------------->
+<script type="text/javascript">
+    function onChangedGranularity(id){
+        //console.log("selezionato:" + id + " " + id.name)
+    	deletePaths();
+        currentZoomLevel = id.value;
+        loadMapPaths(currentZoomLevel);
+        setTimeout(function() {loadDataTable(); }, 500);
+    };
+</script>
+
+<!--------------  Mappa ------------------------------->
+<script type="text/javascript">
+    var svg;
+    var projection;
+    var centered;
+    var path;
+    var g;
+    var currentZoomLevel = "provincie";
+    var currentIndicator = 0; //pressionefinanziaria
+    var indicatoriProvincieDict = {};
+    var indicatoriRegioniDict = {};
+    var regioniGeoJsonFeatures;
+    var provincieGeoJsonFeatures;
+    var jsonToWait = 2;
+    var indicators = ["Pressione Finanziaria (m.p.c.)", "Pressione Tributaria (m.p.c.)", "Intervento Erariale (m.p.c.)", "Intervento Regionale (m.p.c.)",
+                        "Vel. Ris. En. Pr. (%)", "Vel.Ges.Sp.Cor. (%)", "Autonomia Finanziaria (%)", "Autonomia Impositiva (%)"];
+    var indicatorsDesc = ["1","2","3","4"];
+    var indicatorsDecodeDictionary = {"OSR_Score":0, "Valutazione Bilancio":1,
+                                      "Valutazione Albo Pretorio":2, "Valutazione Amministrazione Aperta":3};
+    var provincieJsonRawData;
+    var regioniJsonRawData;
+    
+    var colors = ["#ccc", "#E2F2FF","#C4E4FF","#9ED2FF","#81C5FF","#6BBAFF","#51AEFF","#36A2FF","#1E96FF","#0089FF","#0061B5"];
+    var slider;
+    var minVal = 0;
+    var maxVal = 5.5;
+    var quantize = [];
+
+    // load l'immagine animata di wait loading
+    $(document).ready(function(){
+        $('body').append("<div class='modal'></div>");
+        $('body').addClass("loading");
+    });
+    
+    //se indicator description
+    d3.select(".indicatorDetails").text(indicatorsDesc[currentIndicator]);
+    
+    d3.csv("../data/OSR_Score/OSR_Score.csv", function(scores) {
+       provincieJsonRawData = scores;
+       for (var scoreEnte in scores) {
+            el = scores[scoreEnte];
+            //console.log(el.NomeComune + "_" + el.CodiceProvincia + ":" + el.OSR_Indice);
+            //indicatoriProvincieDict[el.anno + "_" + el.nomeEnte.substring(0,el.nomeEnte.length-5) + "_" + el.indicatore] = el.valoreEnte;
+            indicatoriProvincieDict[el.CodiceProvincia] = el.OSR_Indice;
+        }
+        notifyJsonLoaded();
+    });
+    
+    d3.json("../data/geo/italia.provincie.semplificato.geojson", function(provGeo) {
+        provincieGeoJsonFeatures = provGeo.features;
+        notifyJsonLoaded();
+    });
+                    
+    function notifyJsonLoaded() {
+        jsonToWait--;
+        if (jsonToWait == 0) {
+            loadedJsonData();
+            loadDataTable();
+            // rimuovi wait loading
+            $('body').removeClass("loading");
+        }
+    }
+    
+    function loadedJsonData() {
+        
+        quantize[0] = d3.scale.quantize()
+                        .domain([minVal,maxVal])
+                        .range(d3.range(9).map(function(i) { return colors[i] }));
+        
+        // map construction!
+        var w = 500,
+            h = 500;
+        
+        projection = d3.geo.mercator()
+                            .scale(12000)
+                            .translate([-380, 1560]);
+          
+        path = d3.geo.path()
+            .projection(projection);
+
+        svg = d3.select(".map-container").append("svg:svg")
+            .attr("width", w)
+            .attr("height", h)
+            .attr("id", 'svg');
+            
+        svg.append("rect")
+            .attr("class", "background")
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .on("click", click);    
+                    
+        g = svg.append("g")
+            .attr("transform", "translate(" + w / 2 + "," + h / 2 + ")")
+            .append("g")
+            .attr("id", "states");
+
+        loadMapPaths(currentZoomLevel);
+    }
+    
+    function loadDataTable() {
+        var table = jQuery("#data-table");
+
+        year =$('select#yearSelection').val();
+        
+        table.clearGridData();
+        var rowcount = 1;
+            for (var indicatore in provincieJsonRawData) {
+                el = provincieJsonRawData[indicatore];
+                    var row = {
+                        ente: el.NomeComune,
+                        OSR_Score: el.OSR_Indice,
+                        Valutazione_Bilancio: el.BIL_Stars_TOT + getStars(el.BIL_Stars_TOT),
+                        Valutazione_Albo_Pretorio:el.DET_Stars_TOT + getStars(el.DET_Stars_TOT),
+                        Valutazione_Amministrazione_Aperta:el.AA_Stars_TOT + getStars(el.AA_Stars_TOT),
+                    };
+                    table.addRowData(rowcount, row);
+                    rowcount++;
+            }
+        
+        table.trigger("reloadGrid");
+    }
+    
+    function getStars(star){
+        starsString = "   ";
+        starNum = star.replace(",",".");
+        for (i=0; i<starNum; i++)
+            starsString = starsString + "★";
+        return starsString ;
+    }
+
+    function deletePaths() {
+         g.selectAll("path").remove();
+    }
+    
+    function loadMapPaths(tipo) {
+        if (tipo == null)
+            tipo = currentZoomLevel;
+            
+        if (tipo=="regioni") {
+                feature = g.selectAll("path")
+                    .data(regioniGeoJsonFeatures)
+                    .enter().append("path")
+                    .attr("d", path)
+                    .attr('stroke', function(d) { return "#AFAFAF"; /*default color*/  })
+                    .attr('stroke-width', 1)
+                    .attr('fill', function(d){  return colorForItem(d); })
+                    .on("mouseover",function(d,i){
+                        //tooltip show/hide code
+                        var el = d3.select(this)
+                        var xpos = d3.event.pageX;
+                        var ypos = d3.event.pageY-10;
+                        d3.select("#viz-tooltip").style('top',ypos+"px").style('left',xpos+"px").style('display','block');
+                        // mouseover regioni
+                        year = $('select#yearSelection').val();
+                        key = year + "_" + d.properties["NOME_REG"] + "_" + indicators[currentIndicator];
+                        d3.select(".viz-tooltip-value").html("Regione: <b>" +  d.properties["NOME_REG"] + "</b><br> " +
+                                                              indicators[currentIndicator] + ":<b>" + indicatoriRegioniDict[key] +
+                                                             "</b><br> anno:<b>" + year + "</b>" );
+                    })
+                    .on("mouseout",function(d,i) { 
+                        d3.select("#viz-tooltip").style('display','none')
+                    })
+                    .on("click", click)
+                    ;
+                    
+        } else if ( tipo=="provincie") {
+                feature = g.selectAll("path")
+                    .data(provincieGeoJsonFeatures)
+                    .enter().append("path")
+                    .attr("d", path)
+                    .attr('stroke', function(d) { return "#AFAFAF"; /*default color*/  })
+                    .attr('stroke-width', 1)
+                    .attr('fill', function(d){  return colorForItem(d); })
+                    .on("mouseover",function(d,i){
+                        //tooltip show/hide code
+                        var el = d3.select(this)
+                        var xpos = d3.event.pageX;
+                        var ypos = d3.event.pageY-10;
+                        d3.select("#viz-tooltip").style('top',ypos+"px").style('left',xpos+"px").style('display','block');
+                        // mouseover provincie
+                        year = $('select#yearSelection').val();
+                        key = year + "_" + d.properties["NOME_PRO"] + "_" + indicators[currentIndicator];
+                        d3.select(".viz-tooltip-value").html("Provincia: <b>" +  d.properties["NOME_PRO"] + "</b><br> " +
+                                                              indicators[currentIndicator] + ":<b>" + indicatoriProvincieDict[key] +
+                                                             "</b><br> anno:<b>" + year + "</b>" );
+                    })
+                    .on("mouseout",function(d,i) { 
+                        d3.select("#viz-tooltip").style('display','none')
+                    })
+                    .on("click", click); 
+        }
+    }
+
+    function colorForItem(item){
+        value = 0.0;
+        year =$('select#yearSelection').val();
+        
+        if (currentZoomLevel == "regioni") {
+            key = year + "_" + item.properties["NOME_REG"] + "_" + indicators[currentIndicator];
+            //console.log("key:"+key);
+            value = indicatoriRegioniDict[key];
+        } else if (currentZoomLevel == "provincie") {
+            key = year + "_" + item.properties["NOME_PRO"] + "_" + indicators[currentIndicator];
+            //console.log("key:"+key);
+            value = indicatoriProvincieDict[key];
+        }
+        if (value == null)
+            value = 0.0;
+        return quantize[currentIndicator](value);
+    }
+    
+    
+    // Legenda per il binning uniforme (TODO DA inserire legenda colori)
+    /*var bins = 9;
+    var palette = "Blues"; 
+    function init_legenda_quantizes(viz_id,quantize) {
+        // Creo la legenda
+        jQuery("div#" + viz_id + "-controls div.legenda ul li").remove();
+        var delta = 1, bins = quantize.range().length;
+        for(var i=0; i<bins; i++) {
+            jQuery("div#" + viz_id + "-controls div.legenda ul").append(
+                    '<li class="' +
+                    palette +
+                    '"><span class="arrow"></span> <span class="color q' +
+                    (4 - i) +
+                    '-' +
+                    bins +
+                    '"></span> <span class="text">' +
+                    int(delta*i+1) +
+                    '</span></li>'
+            );
+        }
+    }*/
+    
+    //Return a random number between min and max
+    function randomInt(min, max){
+        return Math.floor((Math.random()*max)+1)+min;
+    }
+    
+    function updateMinMax(indicatorCode,value) {
+        if (maxValByIndicator[indicatorCode] == 0)
+            maxValByIndicator[indicatorCode] = value;
+        else if (value>maxValByIndicator[indicatorCode])
+            maxValByIndicator[indicatorCode] = value;
+        if (minValByIndicator[indicatorCode] == 0)
+            minValByIndicator[indicatorCode] = value;
+        else if (value>0 && value<minValByIndicator[indicatorCode])
+            minValByIndicator[indicatorCode] = value;
+    }
+    
+    function updateViz(){
+        feature = svg.selectAll("path")
+            .transition()
+            .attr('fill', function(d){
+                    return colorForItem(d);
+                });
+    }
+    
+    function click(d) {
+      var x = 0,
+          y = 0,
+          k = 1;
+    
+      if (d && centered !== d) {
+        var centroid = path.centroid(d);
+        x = -centroid[0];
+        y = -centroid[1];
+        k = 4;
+        centered = d;
+      } else {
+        centered = null;
+      }
+    
+      g.selectAll("path")
+          .classed("active", centered && function(d) { return d === centered; });
+    
+      g.transition()
+          .duration(1000)
+          .attr("transform", "scale(" + k + ")translate(" + x + "," + y + ")")
+          .style("stroke-width", 1.5 / k + "px");
+    
+       g.selectAll("path")
+            .filter(function(c){
+                return (c != d); //!c.active;
+            })
+            .transition()
+            .duration(500)
+             .ease(Math.sqrt)
+            .style("opacity",".2");
+
+       g.selectAll("path")
+            .filter(function(c){
+                return (c === d); //!c.active;
+            })
+            .transition()
+            .duration(500)
+             .ease(Math.sqrt)
+            .style("opacity","1");
+
+        if (!centered){
+           g.selectAll("path")
+                .transition()
+                .duration(500)
+                 .ease(Math.sqrt)
+                .style("opacity","1");
+        }
+        
+        //console.log("clicked!");
+    }
+
+    window.onresize = function(event) {
+      svg.attr("width", window.innerWidth-45);
+      svg.attr("height", window.innerHeight-45);
+    }
+    
+    
+// set the radio button with the given value as being checked
+// do nothing if there are no radio buttons
+// if the given value does not exist, all the radio buttons
+// are reset to unchecked
+function setCheckedValue(radioObj, newValue) {
+    if(!radioObj)
+		return;
+	var radioLength = radioObj.length;
+	if(radioLength == undefined) {
+		radioObj.checked = (radioObj.value == newValue.toString());
+		return;
+	}
+	for(var i = 0; i < radioLength; i++) {
+		radioObj[i].checked = false;
+		if(radioObj[i].value == newValue.toString()) {
+			radioObj[i].checked = true;
+		}
+	}
+}
+</script>      
+
+<script type="text/javascript" charset="utf-8">
+    //Activate Uniform UI
+      $(function(){
+        $("input, textarea, button").uniform();
+      });
+</script>
+
+<style>
+#viz-tooltip-container {
+  position: absolute;
+  bottom: 0;
+  width: 230px;
+  left: -125px;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 10px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.9);
+  color: #000;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.4);  
+  border:1px solid rgba(200,200,200,0.85);
+  text-align:center;
+}
+
+#viz-tooltip {
+ text-align:center;  
+  z-index: 1000;
+  position: absolute;
+  display: none;
+}
+
+#viz-tooltip .nytg-tail {
+  position: absolute;
+  bottom: -8px;
+  left: 105px;
+  width: 40px;
+  height: 8px;
+  background: url(img/tail_white.png) 50% 0%;
+}
+
+.Blues .q0-9{fill:rgb(247,251,255)}
+.Blues .q1-9{fill:rgb(222,235,247)}
+.Blues .q2-9{fill:rgb(198,219,239)}
+.Blues .q3-9{fill:rgb(158,202,225)}
+.Blues .q4-9{fill:rgb(107,174,214)}
+.Blues .q5-9{fill:rgb(66,146,198)}
+.Blues .q6-9{fill:rgb(33,113,181)}
+.Blues .q7-9{fill:rgb(8,81,156)}
+.Blues .q8-9{fill:rgb(8,48,107)}
+
+</style>
+
+<style type="text/css">
+
+    p { 
+        clear:both; 
+    }
+    
+    div.year-selection-container {
+        margin-bottom: 50px;
+    }
+    
+    #year-selection-slider .ui-slider-label {
+        font-size: 10px;
+    }
+    
+	#year-selection-slider fieldset { 
+        border:0; 
+        margin-top: 0;
+    }
+    
+	#year-selection-slider label {
+        font-weight: bold; 
+        float: left; 
+        margin-right: .5em; 
+        font-size: 1.1em;
+    }
+    
+	#year-selection-slider .ui-slider {
+        clear: both; 
+        top: 0em;
+    }
+    
+    #year-selection-slider select {
+        visibility: hidden;
+    }
+    
+    .background {
+      fill: none;
+      pointer-events: all;
+    }
+    
+    .filter-container ul {
+        list-style: none;
+    }
+    
+    .filter-container label {
+        font-size: 10px;
+        font-weight: bold;
+    }
+    
+    span.citation {
+        font-style:oblique;
+        margin-left: 0px;
+        font-size: 10px;}
+        
+    span.indicatorDetails {
+        font-style:oblique;
+        margin-left: 0px;
+        font-size: 11px;}   
+        
+    /* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   speak for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+    .modal {
+        display:    none;
+        position:   fixed;
+        z-index:    1000;
+        top:        0;
+        left:       0;
+        height:     150%;
+        width:      150%;
+        background: rgba( 255, 255, 255, .9 ) 
+                    url('http://i.stack.imgur.com/FhHRx.gif') 
+                    50% 50% 
+                    no-repeat;
+    }
+    
+    /* When the body has the loading class, we turn
+       the scrollbar off with overflow:hidden */
+    body.loading {
+        overflow: hidden;   
+    }
+    
+    /* Anytime the body has the loading class, our
+       modal element will be visible */
+    body.loading .modal {
+        display: block;
+    }
+	
+</style>      
+
+
+</html>
